@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['login']) || $_SESSION['login'] == 0)
+if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] == 0)
 {
     require_once 'controllers/login.php';
 }else{
@@ -14,7 +14,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == 0)
                 require_once 'controllers/dashboard/create-task.php';
                 break;
         
-                case 'tasks':
+                case 'tasks-list':
                 require_once 'controllers/dashboard/tasks.php';
                 break;
     
