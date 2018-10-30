@@ -1,12 +1,12 @@
 <?php
 session_start();
 //kiểm tra đã login chưa
-if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] == 0)
+if($_SESSION['user_info']['admin'] != 1)
 {
 
     //$_SESSION['user_info']['login'] == 0 là chưa login, trả về trang login
 
-    header("location: http://$server_name/dashboard.php");
+    header("location: http://$server_name");
 }else{
 
     //$_SESSION['user_info']['login'] == 1 là đã login, vào dashboard
@@ -16,23 +16,23 @@ if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] ==
             switch($page){
         
                 case 'tasks':
-                require_once 'controllers/dashboard/tasks.php';
+                require_once 'controllers/admin/tasks.php';
                 break;
     
                 case 'meetings':
-                require_once 'controllers/dashboard/meetings.php';
+                require_once 'controllers/admin/meetings.php';
                 break;
     
                 case 'project':
-                require_once 'controllers/dashboard/projects.php';
+                require_once 'controllers/admin/projects.php';
                 break;
 
                 case 'members':
-                require_once 'controllers/dashboard/members.php';
+                require_once 'controllers/admin/members.php';
 
             }
     }else{
-        require_once 'controllers/dashboard/home.php';
+        require_once 'controllers/admin/home.php';
     }
 }
 
