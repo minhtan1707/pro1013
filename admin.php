@@ -1,5 +1,6 @@
 <?php
 session_start();
+$server_name=$_SERVER['SERVER_NAME'];
 //kiểm tra đã login chưa
 if($_SESSION['user_info']['admin'] != 1)
 {
