@@ -38,7 +38,7 @@ switch($act){
 
 function home()
 {
-
+    echo 'đây là project home';
 }
 
 function add()

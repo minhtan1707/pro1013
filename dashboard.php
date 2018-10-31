@@ -12,8 +12,7 @@ $server_name=$_SERVER['SERVER_NAME'];
 
     //$_SESSION['user_info']['login'] == 1 là đã login, vào dashboard
 
-    if(isset($_GET['page'])){
-        $page=$_GET['page'];
+        $page=$_GET['page']?$_GET['page']:'';
             switch($page){
         
                 case 'tasks':
@@ -24,17 +23,17 @@ $server_name=$_SERVER['SERVER_NAME'];
                 require_once 'controllers/dashboard/meetings.php';
                 break;
     
-                case 'project':
+                case 'projects':
                 require_once 'controllers/dashboard/projects.php';
                 break;
 
                 case 'members':
                 require_once 'controllers/dashboard/members.php';
-
+                
+                default:
+                require_once 'controllers/dashboard/home.php';
             }
-    }else{
-        require_once 'controllers/dashboard/home.php';
-    }
+
 // }
 
 ?>
