@@ -89,13 +89,13 @@
                         <ul>
                         	<li class="text-muted menu-title">Menu</li>
                             <li>
-                                <a href="index.html" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Projects </span> </a>
+                                <a href="dashboard.php?page=projects" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Projects </span> </a>
                             </li>
                             <li>
-                                <a href="index.html" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Tasks </span> </a>
+                                <a href="dashboard.php?page=tasks" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Tasks </span> </a>
                             </li>
                             <li>
-                                <a href="index.html" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Meetings </span> </a>
+                                <a href="dashboard.php?page=meetings" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Meetings </span> </a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>

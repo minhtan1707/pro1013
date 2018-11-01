@@ -18,7 +18,7 @@ switch($act){
 
 function home()
 {
-
+    echo 'đây là page meetings';
 }
 
 function meetting_list()
