@@ -22,7 +22,7 @@ switch($act){
 
 function home()
 {
-
+    echo 'đây là page members';
 }
 
 function edit()
