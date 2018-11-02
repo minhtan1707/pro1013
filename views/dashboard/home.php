@@ -2,12 +2,12 @@
                             <div class="col-sm-8">
                                 <div class="bg-picture card-box">
                                     <div class="profile-info-name">
-                                        <img src="assets/images/profile.jpg" class="img-thumbnail" alt="profile-image">
+                                        <img src="static/images/users/<?php echo $_SESSION['user_info']['profile_picture'];?>" class="img-thumbnail" alt="<?php echo $_SESSION['user_info']['member_name'];?>">
 
                                         <div class="profile-info-detail">
-                                            <h4 class="m-0">Alexandra Clarkson</h4>
-                                            <p class="text-muted m-b-20"><i>Web Designer</i></p>
-                                            <p>Hi I'm Alexandra Clarkson,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simplyrandom text. It has roots in a piece of classical Latin literature from 45 BC.</p>
+                                            <h4 class="m-0"><?php echo $_SESSION['user_info']['member_name']?></h4>
+                                            <p class="text-muted m-b-20"><i><?php echo $_SESSION['user_info']['title']?></i></p>
+                                            <p><?php echo $_SESSION['user_info']['about'];?></p>
 
                                             <div class="button-list m-t-20">
                                                 <button type="button" class="btn btn-facebook btn-sm waves-effect waves-light">

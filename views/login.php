@@ -34,17 +34,17 @@
                     <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
                 </div>
                 <div class="p-20">
-                    <form class="form-horizontal m-t-20" action="index.html">
+                    <form class="form-horizontal m-t-20" action='' method="POST">
 
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" required="" placeholder="Username">
+                                <input class="form-control" type="text" name="email" required="" placeholder="Email">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" required="" placeholder="Password">
+                                <input class="form-control" type="password" name="password" required="" placeholder="Password">
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
 
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                    <p class="text-muted">Don't have an account? <a href="index.php?act=register" class="text-primary m-l-5"><b>Sign Up</b></a></p>
                 </div>
             </div>
             

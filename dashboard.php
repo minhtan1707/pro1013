@@ -1,16 +1,16 @@
 <?php
 session_start();
 $server_name=$_SERVER['SERVER_NAME'];
-//kiểm tra đã login chưa
-// if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] == 0)
-// {
+// kiểm tra đã login chưa
+if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] == 0)
+{
 
-//     //$_SESSION['user_info']['login'] == 0 là chưa login, trả về trang login
+    //$_SESSION['user_info']['login'] == 0 là chưa login, trả về trang login
 
-//     header("location: http://$server_name/dashboard.php");
-// }else{
+    header("location: index.php?act=login");
+}else{
 
-    //$_SESSION['user_info']['login'] == 1 là đã login, vào dashboard
+    // $_SESSION['user_info']['login'] == 1 là đã login, vào dashboard
 
 
 
@@ -31,6 +31,9 @@ $server_name=$_SERVER['SERVER_NAME'];
 
                 case 'members':
                 require_once 'controllers/dashboard/members.php';
+                
+                case 'logout':
+                require_once 'controllers/dashboard/logout.php';
 
                 default:
                 require_once 'controllers/dashboard/home.php';
@@ -38,6 +41,6 @@ $server_name=$_SERVER['SERVER_NAME'];
 
         
 
-// }
+}
 
 ?>

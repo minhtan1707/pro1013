@@ -76,9 +76,9 @@
                                             <div class="col-sm-12">
                                                 <div class="text-center m-t-30">
                                                     <a href="index.php?act=register" class="btn btn-success waves-effect waves-light">
-                                                        Đăng ký
+                                                        Register
                                                     </a>
-                                                    <a href="index.php?act=login" type="a" class="btn btn-light waves-effect">Đăng nhập
+                                                    <a href="index.php?act=login" type="a" class="btn btn-light waves-effect">Login
                                                     </a>
                                                 </div>
                                             </div>

@@ -34,23 +34,23 @@
                     <h4 class="text-uppercase font-bold m-b-0">Register</h4>
                 </div>
                 <div class="p-20">
-                    <form class="form-horizontal m-t-20" action="index.html">
+                    <form class="form-horizontal m-t-20" action='' method="POST">
 
 						<div class="form-group ">
 							<div class="col-xs-12">
-								<input class="form-control" type="email" required="" placeholder="Email">
+								<input class="form-control" type="text" name="email" required="" placeholder="Email">
 							</div>
 						</div>
 
 						<div class="form-group ">
 							<div class="col-xs-12">
-								<input class="form-control" type="text" required="" placeholder="Username">
+								<input class="form-control" type="text" name="name" required="" placeholder="Full Name">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="col-xs-12">
-								<input class="form-control" type="password" required="" placeholder="Password">
+								<input class="form-control" name="password" type="password" required="" placeholder="Password">
 							</div>
 						</div>
 
@@ -77,11 +77,7 @@
             </div>
             <!-- end card-box -->
 
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<p class="text-muted">Already have account?<a href="page-login.html" class="text-primary m-l-5"><b>Sign In</b></a></p>
-				</div>
-			</div>
+
 
         </div>
         <!-- end wrapper page -->

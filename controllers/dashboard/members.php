@@ -32,6 +32,8 @@ function edit()
 
 function logout()
 {
-
+    session_start();
+    unset($_SESSION['user_info']);
+    header("location: dashboard.php");
 }
 ?>

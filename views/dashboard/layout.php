@@ -71,13 +71,13 @@
                     <!-- User -->
                     <div class="user-box">
                         <div class="user-img">
-                            <img src="./static/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail img-responsive">
+                            <img src="./static/images/users/<?php echo $_SESSION['user_info']['profile_picture'];?>" alt="user-img" title="<?php echo $_SESSION['user_info']['member_name'];?>" class="rounded-circle img-thumbnail img-responsive">
                         </div>
-                        <h5><a href="#">Tân một cú</a> </h5>
+                        <h5><a href="#"><?php echo $_SESSION['user_info']['member_name'];?></a> </h5>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#" class="text-custom">
-                                    <i class="mdi mdi-power"></i>
+                                <a href="dashboard.php?page=members&act=logout" class="text-custom">
+                                    <i class="mdi mdi-power" style=font-size:20px></i>
                                 </a>
                             </li>
                         </ul>
