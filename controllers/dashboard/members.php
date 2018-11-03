@@ -22,7 +22,7 @@ switch($act){
 
 function home()
 {
-
+    echo 'đây là page members';
 }
 
 function edit()
@@ -32,6 +32,8 @@ function edit()
 
 function logout()
 {
-
+    session_start();
+    unset($_SESSION['user_info']);
+    header("location: dashboard.php");
 }
 ?>

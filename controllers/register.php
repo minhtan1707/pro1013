@@ -1,10 +1,15 @@
 <?php
-$server_name=$_SERVER['SERVER_NAME'];
-if($_POST['submit']){
-    require_once './models/members.php';
-    insert_member($_POST['name'],$_POST['email'],$_POST['password']);
-    header("location: http://$server_name/index.php?act=login");
+if($_POST['name']){
+    $name= $_POST['name'];
+    $email= $_POST['email'];
+    $password= $_POST['password'];
+    require_once './models/member.php';
+    insert_member($name,$email,$password);
+    header("location: index.php?act=login");
 }else{
     require_once './views/register.php';
 }
+
+// require_once './models/member.php';
+// insert_member('Tan Nguyen','minhtan1707@gmail.com','rasengan');
 ?>

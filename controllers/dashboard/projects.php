@@ -38,7 +38,9 @@ switch($act){
 
 function home()
 {
-    echo 'đây là project home';
+    $title ='Project home';
+    $subview='dashboard/project/home.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function add()

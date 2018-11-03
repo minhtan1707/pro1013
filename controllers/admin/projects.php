@@ -1,5 +1,5 @@
 <?php
-$act=$_GET['act']?$_GET['act']:'';
+$act=isset($_GET['act'])?$_GET['act']:'';
 $pro_id=$_GET['id']?$_GET['id']:'';
 
 switch($act){
@@ -30,7 +30,7 @@ switch($act){
 
 function home()
 {
-
+    echo 'đây là page projects';
 }
 
 function add()
