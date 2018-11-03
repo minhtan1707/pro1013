@@ -154,6 +154,7 @@
         <!-- App js -->
         <script src="./static/js/jquery.core.js"></script>
         <script src="./static/js/jquery.app.js"></script>
+        <script src="./static/js/main.js"></script>
 
     </body>
 </html>
