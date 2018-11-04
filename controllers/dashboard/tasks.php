@@ -18,7 +18,9 @@ switch($act){
 
 function home()
 {
-    echo 'đây là page tasks';
+    $title ='Nhiệm vụ';
+    $subview='dashboard/task/home.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function task_list()

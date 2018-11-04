@@ -17,7 +17,9 @@ switch($act){
 
 function home()
 {
-    echo 'đây là page meetings';
+    $title ='Cuộc họp';
+    $subview='dashboard/meeting/home.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function meetting_list()
