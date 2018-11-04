@@ -1,8 +1,8 @@
 <?php 
 function pdo_get_connection(){
-    $dburl = "mysql:host=localhost:3307;dbname=project_management";
+    $dburl = "mysql:host=localhost:3307;dbname=mana";
     $username = 'root';
-    $password = '';
+    $password = 'root';
 
     $conn = new PDO($dburl, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

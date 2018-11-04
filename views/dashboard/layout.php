@@ -8,7 +8,7 @@
 
         <link rel="shortcut icon" href="./static/images/favicon.ico">
 
-        <title>Adminto - Responsive Admin Dashboard Template</title>
+        <title>Cú to - Dashboard</title>
 
         <!-- App css -->
         <link href="./static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
