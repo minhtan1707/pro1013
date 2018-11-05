@@ -1,207 +1,213 @@
-<div class="row">
-                            <div class="col-sm-8">
-                                <div class="bg-picture card-box">
-                                    <div class="profile-info-name">
-                                        <img src="static/images/users/<?php echo $_SESSION['user_info']['profile_picture'];?>" class="img-thumbnail" alt="<?php echo $_SESSION['user_info']['member_name'];?>">
 
-                                        <div class="profile-info-detail">
-                                            <h4 class="m-0"><?php echo $_SESSION['user_info']['member_name']?></h4>
-                                            <p class="text-muted m-b-20"><i><?php echo $_SESSION['user_info']['title']?></i></p>
-                                            <p><?php echo $_SESSION['user_info']['about'];?></p>
-
-                                            <div class="button-list m-t-20">
-                                                <button type="button" class="btn btn-facebook btn-sm waves-effect waves-light">
-                                                    <i class="fa fa-facebook"></i>
-                                                </button>
-
-                                                <button type="button" class="btn btn-sm btn-twitter waves-effect waves-light">
-                                                    <i class="fa fa-twitter"></i>
-                                                </button>
-
-                                                <button type="button" class="btn btn-sm btn-linkedin waves-effect waves-light">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </button>
-
-                                                <button type="button" class="btn btn-sm btn-dribbble waves-effect waves-light">
-                                                    <i class="fa fa-dribbble"></i>
-                                                </button>
-
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="profile-bg-picture" style="background-image:url('./static/images/bg-profile.jpg')">
+                                    <span class="picture-bg-overlay"></span>
+                                </div>
+                                <!-- meta -->
+                                <div class="profile-user-box">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span class="pull-left m-r-15"><img src="static/images/users/<?php echo $_SESSION['user_info']['profile_picture'];?>" alt="" class="thumb-lg rounded-circle"></span>
+                                            <div class="media-body">
+                                                <h4 class="m-t-5 m-b-5 font-18 ellipsis"><?php echo $_SESSION['user_info']['member_name']?></h4>
+                                                <!-- Echo role -->
+                                                <p class="font-13"> Chức vụ </p>
+                                                <!-- Echo addresss -->
+                                                <p class="text-muted m-b-0"><small>Địa chỉ đây</small></p>
                                             </div>
                                         </div>
-
-                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6">
+                                            <div class="text-right">
+                                                <a href="dashboard.php?page=members&act=edit" class="btn btn-success waves-effect waves-light">
+                                                    <i class="mdi mdi-account-settings-variant m-r-5"></i> Chỉnh sửa thông tin
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!--/ meta -->
+                            </div>
+                        </div>
+                        <!-- end row -->
 
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- Personal-Information -->
+                                <div class="card-box">
+                                    <h4 class="header-title mt-0 m-b-20">Thông tin cá nhân</h4>
+                                    <div class="panel-body">
+                                        <p class="text-muted font-13">
+                                            <?php echo $_SESSION['user_info']['about']?>
+                                        </p>
+
+                                        <hr>
+
+                                        <div class="text-left">
+                                            <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15"><?php echo $_SESSION['user_info']['member_name']?></span></p>
+
+                                            <p class="text-muted font-13"><strong>Phone :</strong><span class="m-l-15">9999999</span>
+                                            </p>
+
+                                            <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15"><?php echo $_SESSION['user_info']['email']?></span></p>
+
+                                            <p class="text-muted font-13"><strong>Địa chỉ :</strong> <span class="m-l-15">Việt nam</span></p>
+                                        </div>
+
+                                        <ul class="social-links list-inline m-t-20 m-b-0">
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Personal Information -->
+
+                                <div class="card-box ribbon-box">
+                                    <div class="card-box">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 id="todo-message">Todo list</h4>
+                                            </div>
+                                        </div>
+    
+                                        <form name="todo-form" id="todo-form" role="form" class="m-t-20">
+                                            <div class="row">
+                                                <div class="col-sm-9 todo-inputbar">
+                                                    <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" placeholder="Add new todo">
+                                                </div>
+                                                <div class="col-sm-3 todo-send">
+                                                    <button class="btn-primary btn-md btn-block btn waves-effect waves-light" type="button" id="todo-btn-submit">Add</button>
+                                                </div>
+                                            </div>
+                                        </form>
+    
+                                        
+    
+                                    </div>
+                                </div>
 
                             </div>
 
-                            <div class="col-sm-4">
-                                <div class="card-box">
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                        </div>
+
+                            <div class="col-md-8">
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                    <div class="card-box widget-box-three card-success">
+                                    <div class="bg-icon pull-left">
+                                        <i class="fi-server"></i>
                                     </div>
+                                    <div class="text-right">
+                                        <p class="m-t-5 text-uppercase font-14 font-600">Tổng dự án đang tham gia</p>
+                                        <h2 class="m-b-10"><span data-plugin="counterup">6521</span></h2>
+                                    </div>
+                                </div>
+                                    </div><!-- end col -->
 
-                                    <h4 class="header-title m-t-0 m-b-30">My Team Members</h4>
+                                    <div class="col-sm-6">
+                                    <div class="card-box widget-box-three">
+                                    <div class="bg-icon pull-left">
+                                        <i class="fi-server"></i>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="m-t-5 text-uppercase font-14 font-600">Nhiệm vụ chưa hoàn thành</p>
+                                        <h2 class="m-b-10"><span data-plugin="counterup">6521</span></h2>
+                                    </div>
+                                </div>
+                                    </div><!-- end col -->
+                                </div>
+                                <!-- end row -->
 
-                                    <ul class="list-group m-b-0 user-list">
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Michael Zenaty</span>
-                                                    <span class="desc">CEO</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                <div class="card-box">
+                                    <div class="table-responsive">
+                                        <table class="table m-b-0">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Project Name</th>
+                                                <th>Start Date</th>
+                                                <th>Due Date</th>
+                                                <th>Status</th>
+                                                <th>Assign</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Adminox Frontend</td>
+                                                <td>01/01/2015</td>
+                                                <td>07/05/2015</td>
+                                                <td><span class="label label-success">Finished</span></td>
+                                                <td>xxx</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Adminox Frontend</td>
+                                                <td>01/01/2015</td>
+                                                <td>07/05/2015</td>
+                                                <td><span class="label label-purple">In Progress</span></td>
+                                                <td>xxx</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Adminox Admin</td>
+                                                <td>01/01/2015</td>
+                                                <td>07/05/2015</td>
+                                                <td><span class="label label-warning">Unfinished</span></td>
+                                                <td>xxx</td>
+                                            </tr>
 
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <img src="assets/images/users/avatar-3.jpg" alt="">
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">James Neon</span>
-                                                    <span class="desc">Web Designer</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="">
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">John Smith</span>
-                                                    <span class="desc m-b-0">Web Developer</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <img src="assets/images/users/avatar-6.jpg" alt="">
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Michael Zenaty</span>
-                                                    <span class="desc">Programmer</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <img src="assets/images/users/avatar-1.jpg" alt="">
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Mat Helme</span>
-                                                    <span class="desc">Manager</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
 
                                 <div class="card-box">
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    <h4 class="header-title mt-0 m-b-20">Experience</h4>
+                                    <div class="">
+                                        <div class="">
+                                            <h5 class="text-custom m-b-5">Lead designer / Developer</h5>
+                                            <p class="m-b-0">websitename.com</p>
+                                            <p><b>2010-2015</b></p>
+
+                                            <p class="text-muted font-13 m-b-0">Lorem Ipsum is simply dummy text
+                                                of the printing and typesetting industry. Lorem Ipsum has
+                                                been the industry's standard dummy text ever since the
+                                                1500s, when an unknown printer took a galley of type and
+                                                scrambled it to make a type specimen book.
+                                            </p>
                                         </div>
+
+                                        <hr>
+
+                                        <div class="">
+                                            <h5 class="text-custom m-b-5">Senior Graphic Designer</h5>
+                                            <p class="m-b-0">xxx.com</p>
+                                            <p><b>2007-2009</b></p>
+
+                                            <p class="text-muted font-13">Lorem Ipsum is simply dummy text
+                                                of the printing and typesetting industry. Lorem Ipsum has
+                                                been the industry's standard dummy text ever since the
+                                                1500s, when an unknown printer took a galley of type and
+                                                scrambled it to make a type specimen book.
+                                            </p>
+                                        </div>
+
                                     </div>
-
-                                    <h4 class="header-title m-t-0 m-b-30"><i class="mdi mdi-notification-clear-all m-r-5"></i> Upcoming Reminders</h4>
-
-                                    <ul class="list-group m-b-0 user-list">
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <i class="mdi mdi-circle text-primary"></i>
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Meet Manager</span>
-                                                    <span class="desc">February 29, 2016 - 10:30am to 12:45pm</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <i class="mdi mdi-circle text-success"></i>
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Project Discussion</span>
-                                                    <span class="desc">February 29, 2016 - 10:30am to 12:45pm</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <i class="mdi mdi-circle text-pink"></i>
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Meet Manager</span>
-                                                    <span class="desc">February 29, 2016 - 10:30am to 12:45pm</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <i class="mdi mdi-circle text-muted"></i>
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Project Discussion</span>
-                                                    <span class="desc">February 29, 2016 - 10:30am to 12:45pm</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <a href="#" class="user-list-item">
-                                                <div class="avatar">
-                                                    <i class="mdi mdi-circle text-danger"></i>
-                                                </div>
-                                                <div class="user-desc">
-                                                    <span class="name">Meet Manager</span>
-                                                    <span class="desc">February 29, 2016 - 10:30am to 12:45pm</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </div>
 
+
                             </div>
+                            <!-- end col -->
+
                         </div>

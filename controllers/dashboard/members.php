@@ -29,7 +29,9 @@ function home()
 
 function edit()
 {
-
+    $title ='Chỉnh sửa tài khoản';
+    $subview='dashboard/member/edit.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function logout()

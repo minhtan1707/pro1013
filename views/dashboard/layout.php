@@ -127,7 +127,7 @@
             <!-- Start content -->
             <div class="content">
                 <div class="container-fluid">
-                    <!-- start title  -->
+<!-- start title  -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
@@ -137,7 +137,8 @@
                         </div>
                     </div>
 
-                    <!-- end title -->
+        <!-- end title -->
+<!-- Sub view here -->
                     <?php 
  require_once './views/'.$subview;
 ?>

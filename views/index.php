@@ -17,7 +17,8 @@
 </head>
 <body>
 <div id="wrapper">
-<button type="button" class="btn btn-primary waves-effect waves-light btn-lg">Large</button>
+<a href="index.php?act=register" class="btn btn-primary waves-effect waves-light btn-lg">Đăng ký</a>
+<a href="index.php?act=login" class="btn btn-primary waves-effect waves-light btn-lg">Đăng Nhập</a>
 </div>
 <!-- JS  -->
     <script src="./static/js/jquery.min.js"></script>
