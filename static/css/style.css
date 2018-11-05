@@ -3668,6 +3668,24 @@ tbody.collapse.show {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem
 }
+.add-new-card >i{
+    font-size: 3rem;
+}
+.card:hover {
+    box-shadow: 0px 0px 9px 1px #949494;
+    transition: all 0.32s;
+}
+.add-new-card{
+    background: #3d3d3d;
+    color: #fff;
+    min-height: 150px;
+    display:flex !important;
+    justify-content: center;
+    align-items: center
+}
+.add-new-card>.card-title{
+    color: #fff;
+}
 .card-block {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;

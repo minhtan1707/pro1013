@@ -45,7 +45,9 @@ function home()
 
 function add()
 {
-
+    $title ='Thêm dự án';
+    $subview='dashboard/project/add.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function edit()
@@ -55,7 +57,9 @@ function edit()
 
 function project_detail()
 {
-
+    $title ='Chi tiết dự án';
+    $subview='dashboard/project/project-detail.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function new_task()
