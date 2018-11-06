@@ -10,16 +10,16 @@ function get_member_id($id){ // show từ chi tiết
     $sql = "SELECT * FROM member WHERE member_id=?";
     return pdo_query_one($sql, $id);
 }
-function insert_member($member_name,$email,$pass){
-    $sql = "INSERT INTO member(member_name,email,pass) VALUES(?,?,?)";
-    pdo_execute($sql,$member_name,$email,$pass);
+function insert_member($member_name,$email,$pass,$profile_picture = NULL,$about= NULL,$title=NULL){
+    $sql = "INSERT INTO member(member_name,email,pass,profile_picture,about,title) VALUES(?,?,?,?,?,?)";
+    pdo_execute($sql,$member_name,$email,$pass,$profile_picture,$about,$title);
 }
-function update_member($id,$member_name,$email,$pass,$profile_picture){
-    $sql = "UPDATE member SET member_name=?,email=?,pass=?,profile_picture=? WHERE id=?";
+function update_member($id,$member_name,$email,$pass,$profile_picture,$about){
+    $sql = "UPDATE member SET member_name=?,email=?,pass=?,profile_picture=?,about=? WHERE member_id=?";
     pdo_execute($sql,$member_name,$email,$pass,$profile_picture,$id);
 }
 function delete_member($ids){
-    $sql = "DELETE FROM member WHERE id=?";
+    $sql = "DELETE FROM member WHERE member_id=?";
     if(is_array($ids)){
         foreach ($ids as $id) {
             pdo_execute($sql, $id);

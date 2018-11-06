@@ -1,6 +1,6 @@
 <?php
-if(isset($_GET['act'])){
-    $act=$_GET['act'];
+
+    $act=isset($_GET['act'])?$_GET['act']:'';
     
 
         switch($act){
@@ -11,9 +11,11 @@ if(isset($_GET['act'])){
             case 'login':
             require_once 'controllers/login.php';
             break;
-    
+            
+            default:
+            require_once 'controllers/index.php';
         }
-}else{
-    require_once 'controllers/index.php';
-}
+
+    
+
 ?>
