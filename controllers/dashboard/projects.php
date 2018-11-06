@@ -1,7 +1,7 @@
 <?php
 $act=$_GET['act']?$_GET['act']:'';
 $pro_id=$_GET['id']?$_GET['id']:'';
-
+session_start();
 switch($act){
     case 'detail':
     project_detail();
@@ -38,6 +38,11 @@ switch($act){
 
 function home()
 {
+ 
+    // print_r($_SESSION['user_info']);
+    require_once './models/project.php';
+    $projects=get_project_member_id($_SESSION['user_info']['member_id']);
+    // print_r($projects);
     $title ='Dự án';
     $subview='dashboard/project/home.php';
     require_once './views/dashboard/layout.php';

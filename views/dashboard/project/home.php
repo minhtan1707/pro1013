@@ -25,21 +25,40 @@
         </div>
     </div>
 <div class="row">
+    <?php foreach($projects as $project):?>
+
     <div class="col-sm-4 col-xs-12">
         <a href="dashboard.php?page=projects&act=detail">
         <div class="card m-b-20 card-block card-inverse card-primary">
-            <h4 class="card-title">Project title</h4>
+            <h4 class="card-title"><?php echo isset($project)?$project['pro_name']:'';?></h4>
             <p class="card-text">Thông tin dự án <br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos neque quod quam earum
-                eius.
+            <?php echo isset($project)?$project['description']:'';?>
             </p>
             <p class="card-text">
-                <small>Đăng 3 giờ trước</small>
+                <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $created_at=strtotime($project['created_at']);
+                if(isset($project)){
+                    if((date('m')-date('m',$created_at))>1)
+                    {
+                        $date= date('m')-date('m',$created_at);
+                        echo '<small>Đăng '.$date.' tháng trước</small>';
+                    }
+                    else if((date('d')-date('d',$created_at))>1)
+                    {
+                        $date= date('d')-date('d',$created_at);
+                        echo '<small>Đăng '.$date.' ngày trước</small>';
+                    }else{
+                        $hour=date('H')-date('H',$created_at);
+                        echo '<small>Đăng '.$hour.' giờ trước</small>';
+                    }
+                }?>
             </p>
         </div>
     </a>
     </div>
-    <div class="col-sm-4 col-xs-12">
+
+    <?php endforeach;?>
+    <!-- <div class="col-sm-4 col-xs-12">
         <a href="dashboard.php?page=projects&act=detail">
         <div class="card m-b-20 card-block card-inverse card-info">
             <h4 class="card-title">Project title</h4>
@@ -94,5 +113,5 @@
             </p>
         </div>
     </a>
-    </div>
+    </div> -->
 </div>
