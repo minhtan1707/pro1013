@@ -1,159 +1,178 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="./static/images/favicon.ico">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description">
+    <meta name="author" content="Suu">
 
-        <title>Adminto - Responsive Admin Dashboard Template</title>
+    <link rel="shortcut icon" href="./static/images/favicon.png">
 
-        <!-- App css -->
-        <link href="./static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="./static/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Cú to - Project management</title>
 
-        <script src="./static/js/modernizr.min.js"></script>
+    <!-- css -->
+    <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
 
-    </head>
+</head>
 
+<body>
 
-    <body class="fixed-left">
-
-        <!-- Begin page -->
-        <div id="wrapper">
-
-            <!-- Top Bar Start -->
-            <div class="topbar">
-
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <a href="dashboard.php" class="logo"><span>Cú  <span>to</span></span><i class="mdi mdi-layers"></i></a>
-                </div>
-
-                <!-- Button mobile view to collapse sidebar menu -->
-                <div class="navbar navbar-default" role="navigation">
-                    <div class="container-fluid">
-
-                        <!-- Page title -->
-                        <ul class="nav navbar-nav list-inline navbar-left">
-                            <li class="list-inline-item">
-                                <button class="button-menu-mobile open-left">
-                                    <i class="mdi mdi-menu"></i>
-                                </button>
-                            </li>
-                            <li class="list-inline-item">
-                                <h4 class="page-title"><?php echo $title;?></h4>
-                            </li>
-                        </ul>
-
-                        <nav class="navbar-custom">
-
-                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
-
-                                <li>
-                                </li>
-
-                            </ul>
-                        </nav>
-                    </div><!-- end container -->
-                </div><!-- end navbar -->
+    <!-- Start page -->
+    <div id="wrapper">
+        <!-- Top Bar Start -->
+        <div class="topbar">
+            <!-- Logo -->
+            <div class="topbar-left">
+                <a href="index.html" class="logo">
+                    <span>
+                        <img src="./static/images/logo.png" alt="" height="25">
+                    </span>
+                </a>
             </div>
-            <!-- Top Bar End -->
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+                    <li class="list-inline-item dropdown notification-list">
+                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
+                            href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="dripicons-bell noti-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="hide-phone app-search">
+                        <form role="search" class="">
+                            <input type="text" placeholder="Tìm kiếm..." class="form-control">
+                            <a href=""><i class="fa fa-search"></i></a>
+                        </form>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- Top Bar End -->
 
 
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-
-                    <!-- User -->
-                    <div class="user-box">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="slimscroll-menu" id="remove-scroll">
+                <!-- User box -->
+                <div class="user-box">
                         <div class="user-img">
                             <img src="./static/images/users/<?php echo $_SESSION['user_info']['profile_picture'];?>" alt="user-img" title="<?php echo $_SESSION['user_info']['member_name'];?>" class="rounded-circle img-thumbnail img-responsive">
                         </div>
-                        <h5><a href="#"><?php echo $_SESSION['user_info']['member_name'];?></a> </h5>
+                        <h5 class="text-overflow" style="color:#fff"><small>Hello <?php echo $_SESSION['user_info']['member_name'];?></small> </h5>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="dashboard.php?page=members&act=logout" class="text-custom">
-                                    <i class="mdi mdi-power" style=font-size:20px></i>
+                                <a href="dashboard.php?page=members" class="text-custom">
+                                    <i class="  mdi mdi-eye" style=font-size:20px></i>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                    <!-- End User -->
+                            <li class="list-inline-item">
+                                <a href="dashboard.php?page=members&act=logout" class="text-custom">
+                                    <i class="  mdi mdi-export" style=font-size:20px></i>
+                                </a>
+                            </li>
 
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <ul>
-                        	<li class="text-muted menu-title">Menu</li>
-                            <li>
-                                <a href="dashboard.php?page=projects" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Projects </span> </a>
-                            </li>
-                            <li>
-                                <a href="dashboard.php?page=tasks" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Tasks </span> </a>
-                            </li>
-                            <li>
-                                <a href="dashboard.php?page=meetings" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Meetings </span> </a>
-                            </li>
                         </ul>
-                        <div class="clearfix"></div>
                     </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
+                    <!-- End User box -->
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu" id="side-menu">
+                        <li class="menu-title">Menu</li>
+                        <li>
+                            <a href="dashboard.php">
+                                <i class="fi-layout"></i><span> Bảng điều khiển </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="dashboard.php?page=projects">
+                                <i class="fi-archive"></i><span> Dự án </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="dashboard.php?page=tasks">
+                                <i class="fi-layers"></i><span> Nhiệm vụ </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="dashboard.php?page=meetings">
+                                <i class="fi-monitor"></i><span>Cuộc họp </span>
+                            </a>
+                        </li>
+                        <li>
+                    </ul>
 
                 </div>
+                <!-- Sidebar -->
+                <div class="clearfix"></div>
 
             </div>
-            <!-- Left Sidebar End -->
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
 
 
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- View content right -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container-fluid">
+<!-- start title  -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title float-left"><?php echo $title;?></h4>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+
+        <!-- end title -->
+<!-- Sub view here -->
                     <?php 
  require_once './views/'.$subview;
 ?>
-                    </div> <!-- container -->
 
-                </div> <!-- content -->
+                </div> <!-- container -->
 
-                <footer class="footer text-center">
-                    Nhóm con chim bé nhỏa.. /
-                    Ô rai sa vồ rịt !
-                </footer>
+            </div> <!-- content -->
 
-            </div>
+            <footer class="footer text-right">
+            Nhóm con chim bé nhỏa.. / Ô rai sa vồ rịt !
+            </footer>
 
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
         </div>
-        <!-- END wrapper -->
 
 
-        <!-- jQuery  -->
-        <script src="./static/js/jquery.min.js"></script>
-        <script src="./static/js/popper.min.js"></script>
-        <script src="./static/js/bootstrap.min.js"></script>
-        <script src="./static/js/detect.js"></script>
-        <script src="./static/js/fastclick.js"></script>
-        <script src="./static/js/jquery.blockUI.js"></script>
-        <script src="./static/js/waves.js"></script>
-        <script src="./static/js/jquery.nicescroll.js"></script>
-        <script src="./static/js/jquery.slimscroll.js"></script>
-        <script src="./static/js/jquery.scrollTo.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- End  View content right -->
+        <!-- ============================================================== -->
 
-        <!-- App js -->
-        <script src="./static/js/jquery.core.js"></script>
-        <script src="./static/js/jquery.app.js"></script>
 
-    </body>
+    </div>
+    <!-- END wrapper -->
+    <!-- JS  -->
+    <script src="./static/js/jquery.min.js"></script>
+    <script src="./static/js/tether.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/metisMenu.min.js"></script>
+    <script src="./static/js/waves.js"></script>
+    <script src="./static/js/jquery.slimscroll.js"></script>
+    <script src="./static/js/jquery.core.js"></script>
+    <script src="./static/js/jquery.app.js"></script>
+    <script src="./static/js/main.js"></script>
+
+
+</body>
+
 </html>

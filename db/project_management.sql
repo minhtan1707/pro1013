@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Nov 03, 2018 at 03:11 AM
+-- Generation Time: Nov 08, 2018 at 02:50 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -73,9 +73,10 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `member_name`, `email`, `pass`, `profile_picture`, `about`, `title`) VALUES
-(2, 'Tan Nguyen', 'minhtan1707@gmail.com', 'rasengan', 'avatar-1.jpg', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Web Designer'),
-(3, 'Mike Tanny', 'minhtan17071991@gmail.com', 'rasengan', NULL, NULL, NULL),
-(4, 'sdgkjdfg', 'asfkldsf', 'rasengan', NULL, NULL, NULL);
+(2, 'Tan Nguyen', 'minhtan1707@gmail.com', 'rasengan', 'avatar-2.jpg', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Web Designer'),
+(3, 'Mike Tanny', 'minhtan17071991@gmail.com', 'rasengan', 'avatar-4.jpg', NULL, NULL),
+(4, 'Viet Hung', 'hoangviet.hung.009@gmail.com', '12345', 'avatar-1.jpg', NULL, 'Documentation'),
+(5, 'Suu', 'quocsuu66@gmail.com', '12345', 'avatar-3.jpg', NULL, 'Front End');
 
 -- --------------------------------------------------------
 
@@ -91,6 +92,14 @@ CREATE TABLE `project` (
   `description` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung dự án'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`pro_id`, `pro_leader`, `pro_name`, `created_at`, `description`) VALUES
+(1, 2, 'Test Project', '2018-11-06 10:18:50', 'This is test project 1'),
+(2, 2, 'Test Project 2', '2018-11-06 10:18:50', 'This is test project 2');
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +112,17 @@ CREATE TABLE `pro_detail` (
   `pro_id` int(11) NOT NULL COMMENT 'Mã dự án',
   `member_id` int(11) NOT NULL COMMENT 'Mã thành viên'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `pro_detail`
+--
+
+INSERT INTO `pro_detail` (`pro_detail_id`, `added_at`, `pro_id`, `member_id`) VALUES
+(1, '2018-11-06 10:19:15', 1, 2),
+(3, '2018-11-06 10:22:19', 2, 2),
+(4, '2018-11-06 10:35:26', 1, 3),
+(5, '2018-11-08 09:47:53', 1, 4),
+(8, '2018-11-08 09:48:14', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -198,19 +218,19 @@ ALTER TABLE `meeting`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã thành viên', AUTO_INCREMENT=5;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã thành viên', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án';
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pro_detail`
 --
 ALTER TABLE `pro_detail`
-  MODIFY `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết dự án';
+  MODIFY `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết dự án', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `task`

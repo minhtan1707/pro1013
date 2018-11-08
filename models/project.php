@@ -1,5 +1,5 @@
 <?php
-require_once './dao/pdo.php';
+require_once './core/pdo.php';
 
 function insert_project($pro_name,$descciption,$pro_leader){
     $sql = "INSERT INTO project(pro_name,descciption,pro_leader) VALUES(?,?,?)";
@@ -24,5 +24,15 @@ function get_project_id($id){
 function get_project_where($where,$value){
     $sql = "SELECT * FROM project WHERE $where=?";
     return pdo_query_one($sql, $value);
+}
+
+function get_project_member_id($id){
+    $sql="SELECT * FROM project LEFT JOIN pro_detail ON project.pro_id = pro_detail.pro_id WHERE pro_detail.member_id=?";
+    return pdo_query($sql,$id);
+}
+
+function get_project_detail_id($id){
+    $sql= "SELECT * FROM pro_detail LEFT JOIN member ON member.member_id = pro_detail.member_id WHERE pro_id=?";
+    return pdo_query($sql,$id);
 }
 ?>

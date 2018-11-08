@@ -1,5 +1,5 @@
 <?php
-if($_POST['name']){
+if(isset($_POST['name'])){
     $name= $_POST['name'];
     $email= $_POST['email'];
     $password= $_POST['password'];

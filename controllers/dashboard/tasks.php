@@ -1,6 +1,6 @@
 <?php
-$act=$_GET['act']?$_GET['act']:'';
-$task_id=$_GET['id']?$_GET['id']:'';
+$act=isset($_GET['act'])?$_GET['act']:'';
+$task_id=isset($_GET['id'])?$_GET['id']:'';
 
 switch($act){
     case 'task-list':
@@ -18,7 +18,9 @@ switch($act){
 
 function home()
 {
-    echo 'đây là page tasks';
+    $title ='Nhiệm vụ';
+    $subview='dashboard/task/home.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function task_list()

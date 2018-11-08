@@ -1,6 +1,6 @@
 <?php
-$act=$_GET['act']?$_GET['act']:'';
-$member_id=$_GET['id']?$_GET['id']:'';
+$act=isset($_GET['act'])?$_GET['act']:'';
+$member_id=isset($_GET['id'])?$_GET['id']:'';
 
 switch($act){
     case 'edit':
@@ -22,12 +22,16 @@ switch($act){
 
 function home()
 {
-    echo 'đây là page members';
+    $title ='Thông tin tài khoản';
+    $subview='dashboard/member/home.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function edit()
 {
-
+    $title ='Chỉnh sửa tài khoản';
+    $subview='dashboard/member/edit.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function logout()

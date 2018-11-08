@@ -1,108 +1,134 @@
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="./static/images/favicon.ico">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
 
-        <title>Adminto - Responsive Admin Dashboard Template</title>
+    <link rel="shortcut icon" href="./static/images/favicon.png">
 
-        <!-- App css -->
-        <link href="./static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="./static/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Đăng nhập - Cú to</title>
 
-        <script src="./static/js/modernizr.min.js"></script>
+    <!-- css -->
+    <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
 
-    </head>
+</head>
 
-    <body>
+<body style="background: url(./static/images/img-3.jpg) no-repeat fixed center; background-size:cover;">
 
-        <div class="account-pages"></div>
-        <div class="clearfix"></div>
-        <div class="wrapper-page">
-            <div class="text-center">
-                <a href="index.html" class="logo"><span>Admin<span>to</span></span></a>
-                <h5 class="text-muted m-t-0 font-600">Responsive Admin Dashboard</h5>
-            </div>
-        	<div class="m-t-40 card-box">
-                <div class="text-center">
-                    <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
-                </div>
-                <div class="p-20">
-                    <form class="form-horizontal m-t-20" action='' method="POST">
-
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" name="email" required="" placeholder="Email">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" required="" placeholder="Password">
-                            </div>
-                        </div>
-
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <div class="checkbox checkbox-custom">
-                                    <input id="checkbox-signup" type="checkbox">
-                                    <label for="checkbox-signup">
-                                        Remember me
-                                    </label>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group text-center m-t-30">
-                            <div class="col-xs-12">
-                                <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">Log In</button>
-                            </div>
-                        </div>
-
-                        <div class="form-group m-t-30 m-b-0">
-                            <div class="col-sm-12">
-                                <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-            <!-- end card-box-->
-
+    <!-- HOME -->
+    <section>
+        <div class="container">
             <div class="row">
-                <div class="col-sm-12 text-center">
-                    <p class="text-muted">Don't have an account? <a href="index.php?act=register" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                <div class="col-sm-12">
+
+                    <div class="wrapper-page">
+
+                        <div class="account-pages">
+                            <div class="account-box">
+                                <div class="account-logo-box">
+                                    <h2 class="text-uppercase text-center">
+                                        <a href="index.html" class="text-success">
+                                            <span><img src="./static/images/logo_dark.png" alt="" height="30"></span>
+                                        </a>
+                                    </h2>
+                                    <h5 class="text-uppercase font-bold m-b-5 m-t-50">Đăng nhập</h5>
+                                    <p class="m-b-0">Đăng nhập với tài khoản đã đăng ký</p>
+                                </div>
+                                <div class="account-content">
+                                    <form class="form-horizontal" action="" method='post'>
+
+                                        <div class="form-group m-b-20 row">
+                                            <div class="col-12">
+                                                <label for="emailaddress">Email address</label>
+                                                <input class="form-control" type="email" name="email"  id="emailaddress" required=""
+                                                    placeholder="@.com">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row m-b-20">
+                                            <div class="col-12">
+                                                <a href="page-recoverpw.html" class="text-muted pull-right"><small>Quên mật khẩu?</small></a>
+                                                <label for="password">Password</label>
+                                                <input class="form-control" name="password"  type="password" required="" id="password"
+                                                    placeholder="Enter your password">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row m-b-20">
+                                            <div class="col-12">
+
+                                                <div class="checkbox checkbox-success">
+                                                    <input id="remember" type="checkbox" checked="">
+                                                    <label for="remember">
+                                                        Ghi nhớ
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row text-center m-t-10">
+                                            <div class="col-12">
+                                                <button class="btn btn-md btn-block btn-primary waves-effect waves-light"
+                                                    type="submit">Đăng nhập</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="text-center">
+                                                <button type="button" class="btn m-r-5 btn-facebook waves-effect waves-light">
+                                                    <i class="fa fa-facebook"></i>
+                                                </button>
+                                                <button type="button" class="btn m-r-5 btn-googleplus waves-effect waves-light">
+                                                    <i class="fa fa-google"></i>
+                                                </button>
+                                                <button type="button" class="btn m-r-5 btn-twitter waves-effect waves-light">
+                                                    <i class="fa fa-twitter"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row m-t-50">
+                                        <div class="col-sm-12 text-center">
+                                            <p class="text-muted">Chưa có tài khoản ư? <a href="index.php?act=register"
+                                                    class="text-dark m-l-5"><b>Đăng ký</b></a></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card-box-->
+
+
+                    </div>
+                    <!-- end wrapper -->
+
                 </div>
             </div>
-            
         </div>
-        <!-- end wrapper page -->
+    </section>
+    <!-- END HOME -->
 
 
+<!-- JS  -->
+<script src="./static/js/jquery.min.js"></script>
+<script src="./static/js/tether.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="./static/js/metisMenu.min.js"></script>
+<script src="./static/js/waves.js"></script>
+<script src="./static/js/jquery.slimscroll.js"></script>
+<script src="./static/js/jquery.core.js"></script>
+<script src="./static/js/jquery.app.js"></script>
+<script src="./static/js/main.js"></script>
 
-        <!-- jQuery  -->
-        <script src="./static/js/jquery.min.js"></script>
-        <script src="./static/js/popper.min.js"></script>
-        <script src="./static/js/bootstrap.min.js"></script>
-        <script src="./static/js/detect.js"></script>
-        <script src="./static/js/fastclick.js"></script>
-        <script src="./static/js/jquery.blockUI.js"></script>
-        <script src="./static/js/waves.js"></script>
-        <script src="./static/js/jquery.nicescroll.js"></script>
-        <script src="./static/js/jquery.slimscroll.js"></script>
-        <script src="./static/js/jquery.scrollTo.min.js"></script>
+</body>
 
-        <!-- App js -->
-        <script src="./static/js/jquery.core.js"></script>
-        <script src="./static/js/jquery.app.js"></script>
-	
-	</body>
 </html>

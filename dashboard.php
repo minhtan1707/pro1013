@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 session_start();
 $server_name=$_SERVER['SERVER_NAME'];
 // kiểm tra đã login chưa
@@ -31,9 +33,6 @@ if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] ==
 
                 case 'members':
                 require_once 'controllers/dashboard/members.php';
-                
-                case 'logout':
-                require_once 'controllers/dashboard/logout.php';
 
                 default:
                 require_once 'controllers/dashboard/home.php';
