@@ -1,12 +1,12 @@
 <?php
 $server_name=$_SERVER['SERVER_NAME'];
 session_start();
-if($_SESSION['user_info']['login'] == 1)
+if(isset($_SESSION['user_info']) && $_SESSION['user_info']['login'] == 1)
 {
     header("location: dashboard.php");
 }
 else{
-    if($_POST['email'])
+    if(isset($_POST['email']))
     {
         require_once './models/member.php';
         //kiểm tra thông tin login

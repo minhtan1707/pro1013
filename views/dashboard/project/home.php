@@ -28,8 +28,8 @@
     <?php foreach($projects as $project):?>
 
     <div class="col-sm-4 col-xs-12">
-        <a href="dashboard.php?page=projects&act=detail">
-        <div class="card m-b-20 card-block card-inverse card-primary">
+        <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['pro_id']:''?>">
+        <div class="card m-b-20 card-block card-inverse card-success">
             <h4 class="card-title"><?php echo isset($project)?$project['pro_name']:'';?></h4>
             <p class="card-text">Thông tin dự án <br>
             <?php echo isset($project)?$project['description']:'';?>

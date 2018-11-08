@@ -1,5 +1,7 @@
 <?php 
 function pdo_get_connection(){
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     $dburl = "mysql:host=localhost:3307;dbname=project_management";
     $username = 'root';
     $password = '';

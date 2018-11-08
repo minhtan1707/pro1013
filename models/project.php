@@ -30,4 +30,9 @@ function get_project_member_id($id){
     $sql="SELECT * FROM project LEFT JOIN pro_detail ON project.pro_id = pro_detail.pro_id WHERE pro_detail.member_id=?";
     return pdo_query($sql,$id);
 }
+
+function get_project_detail_id($id){
+    $sql= "SELECT * FROM pro_detail LEFT JOIN member ON member.member_id = pro_detail.member_id WHERE pro_id=?";
+    return pdo_query($sql,$id);
+}
 ?>

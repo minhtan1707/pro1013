@@ -1,6 +1,6 @@
 <?php
-$act=$_GET['act']?$_GET['act']:'';
-$member_id=$_GET['id']?$_GET['id']:'';
+$act=isset($_GET['act'])?$_GET['act']:'';
+$member_id=isset($_GET['id'])?$_GET['id']:'';
 
 switch($act){
     case 'edit':
