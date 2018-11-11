@@ -49,6 +49,7 @@
                     </h3>
             </div>
             </div>
+            <!-- start task box-->
             <div class="card-box kanban-box">
                 <div class="kanban-detail">
                     <span class="badge badge-danger pull-right">Unfinished</span>
@@ -65,10 +66,11 @@
                         <button type="button" class="btn btn-success btn-s waves-effect waves-light" data-toggle="modal"
                             data-target="#task-detail-modal">Xem chi tiết</button>
                     </p>
-                    <p class="m-b-0"><a href="" class="text-muted"><img src="./static/images/users/avatar-1.jpg" alt="task-user"
-                                class="thumb-sm rounded-circle m-r-10"> <span class="font-bold font-secondary">Tên người làm</span></a> </p>
+                    <p class="m-b-0"><img src="./static/images/users/avatar-1.jpg" alt="task-user"
+                                class="thumb-sm rounded-circle m-r-10"> <span class="font-bold font-secondary">Tên người làm</span> </p>
                 </div>
             </div>
+            <!-- end task box -->
         </div>
     </div>
 </div>
