@@ -2055,14 +2055,14 @@ select.form-control:focus::-ms-value {
     background-size: 1.125rem 1.125rem
 }
 .has-success .col-form-label, .has-success .custom-control, .has-success .form-check-label, .has-success .form-control-feedback, .has-success .form-control-label {
-    color: #5cb85c
+    color: #4caf50
 }
 .has-success .form-control {
-    border-color: #5cb85c
+    border-color: #4caf50
 }
 .has-success .input-group-addon {
-    color: #5cb85c;
-    border-color: #5cb85c;
+    color: #4caf50;
+    border-color: #4caf50;
     background-color: #eaf6ea
 }
 .has-success .form-control-success {
@@ -2323,8 +2323,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 .btn-success {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #5cb85c
+    background-color: #4caf50;
+    border-color: #4caf50
 }
 .btn-success:hover {
     color: #fff;
@@ -2336,8 +2336,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
     box-shadow: 0 0 0 2px rgba(92, 184, 92, .5)
 }
 .btn-success.disabled, .btn-success:disabled {
-    background-color: #5cb85c;
-    border-color: #5cb85c
+    background-color: #4caf50;
+    border-color: #4caf50
 }
 .btn-success.active, .btn-success:active, .show>.btn-success.dropdown-toggle {
     color: #fff;
@@ -2466,28 +2466,28 @@ a.btn.disabled, fieldset[disabled] a.btn {
     border-color: #5bc0de
 }
 .btn-outline-success {
-    color: #5cb85c;
+    color: #4caf50;
     background-image: none;
     background-color: transparent;
-    border-color: #5cb85c
+    border-color: #4caf50
 }
 .btn-outline-success:hover {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #5cb85c
+    background-color: #4caf50;
+    border-color: #4caf50
 }
 .btn-outline-success.focus, .btn-outline-success:focus {
     -webkit-box-shadow: 0 0 0 2px rgba(92, 184, 92, .5);
     box-shadow: 0 0 0 2px rgba(92, 184, 92, .5)
 }
 .btn-outline-success.disabled, .btn-outline-success:disabled {
-    color: #5cb85c;
+    color: #4caf50;
     background-color: transparent
 }
 .btn-outline-success.active, .btn-outline-success:active, .show>.btn-outline-success.dropdown-toggle {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #5cb85c
+    background-color: #4caf50;
+    border-color: #4caf50
 }
 .btn-outline-warning {
     color: #f0ad4e;
@@ -3752,8 +3752,8 @@ tbody.collapse.show {
     background-color: transparent
 }
 .card-success {
-    background-color: #5cb85c;
-    border-color: #5cb85c
+    background-color: #4caf50;
+    border-color: #4caf50
 }
 .card-success .card-footer, .card-success .card-header {
     background-color: transparent
@@ -3793,7 +3793,7 @@ tbody.collapse.show {
 }
 .card-outline-success {
     background-color: transparent;
-    border-color: #5cb85c
+    border-color: #4caf50
 }
 .card-outline-warning {
     background-color: transparent;
@@ -4081,7 +4081,7 @@ a.badge:focus, a.badge:hover {
     background-color: #025aa5
 }
 .badge-success {
-    background-color: #5cb85c
+    background-color: #4caf50
 }
 .badge-success[href]:focus, .badge-success[href]:hover {
     background-color: #449d44
@@ -5065,7 +5065,7 @@ a.bg-primary:focus, a.bg-primary:hover {
     background-color: #025aa5!important
 }
 .bg-success {
-    background-color: #5cb85c!important
+    background-color: #4caf50!important
 }
 a.bg-success:focus, a.bg-success:hover {
     background-color: #449d44!important
@@ -7942,7 +7942,7 @@ a.text-primary:focus, a.text-primary:hover {
     color: #025aa5!important
 }
 .text-success {
-    color: #5cb85c!important
+    color: #4caf50!important
 }
 a.text-success:focus, a.text-success:hover {
     color: #449d44!important

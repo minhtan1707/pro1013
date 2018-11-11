@@ -24,7 +24,7 @@
         <div class="topbar">
             <!-- Logo -->
             <div class="topbar-left">
-                <a href="index.html" class="logo">
+                <a href="dashboard.php" class="logo">
                     <span>
                         <img src="./static/images/logo.png" alt="" height="25">
                     </span>
@@ -148,7 +148,7 @@
             </div> <!-- content -->
 
             <footer class="footer text-right">
-            Nhóm con chim bé nhỏa.. / Ô rai sa vồ rịt !
+            Nhóm Cú TO. 
             </footer>
 
         </div>
