@@ -18,7 +18,6 @@
 
 <body>
 
-    <!-- Start page -->
     <div id="wrapper">
         <!-- Top Bar Start -->
         <div class="topbar">
@@ -160,8 +159,7 @@
 
 
     </div>
-    <!-- END wrapper -->
-    <!-- JS  -->
+    <!-- Js  -->
     <script src="./static/js/jquery.min.js"></script>
     <script src="./static/js/tether.min.js"></script>
     <script src="./static/js/bootstrap.min.js"></script>
