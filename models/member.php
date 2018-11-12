@@ -14,9 +14,9 @@ function insert_member($member_name,$email,$pass,$profile_picture = NULL,$about=
     $sql = "INSERT INTO member(member_name,email,pass,profile_picture,about,title) VALUES(?,?,?,?,?,?)";
     pdo_execute($sql,$member_name,$email,$pass,$profile_picture,$about,$title);
 }
-function update_member($id,$member_name,$email,$pass,$profile_picture,$about){
-    $sql = "UPDATE member SET member_name=?,email=?,pass=?,profile_picture=?,about=? WHERE member_id=?";
-    pdo_execute($sql,$member_name,$email,$pass,$profile_picture,$id);
+function update_member($id,$member_name,$email,$pass,$profile_picture,$about,$title,$phone){
+    $sql = "UPDATE member SET member_name=?,email=?,pass=?,profile_picture=?,about=?,title=?,phone=? WHERE member_id=?";
+    pdo_execute($sql,$member_name,$email,$pass,$profile_picture,$about,$title,$phone,$id);
 }
 function delete_member($ids){
     $sql = "DELETE FROM member WHERE member_id=?";

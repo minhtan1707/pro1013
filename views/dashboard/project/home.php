@@ -1,7 +1,7 @@
 <!-- Start project list -->
 <div class="row">
         <div class="col-sm-4">
-            <a href="dashboard.php?page=projects&act=add" class="btn btn-primary waves-effect waves-light m-b-20"><i class="md md-add"></i> Add Project</a>
+        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#signup-modal">Add project</button>
         </div>
         <div class="col-sm-8">
             <div class="text-right">
@@ -28,7 +28,7 @@
     <?php foreach($projects as $project):?>
 
     <div class="col-sm-4 col-xs-12">
-        <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['pro_id']:''?>">
+        <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['id']:''?>">
         <div class="card m-b-20 card-block card-inverse card-success">
             <h4 class="card-title"><?php echo isset($project)?$project['pro_name']:'';?></h4>
             <p class="card-text">Thông tin dự án <br>
@@ -114,4 +114,46 @@
         </div>
     </a>
     </div> -->
+</div>
+
+
+<div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+            <div class="modal-body">
+                <h2 class="text-uppercase text-center m-b-30">
+                    Thêm dự án
+                </h2>
+
+
+                <form class="form-horizontal" action="" method="post" >
+
+                    <div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                            <label for="username">Tên dự án</label>
+                            <input class="form-control" type="text" name="pro_name" id="username" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                          <div>  <label for="emailaddress">Nội dung</label></div>
+                          <textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3" ></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group account-btn text-center m-t-10">
+                        <div class="col-xs-12">
+                            <button class="btn w-lg btn-lg btn-primary waves-effect waves-light" type="submit">Thêm dự án</button>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div>
