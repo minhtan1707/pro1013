@@ -4,11 +4,8 @@
         <div class="text-center card-box">
             <div class="member-card">
                 <h4 class="text-dark header-title m-t-0 text-left ">Thông tin dự án</h4>
-                <h3 class="text-dark  m-b-30 text-center">Dự án 1</h3>
-                <p class=" text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, illo, iste
-                    itaque voluptas corrupti ratione reprehenderit magni similique? Tempore, quos
-                    delectus asperiores libero voluptas quod perferendis! Voluptate, quod illo
-                    \rerum? Lorem ipsum dolor sit amet.</p>
+                <h3 class="text-dark  m-b-30 text-center"><?php echo isset($project)?$project['pro_name']:'';?></h3>
+                <p class=" text-left"><?php echo isset($project)?$project['description']:'';?>.</p>
                 <hr>
                 <h4 class="text-dark header-title m-t-0 text-left">Team leader</h4>
                 <div class="thumb-xl member-thumb m-b-10 mx-auto">
@@ -50,26 +47,29 @@
             </div>
             </div>
             <!-- start task box-->
+            <?php foreach($tasks as $task):?>
             <div class="card-box kanban-box">
                 <div class="kanban-detail">
+                <?php if($task['status']==0):?>
                     <span class="badge badge-danger pull-right">Unfinished</span>
+                <?php elseif($task['status']==1):?>
+                    <span class="badge badge-success pull-right">Finished</span>
+                <?php endif;?>
                     <!-- <span class="badge badge-muted pull-right">Finished</span> -->
                     <!-- <span class="badge badge-success pull-right">In progress</span> -->
-                    <h4>Name task</h4>
-                    <p class=" text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, illo, iste
-                            itaque voluptas corrupti ratione reprehenderit magni similique? Tempore, quos
-                            delectus asperiores libero voluptas quod perferendis! Voluptate, quod illo
-                            \rerum? Lorem ipsum dolor sit amet.</p>
+                    <h4><?php echo isset($task)?$task['task_name']:'';?></h4>
+                    <p class=" text-left"><?php echo isset($task)?$task['task_desc']:'';?></p>
                 </div>
                 <div class="m-t-20">
                     <p class="pull-right m-b-0 m-t-10">
                         <button type="button" class="btn btn-success btn-s waves-effect waves-light" data-toggle="modal"
                             data-target="#task-detail-modal">Xem chi tiết</button>
                     </p>
-                    <p class="m-b-0"><img src="./static/images/users/avatar-1.jpg" alt="task-user"
-                                class="thumb-sm rounded-circle m-r-10"> <span class="font-bold font-secondary">Tên người làm</span> </p>
+                    <p class="m-b-0"><img src="./static/images/users/<?php echo isset($task)?$task['profile_picture']:'';?>" alt="<?php echo isset($task)?$task['member_name']:'';?>"
+                                class="thumb-sm rounded-circle m-r-10"> <span class="font-bold font-secondary"><?php echo isset($task)?$task['member_name']:'';?></span> </p>
                 </div>
             </div>
+            <?php endforeach;?>
             <!-- end task box -->
         </div>
     </div>

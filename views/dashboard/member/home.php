@@ -12,9 +12,9 @@
                                             <div class="media-body">
                                                 <h4 class="m-t-5 m-b-5 font-18 ellipsis"><?php echo $_SESSION['user_info']['member_name']?></h4>
                                                 <!-- Echo role -->
-                                                <p class="font-13"> Chức vụ </p>
+                                                <p class="font-13"><?php echo $_SESSION['user_info']['title']?> </p>
                                                 <!-- Echo addresss -->
-                                                <p class="text-muted m-b-0"><small>Địa chỉ đây</small></p>
+                                                
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -51,7 +51,7 @@
 
                                             <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15"><?php echo $_SESSION['user_info']['email']?></span></p>
 
-                                            <p class="text-muted font-13"><strong>Địa chỉ :</strong> <span class="m-l-15">Việt nam</span></p>
+                                            
                                         </div>
 
                                         <ul class="social-links list-inline m-t-20 m-b-0">
@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="text-right">
                                         <p class="m-t-5 text-uppercase font-14 font-600">Tổng dự án đang tham gia</p>
-                                        <h2 class="m-b-10"><span data-plugin="counterup">6521</span></h2>
+                                        <h2 class="m-b-10"><span data-plugin="counterup"><?php echo count($projects);?></span></h2>
                                     </div>
                                 </div>
                                     </div><!-- end col -->
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="text-right">
                                         <p class="m-t-5 text-uppercase font-14 font-600">Nhiệm vụ chưa hoàn thành</p>
-                                        <h2 class="m-b-10"><span data-plugin="counterup">6521</span></h2>
+                                        <h2 class="m-b-10"><span data-plugin="counterup"><?php echo count($tasks);?></span></h2>
                                     </div>
                                 </div>
                                     </div><!-- end col -->

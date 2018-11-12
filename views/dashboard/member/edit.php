@@ -23,17 +23,15 @@
                 <div class="clearfix"></div>
                 <div class="member-card">
                     <div class="thumb-xl member-thumb m-b-10 mx-auto">
-                        <img src="./static/images/users/avatar-3.jpg" class="rounded-circle img-thumbnail" alt="profile-image">
+                        <img src="./static/images/users/<?php echo isset($user_info)?$user_info['profile_picture']:''?>" class="rounded-circle img-thumbnail" alt="profile-image">
                     </div>
 
                     <div class="">
-                        <h4 class="m-b-5">Julie L. Arsenault</h4>
+                        <h4 class="m-b-5"><?php echo isset($user_info)?$user_info['member_name']:''?></h4>
                     </div>
 
                     <p class="text-muted font-13">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt accusantium nam iste
-                        voluptatum veritatis officiis ipsa minima cupiditate! Aut, omnis. Est distinctio molestias
-                        explicabo? Explicabo ullam delectus cupiditate omnis quo.
+                    <?php echo isset($user_info)?$user_info['about']:''?>
                     </p>
                     <div class="panel-body">
                         <p class="text-muted font-13">
@@ -42,14 +40,13 @@
                         <hr>
 
                         <div class="text-left">
-                            <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">Suu</span></p>
+                            <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15"><?php echo isset($user_info)?$user_info['member_name']:''?></span></p>
 
                             <p class="text-muted font-13"><strong>Phone :</strong><span class="m-l-15">9999999</span>
                             </p>
 
-                            <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">quocsuu66@gmail.com</span></p>
+                            <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15"><?php echo isset($user_info)?$user_info['email']:''?></span></p>
 
-                            <p class="text-muted font-13"><strong>Địa chỉ :</strong> <span class="m-l-15">Việt nam</span></p>
                         </div>
                     </div>
                 </div>
@@ -60,29 +57,43 @@
             <div class="card-box">
                 <h4 class="header-title m-t-0">Chỉnh sửa</h4>
                 <form action="#" novalidate="" method="post" enctype="multipart/form-data">
+                <input type=hidden name=member_id value=<?php echo $_SESSION['user_info']['member_id'];?>>
                     <div class="form-group">
-                        <label for="userName">User Name<span class="text-danger">*</span></label>
-                        <input type="text" name="nick" parsley-trigger="change" required="" placeholder="Enter user name"
-                            class="form-control" id="userName">
+                        <label for="userName">Full Name<span class="text-danger">*</span></label>
+                        <input type="text" parsley-trigger="change" name=member_name required="" placeholder="Enter your name"
+                            class="form-control" id="userName"
+                            value="<?php echo isset($user_info)?$user_info['member_name']:''?>">
                     </div>
                     <div class="form-group">
                         <label for="emailAddress">Email address<span class="text-danger">*</span></label>
-                        <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email"
-                            class="form-control" id="emailAddress">
+                        <input type="email" parsley-trigger="change"  name=email required="" placeholder="Enter email"
+                            class="form-control" id="emailAddress"
+                            value="<?php echo isset($user_info)?$user_info['email']:''?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Phone Number<span class="text-danger">*</span></label>
+                        <input type="email" parsley-trigger="change"  name=phone required="" placeholder="Enter phone number"
+                            class="form-control" id="phoneNumber"
+                            value="<?php echo isset($user_info)?$user_info['phone']:''?>">
                     </div>
                     <div class="form-group">
                         <label for="pass1">Password<span class="text-danger">*</span></label>
-                        <input id="pass1" type="password" placeholder="Password" required="" class="form-control">
+                        <input id="pass1" type="password" placeholder="Password" name=pass required="" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="pass1">About<span class="text-danger">*</span></label>
-                        <textarea name="about" id="" cols="100" rows="3"></textarea>
+                        <label for="pass1">About<span class="text-danger">*</span></label><br>
+                        <textarea name="about" id="" cols="100" rows="6" class="form-control"><?php echo isset($user_info)?$user_info['about']:''?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass1">Title<span class="text-danger">*</span></label>
+                        <input id="pass1" type="text" placeholder="Title" name=title required="" class="form-control"
+                        value="<?php echo isset($user_info)?$user_info['title']:''?>">
                     </div>
                     <div class="form-group">
                         <label for="pass1">Avatar<span class="text-danger">*</span></label>
-                        <input type="file" class="form-control"> </div>
+                        <input type="file" class="form-control" name="profile_picture"> </div>
                     <div class="form-group text-right m-b-0">
-                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                        <button class="btn btn-primary waves-effect waves-light" name=submit type="submit">
                             Submit
                         </button>
                         <button type="reset" class="btn btn-secondary waves-effect m-l-5">

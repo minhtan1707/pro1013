@@ -28,7 +28,7 @@
     <?php foreach($projects as $project):?>
 
     <div class="col-sm-4 col-xs-12">
-        <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['pro_id']:''?>">
+        <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['id']:''?>">
         <div class="card m-b-20 card-block card-inverse card-success">
             <h4 class="card-title"><?php echo isset($project)?$project['pro_name']:'';?></h4>
             <p class="card-text">Thông tin dự án <br>
@@ -129,19 +129,19 @@
                 </h2>
 
 
-                <form class="form-horizontal" action="dashboard.php?page=projects" method="post" >
+                <form class="form-horizontal" action="" method="post" >
 
                     <div class="form-group m-b-25">
                         <div class="col-xs-12">
                             <label for="username">Tên dự án</label>
-                            <input class="form-control" type="text" id="username" required="">
+                            <input class="form-control" type="text" name="pro_name" id="username" required="">
                         </div>
                     </div>
 
                     <div class="form-group m-b-25">
                         <div class="col-xs-12">
                           <div>  <label for="emailaddress">Nội dung</label></div>
-                          <textarea id="textarea" class="form-control" maxlength="225" rows="3" ></textarea>
+                          <textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3" ></textarea>
                         </div>
                     </div>
                     <div class="form-group account-btn text-center m-t-10">
