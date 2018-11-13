@@ -9,7 +9,6 @@
         </div>
     </div>
 
-
     <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
         <div class="row">
             <div class="col-sm-12">
@@ -18,64 +17,67 @@
                     <thead>
                         <tr role="row">
                             <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
-                                style="width: 46px;" aria-sort="ascending" aria-label="
+                                style="width: 50px;" aria-sort="ascending" aria-label="
                     ID
                 : activate to sort column descending">
-                                ID
+                                Task
                             </th>
 
-                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 148px;">Project</th>
-                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 261px;">Subject</th>
-                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 44px;">Status</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 100px;">Project</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 150px;">Description</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 30px;">Status</th>
                             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 90px;">Created
                                 Date</th>
-                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 66px;">Due
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 40px;">Due
                                 Date</th>
-                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 66px;" >Action</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 100px;" >Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        <?php foreach($tasks as $task):?>
+                            <tr role="row" class="odd parent">
+                                <td tabindex="0" class="sorting_1" style=""><b><?php echo isset($tasks)?$task['task_name']:''?></b></td>
+                                <td>
+                                    <a href="javascript: void(0);">
+                                        <span class="m-l-5"><b><?php echo isset($tasks)?$task['pro_name']:''?></b></span>
+                                    </a>
+                                </td>
 
-                        <tr role="row" class="odd parent">
-                            <td tabindex="0" class="sorting_1" style=""><b>#1020</b></td>
-                            <td>
-                                <a href="javascript: void(0);">
-                                    <span class="m-l-5"><b>Erwin E. Brown</b></span>
-                                </a>
-                            </td>
-
-                            <td>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, voluptate?
-                            </td>
+                                <td>
+                                <?php echo isset($tasks)?$task['task_desc']:''?>
+                                </td>
 
 
+                                <?php if($task['status']==0):?>
+                                <td>
+                                    <span class="label label-danger">In Progress</span>
+                                </td>
+                                <?php else:?>
+                                <td>
+                                    <span class="label label-primary">Finished</span>
+                                </td>
+                                <?php endif;?>
+                                <td>
+                                <?php echo isset($tasks)?$task['created_at']:''?>
+                                </td>
 
-                            <td>
-                                <span class="label label-success">Progresss</span>
-                            </td>
+                                <td>
+                                <?php echo isset($tasks)?$task['end_date']:''?>
+                                </td>
 
-                            <td>
-                                2018/08/11
-                            </td>
-
-                            <td>
-                                2018/08/30
-                            </td>
-
-                            <td >
-                                       <form action="">
-                                        <select class="mini-select" style="width:16px; border:none" >
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                          </select>
-                                          <button class="btn btn-success waves-effect waves-light btn-sm" type="submit" value="Change" ><i class="mdi mdi-check-all   font-18 vertical-middle"></i></button> 
-                                       </form>
-                            </td>
-                        </tr>
-
+                                <td >
+                                        <form action="">
+                                            <select class="mini-select" style="width:100px; border:none" >
+                                                <option>Status</option>
+                                                <option value="0" <?php echo $task['status']==0?'selected':''?> >In Progress</option>
+                                                <option value="1" <?php echo $task['status']==1?'selected':''?>>Finished</option>
+                                            </select>
+                                            <button class="btn btn-success waves-effect waves-light btn-sm" type="submit" value="Change" name='submit' ><i class="mdi mdi-check-all   font-18 vertical-middle"></i></button> 
+                                        </form>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
 
                     </tbody>
                 </table>

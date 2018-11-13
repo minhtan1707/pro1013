@@ -4,7 +4,7 @@ function pdo_get_connection(){
     ini_set('display_errors', '1');
     $dburl = "mysql:host=localhost:3307;dbname=project_management";
     $username = 'root';
-    $password = 'root';
+    $password = '';
 
     $conn = new PDO($dburl, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

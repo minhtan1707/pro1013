@@ -18,6 +18,8 @@ switch($act){
 
 function home()
 {
+    require_once './models/task.php';
+    $tasks=get_task_member_id($_SESSION['user_info']['member_id']);
     $title ='Nhiệm vụ';
     $subview='dashboard/task/home.php';
     require_once './views/dashboard/layout.php';
