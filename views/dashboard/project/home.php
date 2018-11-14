@@ -31,19 +31,19 @@
         <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['id']:''?>">
         <div class="card m-b-20 card-block card-inverse card-success">
             <h4 class="card-title"><?php echo isset($project)?$project['pro_name']:'';?></h4>
-            <p class="card-text">Thông tin dự án <br>
+            <p class="card-text">
             <?php echo isset($project)?$project['description']:'';?>
             </p>
             <p class="card-text">
                 <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $created_at=strtotime($project['created_at']);
                 if(isset($project)){
-                    if((date('m')-date('m',$created_at))>1)
+                    if((date('m')-date('m',$created_at))>=1)
                     {
                         $date= date('m')-date('m',$created_at);
                         echo '<small>Đăng '.$date.' tháng trước</small>';
                     }
-                    else if((date('d')-date('d',$created_at))>1)
+                    else if((date('d')-date('d',$created_at))>=1)
                     {
                         $date= date('d')-date('d',$created_at);
                         echo '<small>Đăng '.$date.' ngày trước</small>';
