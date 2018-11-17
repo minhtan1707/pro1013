@@ -18,6 +18,11 @@ switch($act){
 
 function home()
 {
+    require_once './models/task.php';
+    $tasks=get_task_member_id($_SESSION['user_info']['member_id']);
+    $finished_tasks=get_task_member_id($_SESSION['user_info']['member_id'],'1');
+    $unfinished_tasks=get_task_member_id($_SESSION['user_info']['member_id'],'0');
+    $closed_tasks=get_task_closed($_SESSION['user_info']['member_id'],date('Y-m-d'));
     $title ='Nhiệm vụ';
     $subview='dashboard/task/home.php';
     require_once './views/dashboard/layout.php';

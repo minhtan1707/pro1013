@@ -1,18 +1,18 @@
 <?php
 require_once './core/pdo.php';
 
-function insert_project($pro_name,$descciption,$pro_leader){
+function insert_project($pro_name,$description,$pro_leader){
     $sql = "INSERT INTO project(pro_name,description,pro_leader) VALUES(?,?,?)";
-    pdo_execute($sql, $pro_name,$descciption,$pro_leader);
+    pdo_execute($sql, $pro_name,$description,$pro_leader);
 }
 
 function insert_project_detail($pro_id,$member_id){
     $sql = "INSERT INTO pro_detail(pro_id,member_id) VALUES (?,?)";
     pdo_execute($sql,$pro_id,$member_id);
 }
-function update_project($pro_id,$pro_name,$descciption,$pro_leader){
-    $sql = "UPDATE project SET pro_name=?,descciption=?,pro_leader=? WHERE pro_id=?";
-    pdo_execute($sql,$pro_name,$descciption,$pro_leader,$pro_id);
+function update_project($pro_id,$pro_name,$description,$pro_leader){
+    $sql = "UPDATE project SET pro_name=?,description=?,pro_leader=? WHERE pro_id=?";
+    pdo_execute($sql,$pro_name,$description,$pro_leader,$pro_id);
 }
 
 function get_project(){

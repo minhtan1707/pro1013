@@ -50,11 +50,22 @@
             <?php foreach($tasks as $task):?>
             <div class="card-box kanban-box">
                 <div class="kanban-detail">
-                <?php if($task['status']==0):?>
-                    <span class="badge badge-danger pull-right">Unfinished</span>
-                <?php elseif($task['status']==1):?>
-                    <span class="badge badge-success pull-right">Finished</span>
-                <?php endif;?>
+                    <?php 
+                        date_default_timezone_set('Asia/Ho_Chi_Minh');
+                        $end_date=strtotime($task['end_date']);
+                        $end_date=date('Y-m-d',$end_date);
+                        $now=date('Y-m-d');?>
+                        <?php if($now<$end_date):?>
+                            <?php if($task['status']==0){
+                                echo '<span class="badge badge-danger pull-right">Unfinished</span>';
+                            }else if($task['status']==1)
+                            {
+                                echo '<span class="badge badge-success pull-right">Finished</span>';
+                            }?>
+                        <?php else:?>
+                        <span class="badge badge-muted pull-right">Closed</span>
+                        <?php endif;?>
+
                     <!-- <span class="badge badge-muted pull-right">Finished</span> -->
                     <!-- <span class="badge badge-success pull-right">In progress</span> -->
                     <h4><?php echo isset($task)?$task['task_name']:'';?></h4>
