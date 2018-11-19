@@ -1,9 +1,9 @@
 <?php
 require_once './core/pdo.php';
 
-function insert_project($pro_name,$description,$pro_leader){
-    $sql = "INSERT INTO project(pro_name,description,pro_leader) VALUES(?,?,?)";
-    pdo_execute($sql, $pro_name,$description,$pro_leader);
+function insert_project($pro_name,$description,$pro_leader,$pro_start,$pro_end){
+    $sql = "INSERT INTO project(pro_name,description,pro_leader,pro_start,pro_end) VALUES(?,?,?,?,?)";
+    pdo_execute($sql, $pro_name,$description,$pro_leader,$pro_start,$pro_end);
 }
 
 function insert_project_detail($pro_id,$member_id){

@@ -146,10 +146,17 @@
                     </div>
                     <div class="form-group m-b-25">
                         <div class="col-xs-12">
-                          <div>  <label for="emailaddress">Ngày kết thúc</label></div>
-                          <input type="date" name="day" class="form-control">
+                          <div>  <label for="emailaddress">Ngày bắt đầu</label></div>
+                          <input type="date" name="pro_start" class="form-control">
                         </div>
                     </div>
+                    <div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                          <div>  <label for="emailaddress">Ngày kết thúc</label></div>
+                          <input type="date" name="pro_end" class="form-control">
+                        </div>
+                    </div>
+
                     <div class="form-group account-btn text-center m-t-10">
                         <div class="col-xs-12">
                             <button class="btn w-lg btn-lg btn-primary waves-effect waves-light" type="submit">Thêm dự án</button>

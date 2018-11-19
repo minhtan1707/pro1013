@@ -34,8 +34,8 @@ function login($email,$pass){ // code user người dùng đăng nhập vào h�
     return pdo_query_one($sql,$email,$pass);
 }
 
-function get_member_where($where,$value){
-    $sql = "SELECT * FROM member WHERE $where=?";
+function get_member_email($value){
+    $sql = "SELECT * FROM member WHERE email=?";
     return pdo_query_one($sql, $value);
 }
 

@@ -1,14 +1,14 @@
 <?php
 require_once './core/pdo.php';
 
-function insert_task($task_name,$end_date,$assigned_member,$pro_id){
-    $sql = "INSERT INTO task(task_name,end_date,assigned_member,pro_id) VALUES(?,?,?,?)";
-    pdo_execute($sql, $task_name,$end_date,$assigned_member,$pro_id);
+function insert_task($pro_id,$task_name,$task_desc,$assigned_member,$end_date){
+    $sql = "INSERT INTO task(pro_id,task_name,task_desc,assigned_member,end_date) VALUES(?,?,?,?,?)";
+    pdo_execute($sql,$pro_id, $task_name,$task_desc,$assigned_member,$end_date);
 }
 
-function update_task($task_id,$task_name,$end_date,$assigned_member){
-    $sql = "UPDATE task SET task_name=?,end_date=?,assigned_member=? WHERE task_id=?";
-    pdo_execute($sql,$task_name,$end_date,$assigned_member,$task_id);
+function update_task($task_id,$task_name,$task_desc,$assigned_member,$status,$end_date){
+    $sql = "UPDATE task SET task_name=?,task_desc=?,assigned_member=?,status=?,end_date=? WHERE task_id=?";
+    pdo_execute($sql,$task_name,$task_desc,$assigned_member,$status,$end_date,$task_id);
 }
 
 function get_task($status=null){
