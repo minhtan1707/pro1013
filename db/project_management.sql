@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Nov 08, 2018 at 02:50 AM
+-- Generation Time: Nov 19, 2018 at 04:12 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -63,20 +63,21 @@ CREATE TABLE `member` (
   `member_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên thành viên',
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Email thành viên',
   `pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Mật khẩu',
-  `profile_picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `profile_picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'noimage.jpg',
   `about` text COLLATE utf8_unicode_ci,
-  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`member_id`, `member_name`, `email`, `pass`, `profile_picture`, `about`, `title`) VALUES
-(2, 'Tan Nguyen', 'minhtan1707@gmail.com', 'rasengan', 'avatar-2.jpg', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Web Designer'),
-(3, 'Mike Tanny', 'minhtan17071991@gmail.com', 'rasengan', 'avatar-4.jpg', NULL, NULL),
-(4, 'Viet Hung', 'hoangviet.hung.009@gmail.com', '12345', 'avatar-1.jpg', NULL, 'Documentation'),
-(5, 'Suu', 'quocsuu66@gmail.com', '12345', 'avatar-3.jpg', NULL, 'Front End');
+INSERT INTO `member` (`member_id`, `member_name`, `email`, `pass`, `profile_picture`, `about`, `title`, `phone`) VALUES
+(2, 'Mike Tanny', 'minhtan1707@gmail.com', 'rasengan', 'avatar-2.jpg', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Web Designer', '0907321766'),
+(3, 'Mike Tanny', 'minhtan17071991@gmail.com', 'rasengan', 'avatar-4.jpg', NULL, NULL, NULL),
+(4, 'Viet Hung', 'hoangviet.hung.009@gmail.com', '12345', 'avatar-1.jpg', NULL, 'Documentation', NULL),
+(5, 'Suu', 'quocsuu66@gmail.com', '12345', 'avatar-3.jpg', NULL, 'Front End', NULL);
 
 -- --------------------------------------------------------
 
@@ -89,16 +90,22 @@ CREATE TABLE `project` (
   `pro_leader` int(11) NOT NULL COMMENT 'Người Leader của dự án',
   `pro_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên dự án',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Ngày tạo dự án',
-  `description` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung dự án'
+  `description` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung dự án',
+  `pro_start` date NOT NULL,
+  `pro_end` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`pro_id`, `pro_leader`, `pro_name`, `created_at`, `description`) VALUES
-(1, 2, 'Test Project', '2018-11-06 10:18:50', 'This is test project 1'),
-(2, 2, 'Test Project 2', '2018-11-06 10:18:50', 'This is test project 2');
+INSERT INTO `project` (`pro_id`, `pro_leader`, `pro_name`, `created_at`, `description`, `pro_start`, `pro_end`) VALUES
+(1, 2, 'Test Project', '2018-11-06 10:18:50', 'This is test project 1', '2018-11-01', '2018-11-30'),
+(2, 2, 'Test Project 2', '2018-11-06 10:18:50', 'This is test project 2', '2018-11-20', '2018-12-05'),
+(3, 2, 'Project new', '2018-11-12 13:01:55', 'This is a newly created project', '2018-11-08', '2018-11-22'),
+(4, 2, 'project 1000', '2018-11-12 13:07:33', 'sadsacxc', '2018-11-01', '2018-11-11'),
+(5, 2, 'Project no5', '2018-11-15 09:30:28', 'This is project no.5\r\n', '0000-00-00', '0000-00-00'),
+(6, 2, 'project no 6', '2018-11-15 09:57:35', 'project so 6', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -137,8 +144,20 @@ CREATE TABLE `task` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Ngày tạo công vệc',
   `assigned_member` int(11) NOT NULL COMMENT 'Danh sách thành viên',
   `status` tinyint(255) NOT NULL DEFAULT '0' COMMENT 'Tình trạng công việc',
-  `end_date` date NOT NULL COMMENT 'Ngày kết thúc công việc'
+  `task_desc` text COLLATE utf8_unicode_ci,
+  `end_date` date NOT NULL COMMENT 'Ngày kết thúc công việc',
+  `priority` tinyint(4) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `task`
+--
+
+INSERT INTO `task` (`task_id`, `pro_id`, `task_name`, `created_at`, `assigned_member`, `status`, `task_desc`, `end_date`, `priority`) VALUES
+(1, 1, 'Task no.1', '2018-11-12 13:25:00', 3, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie id sem quis posuere. Aliquam non dapibus augue, ut tincidunt eros. Fusce ornare nec ligula ut pretium. Maecenas molestie ornare finibus. Nulla ultricies nisi ut dignissim dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras condimentum massa quis felis varius, at hendrerit diam imperdiet. Sed volutpat condimentum sapien, eu dapibus mauris venenatis id. ', '2018-11-22', 2),
+(2, 1, 'Task no.2', '2018-11-12 13:25:00', 4, 1, 'Cras iaculis odio ac nunc sollicitudin tristique. Quisque in aliquam est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sollicitudin magna et consequat porta. Vivamus id lorem risus.', '2018-11-23', 2),
+(3, 2, 'Task no.3', '2018-11-12 21:11:09', 2, 0, 'Lorem disasd eqg sgsdg ew gewgw', '2018-11-14', 2),
+(4, 1, 'Task no.4', '2018-11-12 21:11:09', 2, 1, 'sadg eg weg sdg xerhj rzj ezj zerj', '2018-11-24', 2);
 
 --
 -- Indexes for dumped tables
@@ -224,19 +243,19 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án', AUTO_INCREMENT=3;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pro_detail`
 --
 ALTER TABLE `pro_detail`
-  MODIFY `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết dự án', AUTO_INCREMENT=10;
+  MODIFY `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết dự án', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã công việc';
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã công việc', AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

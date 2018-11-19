@@ -60,7 +60,7 @@
                                 echo '<span class="badge badge-danger pull-right">Unfinished</span>';
                             }else if($task['status']==1)
                             {
-                                echo '<span class="badge badge-success pull-right">Finished</span>';
+                                echo '<span class="badge badge-primary pull-right">Finished</span>';
                             }?>
                         <?php else:?>
                         <span class="badge badge-muted pull-right">Closed</span>
