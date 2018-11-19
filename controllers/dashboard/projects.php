@@ -71,6 +71,7 @@ function project_detail()
     require_once './models/task.php';
     $project=get_project_id($_GET['id']);
     $team_lead=get_member_id($project['pro_leader']);
+    $all_mems =  get_member();
     $project_details=get_project_detail_id($_GET['id']);
     $tasks=get_task_pro_id($_GET['id']);
     $title ='Chi tiết dự án';
