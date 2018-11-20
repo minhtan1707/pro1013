@@ -40,22 +40,22 @@
 							    <!-- Collect the nav links, forms, and other content for toggling -->
 							    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							        <ul class="nav navbar-nav navbar-right">
-								      	<li><a href="#how">How it works</a></li>
-								        <li><a href="#features">Features</a></li>
-										<li><a href="#pricing">Pricing</a></li>
+								      	<li><a href="#how">Sử Dụng</a></li>
+								        <li><a href="#features">Tính năng</a></li>
+										<li><a href="#pricing">Bảng giá</a></li>
 										<li><a href="#faq">FAQ</a></li>
-										<li><a href="#clients">Clients</a></li>
+										<li><a href="#clients">Khách hàng</a></li>
 										<li><a href="index.php?act=login">Đăng nhập</a></li>
-							        </ul>
-							    </div><!-- /.navbar-collapse -->
+									</ul>
+								</div><!-- /.navbar-collapse -->
 							</div><!-- /.container-fluid -->
 						</nav> <!-- end nav -->
 					</div> <!-- End row -->
 
 					<div class="row hero-content text-center">
-						<h1 class="">Cú to - Project managerment</h1>
+						<h1 class="">Project managerment</h1>
 						<div class="m-t-20">
-							<a href="index.php?act=register" class="btn btn-custom w-lg">Đăng ký </a>
+							<a href="index.php?act=register" class="btn btn-custom w-lg">Đăng ký</a>
 						</div>
 						<div id="macbook">
 					        <div id="tour" class="carousel slide" data-ride="carousel">
@@ -84,19 +84,19 @@
 
 				<div class="row">
 					<div class="col-sm-12">
-						<h2 class="title">How It Works ?</h2>
-						<p class="slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+						<h2 class="title">Tiện ích Nổi Bật</h2>
+						<p class="slogan">Các tiện ích nổi bật của Project Managerment xoay quanh các tính năng hỗ trợ teamwork và quan trọng nhất chính là Real Time.</p>
 					</div>
 				</div> <!-- End row -->
 
 				<div class="row p-t-50">
 		            <div class="col-sm-4">
 		                <div class="features-2">
-		                    <img src="./static/home/images/icons/Experiment.png" alt="">
+		                    <img src="./static/images/icons/data_recovery.svg" alt="">
 		                </div>
 		                <div>
-			                <h4>Responsive Design</h4>
-			                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			                <h4>Tạo Dự Án</h4>
+			                <p>Các tài khoản của Project Managerment có thể tạo một hoặc cách dự án và thêm các thành viên khác vào dự án của mình.</p>
 		                </div>
 		            </div> <!-- end col -->
 
@@ -105,18 +105,18 @@
 		                    <img src="./static/home/images/icons/Bookmark.png" alt="">
 		                </div>
 		                <div>
-			                <h4>Clean Code</h4>
-			                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Ut enim ad minim veniam, quis.</p>
+			                <h4>Quản Lí Dự Án</h4>
+			                <p>Các tài khoản tạo dự án (Leader) có thể quản lí dự án của mình (thời gian deadline dự án, công việc; quản lí các thành viên trong dự án,...)</p>
 		                </div>
 		            </div> <!-- end col -->
 
 		            <div class="col-sm-4">
 		                <div class="features-2">
-		                	<img src="./static/home/images/icons/Stats.png" alt="">
+		                	<img src="./static/images/icons/calendar.svg" alt="">
 		                </div>
 		                <div>
-			                <h4>Easy Customize</h4>
-			                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Ut enim ad minim veniam.</p>
+			                <h4>Tạo Các Buổi Họp</h4>
+			                <p>Leader có thể tạo các buổi họp có thời gian đia điểm rõ ràng cho từng buổi họp và các buổi họp đều có nội dung cụ thể.</p>
 		                </div>
 	                </div> <!-- end col -->
 
@@ -126,31 +126,31 @@
 	            <div class="row">
 		            <div class="col-sm-4">
 		                <div class="features-2">
-		                    <img src="./static/home/images/icons/Image.png" alt="">
+		                    <img src="./static/images/icons/workflow.svg" alt="">
 		                </div>
 		                <div>
-			                <h4>Responsive Design</h4>
-			                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			                <h4>Tương Tác Thành Viên</h4>
+			                <p>Các thành viên trong dự án có thể tương tác với nhau qua tính năng comment ở trong từng tác vụ (công việc được giao), cũng như là tương tác với nhau qua box chat dự án.</p>
 		                </div>
 		            </div> <!-- end col -->
 
 		            <div class="col-sm-4">
 		                <div class="features-2">
-		                    <img src="./static/home/images/icons/Video.png" alt="">
+		                    <img src="./static/images/icons/list.svg" alt="">
 		                </div>
 		                <div>
-			                <h4>Clean Code</h4>
-			                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Ut enim ad minim veniam, quis.</p>
+			                <h4>Danh Sách Công Việc</h4>
+			                <p>Leader có thể tạo và giao các công việc cho các thành viên trong nhóm (có thời gian dealine, nội dung công việc cụ thể ).</p>
 		                </div>
 		            </div> <!-- end col -->
 
 		            <div class="col-sm-4">
 		                <div class="features-2">
-		                	<img src="./static/home/images/icons/Camera.png" alt="">
+		                	<img src="./static/images/icons/alarm_clock.svg" alt="">
 		                </div>
 		                <div>
-			                <h4>Easy Customize</h4>
-			                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Ut enim ad minim veniam.</p>
+			                <h4>Quản Lí Dealine Dự Án</h4>
+			                <p>Leader có thể quản lí được thời gian kết thúc của dự án (có thể chỉnh sửa thời gian kết thúc, hoặc xóa thời gian kết thúc "dự án dài hạn" ).</p>
 		                </div>
 	                </div> <!-- end col -->
 
@@ -169,8 +169,8 @@
 
 		            <div class="col-sm-6">
 		                <div class="feature-sec">
-		                	<h3>Taskboard &amp; Companies Pages</h3>
-		                	<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vivamus eu sollicitudin lacus, nec ultricies lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat arcu ut orci porta, eget porttitor felis suscipit. Sed a nisl ullamcorper, tempus augue at, rutrum lacus. </p>
+		                	<h3>Giao Diện &amp; Tính Năng</h3>
+		                	<p>Project Managerment có giao diện đơn giản và dễ dàng sử dụng, mọi người đều có thể dễ dàng tiếp cận và sử dụng. Giao diện của Project Managerment màu sắc đơn giản, các nút tính năng nằm gọn một nơi nên người sử dụng không tốn quá nhiều thời gian để tìm kiếm.</p>
 		                	<a href="#" class="btn-custom btn w-md">Get Started</a>
 		                </div>
 		            </div><!-- end col -->
