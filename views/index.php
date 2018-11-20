@@ -1,63 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-    <head>
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="description" content="">
-	    <meta name="author" content="Coderthemes">
-	    <link rel="shortcut icon" href="./static/home/images/favicon.ico">
-
-	    <title>Adminox - Responsive Admin & Frontend</title>
-
-	    <!-- Bootstrap core CSS -->
-	    <link href="./static/home/css/bootstrap.min.css" rel="stylesheet">
-	    <link href="./static/home/css/font-awesome.min.css" rel="stylesheet">
-	    <!-- Custom styles for this template -->
-	    <link href="./static/home/css/style.css" rel="stylesheet">
-    </head>
-
-
-
-	<body>
-
-		<header>
-			<section class="hero">
-				<div class="container">
-					<div class="row nav-wrapper">
-						<nav class="navbar navbar-custom">
-						    <div class="container-fluid">
-							    <!-- Brand and toggle get grouped for better mobile display -->
-							    <div class="navbar-header">
-							        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								        <span class="sr-only">Toggle navigation</span>
-								        <span class="icon-bar"></span>
-								        <span class="icon-bar"></span>
-								        <span class="icon-bar"></span>
-							        </button>
-							        <a class="navbar-brand" href="#"><img src="./static/home/images/logo.png" alt="logo" height="30"></a>
-							    </div>
-
-							    <!-- Collect the nav links, forms, and other content for toggling -->
-							    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							        <ul class="nav navbar-nav navbar-right">
-								      	<li><a href="#how">Sử Dụng</a></li>
-								        <li><a href="#features">Tính năng</a></li>
-										<li><a href="#pricing">Bảng giá</a></li>
-										<li><a href="#faq">FAQ</a></li>
-										<li><a href="#clients">Khách hàng</a></li>
-										<li><a href="index.php?act=login">Đăng nhập</a></li>
-									</ul>
-								</div><!-- /.navbar-collapse -->
-							</div><!-- /.container-fluid -->
-						</nav> <!-- end nav -->
-					</div> <!-- End row -->
-
-					<div class="row hero-content text-center">
-						<h1 class="">Project managerment</h1>
-						<div class="m-t-20">
-							<a href="index.php?act=register" class="btn btn-custom w-lg">Đăng ký</a>
-=======
 
 <head>
 	<meta charset="utf-8">
@@ -94,16 +36,15 @@
 							</div>
 
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav navbar-right">
-									<li><a href="#">How it works</a></li>
-									<li><a href="#">Features</a></li>
-									<li><a href="#">Pricing</a></li>
-									<li><a href="#">FAQ</a></li>
-									<li><a href="#">Clients</a></li>
-									<li><a href="index.php?act=login">Đăng nhập</a></li>
-								</ul>
+							<ul class="nav navbar-nav navbar-right">
+								      	<li><a href="#how">Sử Dụng</a></li>
+								        <li><a href="#features">Tính năng</a></li>
+										<li><a href="#pricing">Bảng giá</a></li>
+										<li><a href="#faq">FAQ</a></li>
+										<li><a href="#clients">Khách hàng</a></li>
+										<li><a href="index.php?act=login">Đăng nhập</a></li>
+									</ul>
 							</div>
->>>>>>> master
 						</div>
 					</nav>
 				</div>
@@ -138,25 +79,6 @@
 	<section class="section features" id="how">
 		<div class="container text-center">
 
-			<div class="row">
-				<div class="col-sm-12">
-					<h2 class="title">Lorem ipsum</h2>
-					<p class="slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et.</p>
-				</div>
-			</div>
-
-			<div class="row p-t-50">
-				<div class="col-sm-4">
-					<div class="features-2">
-						<img src="./static/home/images/icons/Experiment.png" alt="">
-					</div>
-					<div>
-						<h4>Lorem ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-							magna aliqua.</p>
-					</div>
-				</div>
 
 				<div class="row">
 					<div class="col-sm-12">
@@ -234,41 +156,7 @@
 			</div>
 
 
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="features-2">
-						<img src="./static/home/images/icons/Image.png" alt="">
-					</div>
-					<div>
-						<h4>Lorem ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-							magna aliqua.</p>
-					</div>
-				</div>
-
-				<div class="col-sm-4">
-					<div class="features-2">
-						<img src="./static/home/images/icons/Video.png" alt="">
-					</div>
-					<div>
-						<h4>Lorem ipsum</h4>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Ut enim
-							ad minim veniam, quis.</p>
-					</div>
-				</div>
-
-				<div class="col-sm-4">
-					<div class="features-2">
-						<img src="./static/home/images/icons/Camera.png" alt="">
-					</div>
-					<div>
-						<h4>Lorem ipsum</h4>
-						<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-							laborum.Ut enim ad minim veniam.</p>
-					</div>
-				</div>
-
-			</div>
+			 
 		</div>
 	</section>
 
@@ -297,27 +185,6 @@
 
 
 
-	<section class="content-wrap bg-light section pb0" id="features">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-sm-6">
-					<div class="feature-sec">
-						<h3>Vestibulum ante ipsum primis</h3>
-						<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vivamus eu
-							sollicitudin lacus, nec ultricies lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat
-							arcu ut orci porta, eget porttitor felis suscipit. Sed a nisl ullamcorper, tempus augue at, rutrum lacus. </p>
-						<a href="#" class="btn-custom btn w-md">Get Started</a>
-					</div>
-				</div>
-
-				<div class="col-sm-6 featured-img">
-					<img src="./static/home/images/screen-3.png" alt="Features-img" class="img-responsive">
-				</div>
-
-			</div>
-		</div>
-	</section>
 
 
 
