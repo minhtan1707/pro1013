@@ -17,6 +17,8 @@ switch($act){
 
 function home()
 {
+    require_once './models/meeting.php';
+    $meetings=get_meeting($_SESSION['user_info']['member_id']);
     $title ='Cuộc họp';
     $subview='dashboard/meeting/home.php';
     require_once './views/dashboard/layout.php';

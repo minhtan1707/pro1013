@@ -39,7 +39,7 @@ function home()
 {
     require_once './models/project.php';
     if(isset($_POST['pro_name'])){
-        insert_project($_POST['pro_name'],$_POST['pro_desc'],$_SESSION['user_info']['member_id']);
+        insert_project($_POST['pro_name'],$_POST['pro_desc'],$_SESSION['user_info']['member_id'],$_POST['pro_start'],$_POST['pro_end']);
         header('location: dashboard.php?page=projects');
     }else{
         // print_r($_SESSION['user_info']);
@@ -66,16 +66,49 @@ function edit()
 
 function project_detail()
 {
+    require_once './models/meeting.php';
     require_once './models/project.php';
     require_once './models/member.php';
     require_once './models/task.php';
+    $pro_id=$_GET['id'];
     $project=get_project_id($_GET['id']);
     $team_lead=get_member_id($project['pro_leader']);
+    $members =  get_member();
     $project_details=get_project_detail_id($_GET['id']);
     $tasks=get_task_pro_id($_GET['id']);
     $title ='Chi tiết dự án';
-    $subview='dashboard/project/project-detail.php';
-    require_once './views/dashboard/layout.php';
+    $pro_end=date('Y-m-d',strtotime($project['pro_end']));
+    $meetings=get_meeting_pro_id($pro_id);
+    if(isset($_POST['add_task']))
+    {
+        insert_task($pro_id,$_POST['task_name'],$_POST['task_desc'],$_POST['assigned_member'],$_POST['end_date']);
+        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+    }
+    else if(isset($_POST['add_member']))
+    {
+        $member_added=get_member_email($_POST['member_added']);
+        if($member_added){
+            insert_project_detail($pro_id,$member_added['member_id']);
+            header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+        }else{
+            header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+        }
+        
+    }
+    else if(isset($_POST['edit_task']))
+    {
+        update_task($_POST['task_id'],$_POST['task_name'],$_POST['task_desc'],$_POST['assigned_member'],$_POST['status'],$_POST['end_date']);
+        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+    }else if(isset($_POST['add_meeting']))
+    {
+        insert_meeting($pro_id,$_SESSION['user_info']['member_id'],$_POST['description'],$_POST['meeting_location'],$_POST['meeting_date']);
+        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+    }
+    else
+    {
+        $subview='dashboard/project/project-detail.php';
+        require_once './views/dashboard/layout.php';
+    }
 }
 
 function new_task()

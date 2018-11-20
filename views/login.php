@@ -17,8 +17,6 @@
 </head>
 
 <body style="background: url(./static/images/img-3.jpg) no-repeat fixed center; background-size:cover;">
-
-    <!-- HOME -->
     <section>
         <div class="container">
             <div class="row">
@@ -30,7 +28,7 @@
                             <div class="account-box">
                                 <div class="account-logo-box">
                                     <h2 class="text-uppercase text-center">
-                                        <a href="index.html" class="text-success">
+                                        <a href="index.php" class="text-success">
                                             <span><img src="./static/images/logo_dark.png" alt="" height="30"></span>
                                         </a>
                                     </h2>

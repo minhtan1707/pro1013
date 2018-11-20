@@ -31,25 +31,28 @@
         <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['id']:''?>">
         <div class="card m-b-20 card-block card-inverse card-success">
             <h4 class="card-title"><?php echo isset($project)?$project['pro_name']:'';?></h4>
-            <p class="card-text">Thông tin dự án <br>
+            <p class="card-text">
             <?php echo isset($project)?$project['description']:'';?>
             </p>
             <p class="card-text">
                 <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $created_at=strtotime($project['created_at']);
                 if(isset($project)){
-                    if((date('m')-date('m',$created_at))>1)
+                    if((date('m')-date('m',$created_at))>=1)
                     {
                         $date= date('m')-date('m',$created_at);
                         echo '<small>Đăng '.$date.' tháng trước</small>';
                     }
-                    else if((date('d')-date('d',$created_at))>1)
+                    else if((date('d')-date('d',$created_at))>=1)
                     {
                         $date= date('d')-date('d',$created_at);
                         echo '<small>Đăng '.$date.' ngày trước</small>';
-                    }else{
+                    }else if((date('H')-date('H',$created_at))>=1){
                         $hour=date('H')-date('H',$created_at);
                         echo '<small>Đăng '.$hour.' giờ trước</small>';
+                    }else{
+                        $minute=date('i')-date('i',$created_at);
+                        echo '<small>Đăng '.$minute.' phút trước</small>';
                     }
                 }?>
             </p>
@@ -144,6 +147,19 @@
                           <textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3" ></textarea>
                         </div>
                     </div>
+                    <div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                          <div>  <label for="emailaddress">Ngày bắt đầu</label></div>
+                          <input type="date" name="pro_start" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                          <div>  <label for="emailaddress">Ngày kết thúc</label></div>
+                          <input type="date" name="pro_end" class="form-control">
+                        </div>
+                    </div>
+
                     <div class="form-group account-btn text-center m-t-10">
                         <div class="col-xs-12">
                             <button class="btn w-lg btn-lg btn-primary waves-effect waves-light" type="submit">Thêm dự án</button>
