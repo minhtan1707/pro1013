@@ -16,44 +16,22 @@
                                 <th style="width:100px">Dự án</th>
                                 <th style="width:100px" >Nội dung</th>
                                 <th style="width:100px">Địa điểm </th>
-                                <th style="width:100px">Ngày tạo</th>
                                 <th style="width:100px">Ngày họp</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Lorem ipsum dolor sit amet.</td>
-                                <td>Lorem ipsum dolor sit amet.</td>
-                                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, vel!
-                                    Reprehenderit, nobis? Nihil illo in provident beatae omnis quos blanditiis incidunt
-                                    maxime quidem itaque animi aliquid totam rerum, harum dicta.</td>
-                                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, labore.</td>
-                                <td>09:23 /10/2017</td>
-                                <td>09:23 /10/2017</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Lorem ipsum dolor sit amet.</td>
-                                <td>Lorem ipsum dolor sit amet.</td>
-                                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, vel!
-                                    Reprehenderit, nobis? Nihil illo in provident beatae omnis quos blanditiis incidunt
-                                    maxime quidem itaque animi aliquid totam rerum, harum dicta.</td>
-                                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, labore.</td>
-                                <td>09:23 /10/2017</td>
-                                <td>09:23 /10/2017</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Lorem ipsum dolor sit amet.</td>
-                                <td>Lorem ipsum dolor sit amet.</td>
-                                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, vel!
-                                    Reprehenderit, nobis? Nihil illo in provident beatae omnis quos blanditiis incidunt
-                                    maxime quidem itaque animi aliquid totam rerum, harum dicta.</td>
-                                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, labore.</td>
-                                <td>09:23 /10/2017</td>
-                                <td>09:23 /10/2017</td>
-                            </tr>
+                            <?php foreach($meetings as $meeting):?>
+                                <?php if($meeting['meeting_desc']):?>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td><?php echo isset($meeting)?$meeting['member_name']:''?></td>
+                                    <td><?php echo isset($meeting)?$meeting['pro_name']:''?></td>
+                                    <td><?php echo isset($meeting)?$meeting['meeting_desc']:''?></td>
+                                    <td><?php echo isset($meeting)?$meeting['meeting_location']:''?></td>
+                                    <td><?php echo isset($meeting)?$meeting['meeting_date']:''?></td>
+                                </tr>
+                                <?php endif;?>
+                            <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

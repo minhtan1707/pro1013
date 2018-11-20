@@ -47,9 +47,12 @@
                     {
                         $date= date('d')-date('d',$created_at);
                         echo '<small>Đăng '.$date.' ngày trước</small>';
-                    }else{
+                    }else if((date('H')-date('H',$created_at))>=1){
                         $hour=date('H')-date('H',$created_at);
                         echo '<small>Đăng '.$hour.' giờ trước</small>';
+                    }else{
+                        $minute=date('i')-date('i',$created_at);
+                        echo '<small>Đăng '.$minute.' phút trước</small>';
                     }
                 }?>
             </p>

@@ -55,5 +55,9 @@ function get_task_closed($member_id,$date)
     $sql= "SELECT * FROM task WHERE end_date<? AND assigned_member=?";
     return pdo_query($sql,$date,$member_id);
 }
-
+function change_status($task_id,$status)
+{
+    $sql = "UPDATE task SET status=? WHERE task_id=?";
+    pdo_execute($sql,$status,$task_id);
+}
 ?>

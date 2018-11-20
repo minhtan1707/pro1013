@@ -1,5 +1,5 @@
 <?php
-require_once './dao/pdo.php';
+require_once './core/pdo.php';
 
 function insert_comment($task_id,$member_id,$comment_content){
     $sql = "INSERT INTO comment(task_id,member_id,comment_content) VALUES(?,?,?)";
@@ -12,7 +12,7 @@ function update_comment($comment_id,$task_id,$member_id,$comment_content){
 }
 
 function get_comment(){
-    $sql = "SELECT * FROM comment ORDER BY created_at DESC";
+    $sql = "SELECT * FROM comment LEFT JOIN member ON comment.member_id=member.member_id ORDER BY created_at DESC";
     return pdo_query($sql);
 }
 

@@ -6,7 +6,9 @@
 				<h4 class="text-dark header-title m-t-0 text-left ">Thông tin dự án</h4>
 				<h3 class="text-dark  m-b-30 text-center"><?php echo isset($project)?$project['pro_name']:'';?></h3>
 				<p class=" text-left"><?php echo isset($project)?$project['description']:'';?>.</p>
-				<button type="button" data-toggle="modal" data-target="#edit-pro-modal" class="btn btn-inverse btn-rounded w-md waves-effect waves-light"> <i class="fa fa-wrench m-r-5"></i> <span>Sửa</span> </button>
+				<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
+					<button type="button" data-toggle="modal" data-target="#edit-pro-modal" class="btn btn-inverse btn-rounded w-md waves-effect waves-light"> <i class="fa fa-wrench m-r-5"></i> <span>Sửa</span> </button>
+				<?php endif;?>
 				<hr>
 				<h4 class="text-dark header-title m-t-0 text-left">Trưởng nhóm</h4>
 				<div class="thumb-xl member-thumb m-b-10 mx-auto">
@@ -31,7 +33,9 @@
 						<p class="text-center"><?php echo isset($project_detail)?$project_detail['member_name']:''?></p>
 						<?php endforeach;?>
 					</div>
+					<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
 					<button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#mem-modal">Thêm thành viên</button>
+					<?php endif;?>
 				</div>
 			</div>
 		</div>
@@ -44,6 +48,7 @@
 			</div>
 			<div class="col-md-6">
 					<h3 class="text-dark  font-700  m-b-10 text-right">
+					
 							 <button type="button" class="btn btn-custom waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-lg">Thêm nhiệm vụ</button>
 					</h3>
 			</div>
@@ -74,10 +79,12 @@
 					<p class=" text-left"><?php echo isset($task)?$task['task_desc']:'';?></p>
 				</div>
 				<div class="m-t-20">
+				<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
 					<p class="pull-right m-b-0 m-t-10">
 						<button type="button"  class="btn btn-success btn-xs waves-effect waves-light" data-toggle="modal"
 							data-target="<?php echo isset($task)?'#edit-task-modal-'.$task['task_id']:'';?> ">Chỉnh sửa</button>
 					</p>
+						<?php endif;?>
 					<p class="m-b-0"><img src="./static/images/users/<?php echo isset($task)?$task['profile_picture']:'';?>" alt="<?php echo isset($task)?$task['member_name']:'';?>"
 								class="thumb-sm rounded-circle m-r-10"> <span class="font-bold font-secondary"><?php echo isset($task)?$task['member_name']:'';?></span> </p>
 				</div>
@@ -114,24 +121,14 @@
 									</tr>
 									</thead>
 									<tbody>
+									<?php foreach($meetings as $meeting):?>
 									<tr>
 										<th scope="row">1</th>
-										<td >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, vel! Reprehenderit, nobis? Nihil illo in provident beatae omnis quos blanditiis incidunt maxime quidem itaque animi aliquid totam rerum, harum dicta.</td>
-										<td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, labore.</td>
-										<td>09:23 /10/2017</td>
+										<td><?php echo isset($meeting)?$meeting['meeting_desc']:''?></td>
+										<td><?php echo isset($meeting)?$meeting['meeting_location']:''?></td>
+										<td><?php echo isset($meeting)?$meeting['meeting_date']:''?></td>
 									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, vel! Reprehenderit, nobis? Nihil illo in provident beatae omnis quos blanditiis incidunt maxime quidem itaque animi aliquid totam rerum, harum dicta.</td>
-										<td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, labore.</td>
-										<td>09:23 /10/2017</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, vel! Reprehenderit, nobis? Nihil illo in provident beatae omnis quos blanditiis incidunt maxime quidem itaque animi aliquid totam rerum, harum dicta.</td>
-										<td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, labore.</td>
-										<td>09:23 /10/2017</td>
-									</tr>
+								<?php endforeach;?>
 									</tbody>
 								</table>
 							</div>
@@ -229,11 +226,11 @@
 				<h4 class="modal-title" id="custom-width-modalLabel">Sửa <?php echo isset($task)?$task['task_name']:'';?></h4>
 			</div>
 			<form class="form-horizontal" action="" method="post" >
-				<input type=hidden name=task_id value=<?php echo isset($task)?'edit-task-modal-'.$task['task_id']:'';?>>
+				<input type=hidden name=task_id value=<?php echo isset($task)?$task['task_id']:'';?>>
 				<div class="form-group m-b-25">
 					<div class="col-xs-12">
 						<label for="username">Tên nhiệm vụ</label>
-						<input class="form-control" type="text" name="task_name" id="username" value=<?php echo isset($task)?$task['task_name']:'';?> required="">
+						<input class="form-control" type="text" name="task_name" id="username" value='<?php echo isset($task)?$task['task_name']:'';?>' required="">
 					</div>
 				</div>
 
@@ -248,7 +245,12 @@
 					  <div>  <label for="emailaddress">Người thực hiện</label></div>
 					  <select class="form-control" name=assigned_member>
 						  <?php foreach($members as $member):?>
-							<option value=<?php echo $member['member_id'];?>><?php echo $member['member_name'].' - '.$member['email'];?></option>
+							<option value=<?php echo $member['member_id'];
+							if($task['assigned_member']==$member['member_id'])
+							{
+								echo ' selected';
+							}
+							?>><?php echo $member['member_name'].' - '.$member['email'];?></option>
 						<?php endforeach;?>
 						</select>
 					</div>
@@ -268,7 +270,7 @@
 					  <input type="date" name="end_date" class="form-control" value=<?php echo isset($task)?$task['end_date']:'';?> max=<?php echo $pro_end?>>
 					</div>
 				</div>
-			<div class="modal-footer">
+				<div class="form-group m-b-25">
 				<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Đóng</button>
 				<input type="submit" name=edit_task class="btn btn-success" value="Xác nhận">
 			</div>
@@ -297,20 +299,26 @@
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 							<label for="username">Tên dự án</label>
-							<input class="form-control" type="text" name="pro_name" id="username" required="">
+							<input class="form-control" type="text" name="pro_name" id="username" value="<?php echo isset($project)?$project['pro_name']:'';?>" required="">
 						</div>
 					</div>
 
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 						  <div>  <label for="emailaddress">Nội dung</label></div>
-						  <textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3" ></textarea>
+						  <textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3" ><?php echo isset($project)?$project['description']:'';?></textarea>
 						</div>
 					</div>
 					<div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                          <div>  <label for="emailaddress">Ngày bắt đầu</label></div>
+                          <input type="date" name="pro_start" class="form-control" value=<?php echo isset($project)?$project['pro_start']:'';?>>
+                        </div>
+                    </div>
+					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 						  <div>  <label for="emailaddress">Ngày kết thúc</label></div>
-						  <input type="date" name="day" class="form-control">
+						  <input type="date" name="pro_end" class="form-control" value=<?php echo isset($project)?$project['pro_end']:'';?>>
 						</div>
 					</div>
 					<div class="form-group account-btn text-center m-t-10">
@@ -344,24 +352,24 @@
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 						  <div>  <label for="emailaddress">Nội dung</label></div>
-						  <textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3" ></textarea>
+						  <textarea id="textarea" class="form-control" name="description" maxlength="225" rows="3" ></textarea>
 						</div>
 					</div>
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 							<label for="username">Địa điểm</label>
-							<input class="form-control" type="text" name="pro_name" id="username" required="">
+							<input class="form-control" type="text" name="meeting_location" id="username" required="">
 						</div>
 					</div>                    
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 						  <div>  <label for="emailaddress">Ngày họp</label></div>
-						  <input type="date" name="day" class="form-control">
+						  <input type="date" name="meeting_date" class="form-control">
 						</div>
 					</div>
 					<div class="form-group account-btn text-center m-t-10">
 						<div class="col-xs-12">
-							<button class="btn w-lg btn-s btn-pink waves-effect waves-light" type="submit">Sửa</button>
+							<input class="btn w-lg btn-s btn-pink" type="submit" name=add_meeting value="Sửa">
 						</div>
 					</div>
 

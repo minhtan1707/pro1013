@@ -66,6 +66,7 @@ function edit()
 
 function project_detail()
 {
+    require_once './models/meeting.php';
     require_once './models/project.php';
     require_once './models/member.php';
     require_once './models/task.php';
@@ -77,6 +78,7 @@ function project_detail()
     $tasks=get_task_pro_id($_GET['id']);
     $title ='Chi tiết dự án';
     $pro_end=date('Y-m-d',strtotime($project['pro_end']));
+    $meetings=get_meeting_pro_id($pro_id);
     if(isset($_POST['add_task']))
     {
         insert_task($pro_id,$_POST['task_name'],$_POST['task_desc'],$_POST['assigned_member'],$_POST['end_date']);
@@ -96,6 +98,11 @@ function project_detail()
     else if(isset($_POST['edit_task']))
     {
         update_task($_POST['task_id'],$_POST['task_name'],$_POST['task_desc'],$_POST['assigned_member'],$_POST['status'],$_POST['end_date']);
+        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+    }else if(isset($_POST['add_meeting']))
+    {
+        insert_meeting($pro_id,$_SESSION['user_info']['member_id'],$_POST['description'],$_POST['meeting_location'],$_POST['meeting_date']);
+        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
     }
     else
     {

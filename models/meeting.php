@@ -1,25 +1,19 @@
 <?php
-require_once './dao/pdo.php';
+require_once './core/pdo.php';
 
-function insert_meeting($created_by,$descciption,$metting_location,$meeting_date,$pro_id){
-    $sql = "INSERT INTO meeting(created_by,descciption,meeting_location,meeting_date,pro_id) VALUES(?,?,?,?,?)";
-    pdo_execute($sql,$created_by,$descciption,$metting_location,$meeting_date,$pro_id);
+function insert_meeting($pro_id,$created_by,$meeting_desc,$metting_location,$meeting_date){
+    $sql = "INSERT INTO meeting(pro_id,created_by,meeting_desc,meeting_location,meeting_date) VALUES(?,?,?,?,?)";
+    pdo_execute($sql,$pro_id,$created_by,$meeting_desc,$metting_location,$meeting_date);
 }
 
-function update_meeting($meeting_id,$created_by,$descciption,$metting_location,$meeting_date,$pro_id){
+function update_meeting($meeting_id,$created_by,$meeting_desc,$metting_location,$meeting_date,$pro_id){
     $sql = "UPDATE meeting SET created_by=?,descciption=?,metting_location=?,meeting_date=?,pro_id=? WHERE metting_id=?";
-    pdo_execute($sql,$created_by,$descciption,$metting_location,$meeting_date,$pro_id,$metting_id);
+    pdo_execute($sql,$created_by,$meeting_desc,$metting_location,$meeting_date,$pro_id,$metting_id);
 }
 
-function get_meeting($order=FALSE){
-    if($order==FALSE)
-    {
-        $sql = "SELECT * FROM meeting ORDER BY created_at ASC";
-    }else{
-        $sql = "SELECT * FROM meeting ORDER BY $order ASC";
-    }
-    
-    return pdo_query($sql);
+function get_meeting($id){ 
+        $sql = "SELECT * FROM pro_detail LEFT JOIN meeting ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = pro_detail.pro_id WHERE  pro_detail.member_id=? ORDER BY meeting_date ASC";
+    return pdo_query($sql,$id);
 }
 
 function get_meeting_id($id){
@@ -27,8 +21,8 @@ function get_meeting_id($id){
     return pdo_query_one($sql, $id);
 }
 
-function get_meeting_where($where,$value){
-    $sql = "SELECT * FROM meeting WHERE $where=?";
-    return pdo_query_one($sql, $value);
+function get_meeting_pro_id($value){
+    $sql = "SELECT * FROM meeting WHERE pro_id=?";
+    return pdo_query($sql, $value);
 }
 ?>
