@@ -272,9 +272,8 @@
 	</section>
 
 
-	<section class="section" id="faq">
+	<section class="section talkingabout" id="faq">
 		<div class="container">
-
 			<div class="row text-center">
 				<div class="col-sm-12">
 					<h2 class="title">Những Chuyên Gia Nói Gì?</h2>
@@ -283,61 +282,75 @@
 				</div>
 			</div>
 
-
 			<div class="row p-t-50">
 				<div class="col-sm-3">
 					<div class="card m-b-20">
 						<div class="card-block">
-							<h4 class="card-title">Nguyễn Quốc Sửu <small style="color: #4489e4" class="card-text"> <b>CEO - JAV Moive</b> </small></h4>
-							
-							<p class="card-text">"Tôi đã sử dụng qua rất nhiều ứng dụng, cũng như là các Website ứng dụng quản lí dự án. Nhưng sau khi sử dụng <b>Cú To</b> cho công ty điện ảnh của mình tôi thấy hiêu quả công việc của các nhân viên tăng lên đáng kể, doanh thu hằng năm tăng lên 30% chỉ sau 6 tháng sử dụng."</p>
+							<h4 class="card-title">Nguyễn Quốc Sửu</h4>
+							<small style="color: #4489e4" class="card-text"> <b> - CEO JAV Moive -</b>
+							</small>
+							<p class="card-text">"Tôi đã sử dụng qua rất nhiều ứng dụng, cũng như là các Website ứng dụng quản lí dự án khác
+								nhau.
+								Nhưng sau khi sử dụng <b>Cú To</b> cho công ty điện ảnh của mình tôi thấy hiêu quả công việc của các nhân viên
+								tăng lên đáng kể ,doanh thu hằng năm tăng lên 30% chỉ sau 3 tháng sử dụng."</p>
 							<p class="card-text">
 								<small class="text-muted">20/9/2011</small>
 							</p>
 						</div>
-						<img style="width: 100%" class="card-img-bottom img-fluid" src="./static/images/users/suumaster.jpg" alt="Card image cap">
+						<img class="img-fluid" src="./static/images/users/suumaster.jpg" alt="Card image cap">
 					</div>
 				</div>
 
 				<div class="col-sm-3">
 					<div class="card m-b-20">
 						<div class="card-block">
-							<h4 class="card-title">Nguyễn Minh Tân <small style="color: #4489e4" class="card-text"> <b>Caztus Master</b> </small></h4>
-							<p class="card-text">"Công việc của tôi hiện tại của tôi nhận các dự án từ bên ngoài về, sau đó cùng với TEAM của mình hoàn thành các dự án đó, TEAM của chúng tôi cũng có một số dự án riêng cho mình, cho nên việc sử dụng một phần mềm quản lí dự án là một điều tất nhiên với tôi - <b>Cú To</b> luôn là lựa chọn hàng đầu của tôi."</p>
+							<h4 class="card-title">Nguyễn Minh Tân </h4>
+							<small style="color: #4489e4"> <b> - Caztus Master - </b></small>
+							<p class="card-text">"Công việc của tôi hiện tại của tôi nhận các dự án từ bên ngoài về, sau đó cùng với TEAM
+								của mình hoàn thành các dự án đó, TEAM của chúng tôi cũng có một số dự án riêng cho mình, cho nên việc sử dụng
+								một phần mềm quản lí dự án là một điều tất nhiên với tôi - <b>Cú To</b> luôn là lựa chọn hàng đầu của tôi."</p>
 							<p class="card-text">
 								<small class="text-muted">2/9/2005</small>
 							</p>
 						</div>
-						<img style="width: 100%" class="card-img-bottom img-fluid" src="./static/images/users/minhtanmaster.jpg" alt="Card image cap">
+						<img class="img-fluid" src="./static/images/users/minhtanmaster.png" alt="Card image cap">
 					</div>
 				</div>
 
 				<div class="col-sm-3">
 					<div class="card m-b-20">
 						<div class="card-block">
-							<h4 class="card-title">Hoàng Việt Hùng <small style="color: #4489e4" class="card-text"> <b>Notthing</b> </small></h4>
-							<p class="card-text">"<b>Cú To</b> mang lại cho tôi những trải nghiệm rất tiện ích, nó giúp tôi rất nhiều trong việc quản lí các dự án tốt nghiệp của mình, với giá thành rất hợp lí, bạn cũng có thể sử dụng miễn phí - các tính năng của nó cũng vừa đủ cho bạn phục vụ việc học của mình, và quản lí các dự án vừa và nhỏ của bạn."</p>
+							<h4 class="card-title">Hoàng Việt Hùng </h4>
+							<small style="color: #4489e4" class="card-text"> <b> - Notthing - </b> </small>
+							<p class="card-text">"<b>Cú To</b> mang lại cho tôi những trải nghiệm rất tiện ích, nó giúp tôi rất nhiều trong
+								việc quản lí các dự án tốt nghiệp của mình, với giá thành rất hợp lí, bạn cũng có thể sử dụng miễn phí - các
+								tính năng của nó cũng vừa đủ cho bạn phục vụ việc học của mình, và quản lí các dự án vừa và nhỏ của bạn."</p>
 							<p class="card-text">
 								<small class="text-muted">11/12/2017</small>
 							</p>
 						</div>
-						<img style="width: 100%" class="card-img-bottom img-fluid" src="./static/images/users/hoangviethungmaster.jpg" alt="Card image cap">
+						<img class="img-fluid" src="./static/images/users/hoangviethungmaster.jpg" alt="Card image cap">
 					</div>
 				</div>
 
 				<div class="col-sm-3">
 					<div class="card m-b-20">
 						<div class="card-block">
-							<h4 class="card-title">Võ Thị Hòa <small style="color: #4489e4" class="card-text"> <b>Thousand Thorns</b> </small></h4>
-							<p class="card-text">"Tôi là một trong những phái nữ thành công nhất của ngành CNTT khoảng thời gian hiện nay. Các dự án đầu tay của tôi đều mang lại lợi nhuận doanh nghiệp. Tất cả đều nhờ <b>Cú To</b> nó đã giúp tôi quản lí tốt các dự án của mình cũng như tăng hiệu quả làm việc nhóm của TEAM tôi."</p>
+							<h4 class="card-title">Võ Thị Hòa </h4>
+							<small style="color: #4489e4" class="card-text"> <b> - Thousand Thorns - </b>
+							</small>
+							<p class="card-text">"Tôi là một trong những phái nữ thành công nhất của ngành CNTT khoảng thời gian hiện nay.
+								Các dự án đầu tay của tôi đều mang lại lợi nhuận doanh nghiệp. Tất cả đều nhờ <b>Cú To</b> nó đã giúp tôi quản
+								lí tốt các dự án của mình cũng như tăng hiệu quả làm việc nhóm của TEAM tôi."</p>
 							<p class="card-text">
 								<small class="text-muted">8/1/2009</small>
 							</p>
 						</div>
-						<img style="width: 100%" class="card-img-bottom img-fluid" src="./static/images/users/hoamaster.jpg" alt="Card image cap">
+						<img class="img-fluid" src="./static/images/users/hoamaster.jpg" alt="Card image cap">
 					</div>
 				</div>
 			</div>
+
 
 
 		</div>
@@ -351,7 +364,9 @@
 			<div class="row text-center">
 				<div class="col-sm-12">
 					<h2 class="title">Nhà Đầu Tư - Đối Tác</h2>
-					<p class="slogan"><b>Cú To</b> chúng tôi tự hào khi được các doanh nghiệp lớn, cũng như các công ty tầm cỡ tin tưởng - đầu tư phát triển Ứng Dụng Website này. Trong số đó có các ông lớn của ngành công nghiệp triệu đô như Google, Microsoft !!!</p>
+					<p class="slogan"><b>Cú To</b> chúng tôi tự hào khi được các doanh nghiệp lớn, cũng như các công ty tầm cỡ tin
+						tưởng - đầu tư phát triển Ứng Dụng Website này. Trong số đó có các ông lớn của ngành công nghiệp triệu đô như
+						Google, Microsoft !!!</p>
 					<ul class="list-inline client-list pt40">
 						<li><a href="" title="Microsoft"><img src="./static/home/images/clients/microsoft.png" alt="clients"></a></li>
 						<li><a href="" title="Google"><img src="./static/home/images/clients/google.png" alt="clients"></a></li>
