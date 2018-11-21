@@ -323,7 +323,7 @@
 					</div>
 					<div class="form-group account-btn text-center m-t-10">
 						<div class="col-xs-12">
-							<button class="btn w-lg btn-s btn-inverse waves-effect waves-light" type="submit">Sửa</button>
+							<input class="btn w-lg btn-s btn-inverse" type="submit" value=Sửa name=edit_project>
 						</div>
 					</div>
 

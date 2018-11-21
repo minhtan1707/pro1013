@@ -14,13 +14,12 @@ function update_task($task_id,$task_name,$task_desc,$assigned_member,$status,$en
 function get_task($status=null){
     if($status==null)
     {
-        $sql = "SELECT * FROM task ORDER BY task_id DESC";
+        $sql = "SELECT * FROM task ORDER BY end_date ASC";
         return pdo_query($sql);
     }else{
-        $sql = "SELECT * FROM task WHERE status=? ORDER BY task_id DESC";
+        $sql = "SELECT * FROM task WHERE status=? ORDER BY end_date ASC";
         return pdo_query($sql,$status);
     }
-
 }
 
 function get_task_id($id){
@@ -31,10 +30,10 @@ function get_task_id($id){
 function get_task_pro_id($value,$status=null){
     if($status==null)
     {
-        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id WHERE pro_id=?";
+        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id WHERE pro_id=? ORDER BY end_date ASC";
         return pdo_query($sql, $value);
     }else{
-        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id WHERE pro_id=? AND status=?";
+        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id WHERE pro_id=? AND status=? ORDER BY end_date ASC";
         return pdo_query($sql, $value,$status);
     }
 
@@ -42,11 +41,11 @@ function get_task_pro_id($value,$status=null){
 
 function get_task_member_id($member_id,$status=null){
     if($status==null){
-        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=?";
+        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY end_date ASC";
         return pdo_query($sql, $member_id);
     }else
     {
-        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? AND status=?";
+        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? AND status=? ORDER BY end_date ASC";
         return pdo_query($sql, $member_id,$status);
     }
 }

@@ -104,6 +104,11 @@ function project_detail()
         insert_meeting($pro_id,$_SESSION['user_info']['member_id'],$_POST['description'],$_POST['meeting_location'],$_POST['meeting_date']);
         header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
     }
+    else if(isset($_POST['edit_project']))
+    {
+        update_project($pro_id,$_POST['pro_name'],$_POST['pro_desc'],$_POST['pro_start'],$_POST['pro_end']);
+        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+    }
     else
     {
         $subview='dashboard/project/project-detail.php';

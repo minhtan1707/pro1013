@@ -11,9 +11,15 @@ function update_meeting($meeting_id,$created_by,$meeting_desc,$metting_location,
     pdo_execute($sql,$created_by,$meeting_desc,$metting_location,$meeting_date,$pro_id,$metting_id);
 }
 
-function get_meeting($id){ 
-        $sql = "SELECT * FROM pro_detail LEFT JOIN meeting ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = pro_detail.pro_id WHERE  pro_detail.member_id=? ORDER BY meeting_date ASC";
-    return pdo_query($sql,$id);
+function get_meeting($id,$latest=FALSE){ 
+    if($latest==FALSE){
+        $sql = "SELECT * FROM meeting LEFT JOIN pro_detail ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = pro_detail.pro_id WHERE  pro_detail.member_id=? ORDER BY meeting_date ASC";
+        return pdo_query($sql,$id);
+    }else{
+        $sql = "SELECT * FROM meeting LEFT JOIN pro_detail ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = pro_detail.pro_id WHERE  pro_detail.member_id=? ORDER BY meeting_date ASC LIMIT 1";
+        return pdo_query_one($sql,$id);
+    }
+
 }
 
 function get_meeting_id($id){
@@ -25,4 +31,5 @@ function get_meeting_pro_id($value){
     $sql = "SELECT * FROM meeting WHERE pro_id=?";
     return pdo_query($sql, $value);
 }
+
 ?>

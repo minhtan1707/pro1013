@@ -22,9 +22,11 @@ switch($act){
 
 function home()
 {
-    require_once './models/project.php';
+    require_once './models/meeting.php';
     require_once './models/task.php';
+    require_once './models/project.php';
     $projects=get_project_member_id($_SESSION['user_info']['member_id'],$_SESSION['user_info']['member_id']);
+    $meeting=get_meeting($_SESSION['user_info']['member_id'],'1');
     $tasks=get_task_member_id($_SESSION['user_info']['member_id'],'0');
     $title ='Thông tin tài khoản';
     $subview='dashboard/member/home.php';

@@ -85,29 +85,22 @@
                 <table class="table m-b-0">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Tên</th>
+                            <th>Ngày kết thúc</th>
                             <th>Chi tiết</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Adminox Frontend</td>
-                            <td><a  href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Adminox Frontend</td>
-                            <td><a  href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Adminox Frontend</td>
-                            <td><a  href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-                        </tr>
-
+                        <?php $count=count($projects)<3?count($projects):3;
+                        for($j=0;$j<$count;$j++):?>
+                        <?php $project=$projects[$j];?>
+                            <tr>
+                                <td><?php echo isset($project)?$project['pro_name']:'';?></td>
+                                <td><?php echo isset($project)?$project['pro_end']:'';?></td>
+                                <td><a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['id']:'';?>" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
+                            </td>
+                            </tr>
+                        <?php endfor;?>
                     </tbody>
                 </table>
             </div>
@@ -149,73 +142,67 @@
         </div>
         <!-- end row -->
 
-        <div class="card-box">
-        <h4 class="header-title mt-0 m-b-20">Nhiện vụ chưa hoàn thành</h4>
-            <div class="table-responsive">
-                <table class="table m-b-0">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Dự án</th>
-                            <th>Bắt đầu </th>
-                            <th>Kết thúc </th>
-                            <th>Trạng thái</th>
-                            <th>Chi tiết</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Adminox Frontend</td>
-                            <td>01/01/2015</td>
-                            <td>07/05/2015</td>
-                            <td><span class="label label-success">Finished</span></td>
-                            <td><a  href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Adminox Frontend</td>
-                            <td>01/01/2015</td>
-                            <td>07/05/2015</td>
-                            <td><span class="label label-purple">In Progress</span></td>
-                            <td><a  href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Adminox Admin</td>
-                            <td>01/01/2015</td>
-                            <td>07/05/2015</td>
-                            <td><span class="label label-warning">Unfinished</span></td>
-                            <td><a  href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="card-box">
+		<div class="card-box">
+				<h4 class="header-title mt-0 m-b-20">Nhiện vụ chưa hoàn thành</h4>
+					<div class="table-responsive">
+						<table class="table m-b-0">
+							<thead>
+								<tr>
+									<th>Nhiệm vụ</th>
+									<th>Dự án</th>
+									<th>Kết thúc </th>
+									<th>Trạng thái</th>
+									<!-- <th>Chi tiết</th> -->
+								</tr>
+							</thead>
+							<tbody>
+							
+							<?php $count=count($tasks)<3?count($tasks):3;
+							for($i=0;$i<$count;$i++):?>
+							<?php $task=isset($tasks[$i])?$tasks[$i]:'';?>
+							<?php								
+							date_default_timezone_set('Asia/Ho_Chi_Minh');
+							$end_date=strtotime($task['end_date']);
+							$end_date=date('Y-m-d',$end_date);
+							$now=date('Y-m-d');?>
+								<tr>
+									<td><?php echo isset($task)?$task['task_name']:''?></td>
+									<td><?php echo isset($task)?$task['pro_name']:''?></td>
+									<td><?php echo isset($task)?$task['end_date']:''?></td>
+									<?php if($now<$end_date):?>
+									<td><span class="label label-danger">Unfinished</span></td>
+									<?php else:?>
+									<td><span class="label label-muted">Closed</span></td>
+									<?php endif;?>
+									<!-- <td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a></td> -->
+								</tr>
+							<?php endfor;?>
+		
+							</tbody>
+						</table>
+					</div>
+				</div>
+</div>
 
 
-        <div class="card-box">
-            <h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
-            <!-- start -->
-            <div class="">
-                <div class="">
-                    <a href="dashboard.php?page=meetings">
-                    <h5 class="text-custom m-b-5">Tên dự án</h5>
-                    <p class="m-b-0">Địa điểm: Lorem Ipsum</p>
-                    <p><b>12/12/2019</b></p>
-                    <p class="text-muted font-13 m-b-0"> is simply dummy text
-                        of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book.
-                    </p>
-                </div></a>
-                <hr>
-                <!-- end -->
+		<div class="card-box">
+			<h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
+			<!-- start -->
+			<div class="">
+				<div class="">
+					<a href="dashboard.php?page=meetings">
+						<h5 class="m-b-5"><strong><?php echo $meeting['pro_name'];?></strong></h5>
+						<p class="m-b-0">Địa điểm: <?php echo $meeting['meeting_location'];?></p>
+						<p><b><?php echo $meeting['meeting_date'];?></b></p>
+						<p class="text-muted font-13 m-b-0"> <?php echo $meeting['meeting_desc'];?>
+						</p>
+					</a></div>
+				<hr>
+				<!-- end -->
 
-            </div>
-        </div>
+			</div>
+		</div>
 
 
     </div>
