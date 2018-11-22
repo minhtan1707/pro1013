@@ -54,7 +54,7 @@
 							<th style="width: 100px;"> Tên nv</th>
 							<th style="width: 80px;">Dự án</th>
 							<th style="width: 161px;">Mô tả</th>
-							<th style="width: 44px;">Trạng thái</th>
+							<th style="width: 100px;">Trạng thái</th>
 							<th style="width: 145px;">Ngày tạo</th>
 							<th style="width: 120px;">Ngày hết hạn</th>
 							<th style="width: 66px;">Tác vụ</th>
@@ -84,16 +84,17 @@
 								$end_date=strtotime($task['end_date']);
 								$end_date=date('Y-m-d',$end_date);
 								$now=date('Y-m-d');?>
-								<?php if($now<$end_date):?>
+								<?php if($now>$end_date):?>
+								<span class="label label-muted">Closed</span>
+								<?php endif;?>
 								<?php if($task['status']==0){
 										echo '<span class="label label-danger">Unfinished</span>';
 									}else if($task['status']==1)
 									{
 										echo '<span class="label label-primary">Finished</span>';
 									}?>
-								<?php else:?>
-								<span class="label label-muted">Closed</span>
-								<?php endif;?>
+								
+								
 
 							</td>
 

@@ -47,7 +47,7 @@
 									<th>Nhiệm vụ</th>
 									<th>Dự án</th>
 									<th>Kết thúc </th>
-									<th>Trạng thái</th>
+									<th >Trạng thái</th>
 									<!-- <th>Chi tiết</th> -->
 								</tr>
 							</thead>
@@ -65,11 +65,12 @@
 									<td><?php echo isset($task)?$task['task_name']:''?></td>
 									<td><?php echo isset($task)?$task['pro_name']:''?></td>
 									<td><?php echo isset($task)?$task['end_date']:''?></td>
-									<?php if($now<$end_date):?>
-									<td><span class="label label-danger">Unfinished</span></td>
-									<?php else:?>
-									<td><span class="label label-muted">Closed</span></td>
+									<td>
+									<?php if($now>$end_date):?>
+									<span class="label label-muted">Closed</span>
 									<?php endif;?>
+									<span class="label label-danger">Unfinished</span></td>
+
 									<!-- <td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a></td> -->
 								</tr>
 							<?php endfor;?>
