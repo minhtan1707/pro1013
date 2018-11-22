@@ -47,6 +47,7 @@ else{
         //     //sai thông tin trả lại về trang login
     
         //     header("location: index.php?act=login");
+        // }
     }else{  
         require_once './views/login.php';
     }

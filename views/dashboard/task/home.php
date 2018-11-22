@@ -51,13 +51,13 @@
 				 cellspacing="0" width="100%" id="datatable" role="grid" aria-describedby="datatable_info" style="width: 100%;">
 					<thead>
 						<tr role="row">
-							<th style="width: 100px;"> Tên nv</th>
+							<th style="width: 80px;">Tên nv</th>
 							<th style="width: 80px;">Dự án</th>
-							<th style="width: 161px;">Mô tả</th>
+							<th style="width: 300px;">Mô tả</th>
 							<th style="width: 100px;">Trạng thái</th>
-							<th style="width: 145px;">Ngày tạo</th>
-							<th style="width: 120px;">Ngày hết hạn</th>
-							<th style="width: 66px;">Tác vụ</th>
+							<th style="width: 100px;">Ngày tạo</th>
+							<th style="width: 50px;">Ngày hết hạn</th>
+							<th style="width: 50px;">Tác vụ</th>
 						</tr>
 					</thead>
 

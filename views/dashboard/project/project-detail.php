@@ -62,16 +62,17 @@
 						$end_date=strtotime($task['end_date']);
 						$end_date=date('Y-m-d',$end_date);
 						$now=date('Y-m-d');?>
-						<?php if($now<$end_date):?>
-							<?php if($task['status']==0){
-								echo '<span class="badge badge-danger pull-right">Unfinished</span>';
-							}else if($task['status']==1)
-							{
-								echo '<span class="badge badge-primary pull-right">Finished</span>';
-							}?>
-						<?php else:?>
-						<span class="badge badge-muted pull-right">Closed</span>
+						<?php if($now>$end_date):?>
+						<span class="badge badge-muted pull-right" style=margin-left:5px>Closed</span>
 						<?php endif;?>
+
+						<?php if($task['status']==0){
+							echo '<span class="badge badge-danger pull-right">Unfinished</span> ';
+						}else if($task['status']==1)
+						{
+							echo '<span class="badge badge-primary pull-right">Finished</span> ';
+						}?>
+
 
 					<!-- <span class="badge badge-muted pull-right">Finished</span> -->
 					<!-- <span class="badge badge-success pull-right">In progress</span> -->

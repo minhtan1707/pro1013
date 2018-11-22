@@ -28,7 +28,7 @@ function home($page)
     }else{
         $projects=get_project_member_id($_SESSION['user_info']['member_id'],$_SESSION['user_info']['member_id']);
         $total= count($projects);
-        $limit=3;
+        $limit=6;
         $pagination=pagination($limit,$page,$total);
         extract($pagination);
         $projects=get_project_member_id($_SESSION['user_info']['member_id'],$_SESSION['user_info']['member_id'],$limit,$previous_page*$limit);
