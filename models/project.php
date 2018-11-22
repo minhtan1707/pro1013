@@ -30,9 +30,16 @@ function get_project_where($where,$value){
     return pdo_query_one($sql, $value);
 }
 
-function get_project_member_id($id,$leader_id){
-    $sql="SELECT *,project.pro_id as id FROM project LEFT JOIN pro_detail ON project.pro_id = pro_detail.pro_id WHERE pro_detail.member_id=? OR project.pro_leader=? GROUP BY project.pro_id ORDER BY pro_end ASC";
-    return pdo_query($sql,$id,$leader_id);
+function get_project_member_id($id,$leader_id,$limit=FALSE,$offset=FALSE){
+    if($limit===FALSE && $offset===FALSE)
+    {
+        $sql="SELECT *,project.pro_id as id FROM project LEFT JOIN pro_detail ON project.pro_id = pro_detail.pro_id WHERE pro_detail.member_id=? OR project.pro_leader=? GROUP BY project.pro_id ORDER BY pro_end ASC";
+        return pdo_query($sql,$id,$leader_id);
+    }else{
+        $sql="SELECT *,project.pro_id as id FROM project LEFT JOIN pro_detail ON project.pro_id = pro_detail.pro_id WHERE pro_detail.member_id=? OR project.pro_leader=? GROUP BY project.pro_id ORDER BY pro_end ASC LIMIT ?, ?";
+        return pdo_query($sql,$id,$leader_id,$offset,$limit);
+    }
+
 }
 
 function get_project_detail_id($id){

@@ -189,6 +189,7 @@
 		<div class="card-box">
 			<h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
 			<!-- start -->
+            <?php foreach($meetings as $meeting):?>
 			<div class="">
 				<div class="">
 					<a href="dashboard.php?page=meetings">
@@ -200,7 +201,7 @@
 					</a></div>
 				<hr>
 				<!-- end -->
-
+            <?php endforeach;?>
 			</div>
 		</div>
 

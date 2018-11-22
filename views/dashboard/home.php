@@ -123,24 +123,29 @@
 			</div>
 
 		</div>
-<?php //print_r($tasks);?>
 
 		<div class="card-box">
 			<h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
 			<!-- start -->
-			<div class="">
+			<?php if(isset($meetings)):?>
+				<?php for($a=0;$a<1;$a++):?>
+				<?php $meeting = $meetings[$a];?>
 				<div class="">
-					<a href="dashboard.php?page=meetings">
-						<h5 class="m-b-5"><strong><?php echo $meeting['pro_name'];?></strong></h5>
-						<p class="m-b-0">Địa điểm: <?php echo $meeting['meeting_location'];?></p>
-						<p><b><?php echo $meeting['meeting_date'];?></b></p>
-						<p class="text-muted font-13 m-b-0"> <?php echo $meeting['meeting_desc'];?>
-						</p>
-					</a></div>
-				<hr>
-				<!-- end -->
-
+					<div class="">
+						<a href="dashboard.php?page=meetings">
+							<h5 class="m-b-5"><strong><?php echo $meeting['pro_name'];?></strong></h5>
+							<p class="m-b-0">Địa điểm: <?php echo $meeting['meeting_location'];?></p>
+							<p><b><?php echo $meeting['meeting_date'];?></b></p>
+							<p class="text-muted font-13 m-b-0"> <?php echo $meeting['meeting_desc'];?>
+							</p>
+						</a></div>
+					<hr>
+					<!-- end -->
 			</div>
+				<?php endfor;?>
+			<?php else:?>
+			<p>Chưa có cuộc họp</p>
+			<?php endif;?>
 		</div>
 	</div> <!-- end col -->
 

@@ -11,19 +11,19 @@
                     <table class="table m-0 table-colored table-pink">
                         <thead>
                             <tr>
-                                <th style="width:10px">#</th>
-                                <th style="width:100px" >Người tạo</th>
-                                <th style="width:100px">Dự án</th>
-                                <th style="width:100px" >Nội dung</th>
-                                <th style="width:100px">Địa điểm </th>
-                                <th style="width:100px">Ngày họp</th>
+                                <!-- <th style="width:10px">#</th> -->
+                                <th style="width:70px" >Người tạo</th>
+                                <th style="width:150px">Dự án</th>
+                                <th style="width:250px" >Nội dung</th>
+                                <th style="width:150px">Địa điểm </th>
+                                <th style="width:40px">Ngày họp</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($meetings as $meeting):?>
                                 <?php if($meeting['meeting_desc']):?>
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <!-- <th scope="row">1</th> -->
                                     <td><?php echo isset($meeting)?$meeting['member_name']:''?></td>
                                     <td><?php echo isset($meeting)?$meeting['pro_name']:''?></td>
                                     <td><?php echo isset($meeting)?$meeting['meeting_desc']:''?></td>

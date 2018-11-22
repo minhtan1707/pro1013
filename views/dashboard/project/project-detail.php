@@ -164,7 +164,7 @@
 						<div class="col-xs-12">
 						  <div>  <label for="emailaddress">Người thực hiện</label></div>
 						  <select class="form-control" name=assigned_member>
-						  <?php foreach($members as $member):?>
+						  <?php foreach($members_by_pro_id as $member):?>
 							<option value=<?php echo $member['member_id'];?>><?php echo $member['member_name'].' - '.$member['email'];?></option>
 						<?php endforeach;?>
 						</select>

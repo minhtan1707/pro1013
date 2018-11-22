@@ -1,6 +1,8 @@
 <?php
 $act=isset($_GET['act'])?$_GET['act']:'';
 $meeting_id=isset($_GET['id'])?$_GET['id']:'';
+$act=check($act);
+$meeting_id=check($meeting_id);
 
 switch($act){
     case 'meeting-list':

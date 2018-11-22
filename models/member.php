@@ -38,5 +38,9 @@ function get_member_email($value){
     $sql = "SELECT * FROM member WHERE email=?";
     return pdo_query_one($sql, $value);
 }
-
+function get_member_pro_id($id)
+{
+    $sql = "SELECT * FROM pro_detail LEFT JOIN member ON member.member_id=pro_detail.member_id WHERE pro_detail.pro_id=?";
+    return pdo_query($sql,$id);
+}
 ?>

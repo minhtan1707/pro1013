@@ -9,7 +9,7 @@
     $all_meeting=get_meeting($_SESSION['user_info']['member_id']);
     $count_meeting=isset($all_meeting)?count($all_meeting):'0';
     $tasks=get_task_member_id($_SESSION['user_info']['member_id'],'0');
-    $meeting=get_meeting($_SESSION['user_info']['member_id'],'1');
+    $meetings=get_meeting($_SESSION['user_info']['member_id'],'1');
     $title ='Bảng điều khiển';
     $subview='dashboard/home.php';
     require_once './views/dashboard/layout.php';

@@ -39,8 +39,8 @@ function get_task_pro_id($value,$status=null){
 
 }
 
-function get_task_member_id($member_id,$status=null){
-    if($status==null){
+function get_task_member_id($member_id,$status=FALSE){
+    if($status==FALSE){
         $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY end_date ASC";
         return pdo_query($sql, $member_id);
     }else
@@ -58,5 +58,10 @@ function change_status($task_id,$status)
 {
     $sql = "UPDATE task SET status=? WHERE task_id=?";
     pdo_execute($sql,$status,$task_id);
+}
+function get_task_member_id_page($member_id,$limit,$offset)
+{
+    $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY end_date ASC LIMIT ?,?";
+    return pdo_query($sql, $member_id,$offset,$limit);
 }
 ?>

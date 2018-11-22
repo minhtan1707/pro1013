@@ -17,7 +17,6 @@ switch($act){
     
     default:
     home();
-
 }
 
 function home()
@@ -26,7 +25,7 @@ function home()
     require_once './models/task.php';
     require_once './models/project.php';
     $projects=get_project_member_id($_SESSION['user_info']['member_id'],$_SESSION['user_info']['member_id']);
-    $meeting=get_meeting($_SESSION['user_info']['member_id'],'1');
+    $meetings=get_meeting($_SESSION['user_info']['member_id'],'1');
     $tasks=get_task_member_id($_SESSION['user_info']['member_id'],'0');
     $title ='Thông tin tài khoản';
     $subview='dashboard/member/home.php';
@@ -48,7 +47,7 @@ function edit()
         if($_POST['pass']==""){
             $pass=$_SESSION['user_info']['pass'];
         }else{
-            $pass=$_POST['pass'];
+            $pass=hash_password($_POST['pass'],$_POST['email'],$_POST['member_name']);
         }
         update_member($_SESSION['user_info']['member_id'],$_POST['member_name'],$_POST['email'],$pass,$image,$_POST['about'],$_POST['title'],$_POST['phone']);
         $_SESSION['user_info']=$_POST;

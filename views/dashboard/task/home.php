@@ -11,7 +11,7 @@
 			<div class="col-xs-6 col-sm-3">
 				<div class="m-t-20 m-b-20">
 					<h3 class="m-b-10">
-						<?php echo count($tasks);?>
+						<?php echo count($total_tasks);?>
 					</h3>
 					<p class="text-uppercase m-b-5 font-13 font-600">Tổng</p>
 				</div>
@@ -123,13 +123,35 @@
 			<div class="col-12">
 				<div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
 					<ul class="pagination">
-						<li class="paginate_button page-item previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable"
-							 data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
-						<li class="paginate_button page-item active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0"
-							 class="page-link">1</a></li>
-						<li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-						<li class="paginate_button page-item next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="3"
-							 tabindex="0" class="page-link">Next</a></li>
+                    <li class="page-item">
+                        <a href="<?php echo $previous_page<1?'':'dashboard.php?page=tasks&pages='.$previous_page;?>" class="page-link" aria-label="Previous">                           
+                            <span aria-hidden="true">«</span>
+                            <span class="sr-only">Previous</span></a>
+                    </li>
+                    <?php if($previous_page>=1):?>
+                    <li class="page-item">
+                        <a href="<?php echo 'dashboard.php?page=tasks&pages='.$previous_page;?>"class="page-link">
+                            <?php echo $previous_page;?>
+                        </a>
+                    </li>
+                    <?php endif;?>
+                    <li class="page-item active">
+                        <a class="page-link">
+                            <?php echo $current_page;?>
+                        </a>
+                    </li>
+                    <?php if($next_page<=$total_page):?>
+                    <li class="page-item">
+                        <a href="<?php echo 'dashboard.php?page=tasks&pages='.$next_page;?>"class="page-link">
+                            <?php echo $next_page;?>
+                        </a>
+                    </li>
+                    <?php endif;?>
+                    <li class="page-item">
+                        <a href="<?php echo $next_page>$total_page?'':'dashboard.php?page=tasks&pages='.$next_page;?>" class="page-link" aria-label="Next">                            
+                        <span aria-hidden="true">»</span>
+                            <span class="sr-only">Next</span></a>
+                    </li>
 					</ul>
 				</div>
 			</div>
