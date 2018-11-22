@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
-<<<<<<< HEAD
--- Generation Time: Nov 13, 2018 at 02:51 AM
-=======
--- Generation Time: Nov 19, 2018 at 04:12 AM
->>>>>>> ViewS
+-- Generation Time: Nov 22, 2018 at 02:33 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -40,6 +36,15 @@ CREATE TABLE `comment` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Ngày viết bình luận'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `task_id`, `member_id`, `comment_content`, `created_at`) VALUES
+(1, 3, 2, 'test bÃ¬nh luáº­n', '2018-11-20 09:41:32'),
+(2, 4, 2, 'test comment task 4', '2018-11-20 09:52:46'),
+(3, 1, 3, 'test comment', '2018-11-20 10:31:03');
+
 -- --------------------------------------------------------
 
 --
@@ -49,12 +54,21 @@ CREATE TABLE `comment` (
 CREATE TABLE `meeting` (
   `meeting_id` int(11) NOT NULL COMMENT 'Mã cuộc họp',
   `created_by` int(11) NOT NULL COMMENT 'Mã thành viên tạo cuộc họp',
-  `description` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung cuộc họp',
-  `meetting_location` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Địa điểm họp',
-  `meetting_date` date NOT NULL COMMENT 'Ngày họp',
+  `meeting_desc` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung cuộc họp',
+  `meeting_location` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Địa điểm họp',
+  `meeting_date` date NOT NULL COMMENT 'Ngày họp',
   `pro_id` int(11) NOT NULL COMMENT 'Mã dự án',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Ngày tạo cuộc họp'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `meeting`
+--
+
+INSERT INTO `meeting` (`meeting_id`, `created_by`, `meeting_desc`, `meeting_location`, `meeting_date`, `pro_id`, `created_at`) VALUES
+(1, 2, 'test add meeting', '135 NCV', '2018-11-21', 1, '2018-11-19 21:20:52'),
+(2, 2, 'test test test', '1235 qwfqw', '2018-11-22', 1, '2018-11-20 09:58:10'),
+(3, 2, 'test meeting 3', 'jksd 231', '2018-11-30', 1, '2018-11-20 10:11:25');
 
 -- --------------------------------------------------------
 
@@ -67,7 +81,7 @@ CREATE TABLE `member` (
   `member_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên thành viên',
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Email thành viên',
   `pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Mật khẩu',
-  `profile_picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'noimage.jpg',
+  `profile_picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'noimage.jpg',
   `about` text COLLATE utf8_unicode_ci,
   `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL
@@ -78,10 +92,11 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `member_name`, `email`, `pass`, `profile_picture`, `about`, `title`, `phone`) VALUES
-(2, 'Mike Tanny', 'minhtan1707@gmail.com', 'rasengan', 'avatar-2.jpg', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Web Designer', '0907321766'),
+(2, 'Mike Tanny', 'minhtan1707@gmail.com', '4017bc755bf1186bebacfc3f7c2661d6.d2dda930df6278829cd42d8495a86bd4.c21d5c08d45cd4cb859cf7917adf8b3e.e7d08978b2abbff72b907175a504663c', 'avatar-2.jpg', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Web Designer', '0907321766'),
 (3, 'Mike Tanny', 'minhtan17071991@gmail.com', 'rasengan', 'avatar-4.jpg', NULL, NULL, NULL),
 (4, 'Viet Hung', 'hoangviet.hung.009@gmail.com', '12345', 'avatar-1.jpg', NULL, 'Documentation', NULL),
-(5, 'Suu', 'quocsuu66@gmail.com', '12345', 'avatar-3.jpg', NULL, 'Front End', NULL);
+(5, 'Suu', 'quocsuu66@gmail.com', '12345', 'avatar-3.jpg', NULL, 'Front End', NULL),
+(8, 'Bread', 'minhtan170791@gmail.com', 'bafec945ec2ead006b2f33ff2c4cb7cd.b9be3f4604d3c2082dba2884c43eac8d.5b8c5ebe00c22fb5709ae1263d41a03a.5cd75645470964597a4e9fa820162788', 'noimage.jpg', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -103,21 +118,13 @@ CREATE TABLE `project` (
 -- Dumping data for table `project`
 --
 
-<<<<<<< HEAD
-INSERT INTO `project` (`pro_id`, `pro_leader`, `pro_name`, `created_at`, `description`) VALUES
-(1, 2, 'Test Project', '2018-11-06 10:18:50', 'This is test project 1'),
-(2, 2, 'Test Project 2', '2018-11-06 10:18:50', 'This is test project 2'),
-(3, 2, 'Project new', '2018-11-12 13:01:55', 'This is a newly created project'),
-(4, 2, 'project 1000', '2018-11-12 13:07:33', 'sadsacxc');
-=======
 INSERT INTO `project` (`pro_id`, `pro_leader`, `pro_name`, `created_at`, `description`, `pro_start`, `pro_end`) VALUES
-(1, 2, 'Test Project', '2018-11-06 10:18:50', 'This is test project 1', '2018-11-01', '2018-11-30'),
+(1, 2, 'Project full data', '2018-11-06 10:18:50', 'This is a full data project', '2018-11-01', '2018-11-30'),
 (2, 2, 'Test Project 2', '2018-11-06 10:18:50', 'This is test project 2', '2018-11-20', '2018-12-05'),
 (3, 2, 'Project new', '2018-11-12 13:01:55', 'This is a newly created project', '2018-11-08', '2018-11-22'),
 (4, 2, 'project 1000', '2018-11-12 13:07:33', 'sadsacxc', '2018-11-01', '2018-11-11'),
-(5, 2, 'Project no5', '2018-11-15 09:30:28', 'This is project no.5\r\n', '0000-00-00', '0000-00-00'),
-(6, 2, 'project no 6', '2018-11-15 09:57:35', 'project so 6', '0000-00-00', '0000-00-00');
->>>>>>> ViewS
+(7, 2, 'Dá»± Ã¡n Máº«u', '2018-11-19 20:01:18', 'test dá»± Ã¡n thÃªm ngÃ y', '2018-11-20', '2018-11-29'),
+(8, 2, 'test project with minute', '2018-11-19 21:07:33', 'test project added minute ago', '2018-11-20', '2018-11-30');
 
 -- --------------------------------------------------------
 
@@ -141,7 +148,8 @@ INSERT INTO `pro_detail` (`pro_detail_id`, `added_at`, `pro_id`, `member_id`) VA
 (3, '2018-11-06 10:22:19', 2, 2),
 (4, '2018-11-06 10:35:26', 1, 3),
 (5, '2018-11-08 09:47:53', 1, 4),
-(8, '2018-11-08 09:48:14', 2, 5);
+(8, '2018-11-08 09:48:14', 2, 5),
+(10, '2018-11-22 10:26:01', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -157,31 +165,21 @@ CREATE TABLE `task` (
   `assigned_member` int(11) NOT NULL COMMENT 'Danh sách thành viên',
   `status` tinyint(255) NOT NULL DEFAULT '0' COMMENT 'Tình trạng công việc',
   `task_desc` text COLLATE utf8_unicode_ci,
-<<<<<<< HEAD
-  `end_date` date NOT NULL COMMENT 'Ngày kết thúc công việc'
-=======
   `end_date` date NOT NULL COMMENT 'Ngày kết thúc công việc',
   `priority` tinyint(4) NOT NULL DEFAULT '2'
->>>>>>> ViewS
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `task`
 --
 
-<<<<<<< HEAD
-INSERT INTO `task` (`task_id`, `pro_id`, `task_name`, `created_at`, `assigned_member`, `status`, `task_desc`, `end_date`) VALUES
-(1, 1, 'Task no.1', '2018-11-12 13:25:00', 3, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie id sem quis posuere. Aliquam non dapibus augue, ut tincidunt eros. Fusce ornare nec ligula ut pretium. Maecenas molestie ornare finibus. Nulla ultricies nisi ut dignissim dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras condimentum massa quis felis varius, at hendrerit diam imperdiet. Sed volutpat condimentum sapien, eu dapibus mauris venenatis id. ', '2018-11-22'),
-(2, 1, 'Task no.2', '2018-11-12 13:25:00', 4, 1, 'Cras iaculis odio ac nunc sollicitudin tristique. Quisque in aliquam est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sollicitudin magna et consequat porta. Vivamus id lorem risus.', '2018-11-23'),
-(3, 2, 'Task no.3', '2018-11-12 21:11:09', 2, 0, 'Lorem disasd eqg sgsdg ew gewgw', '2018-11-17'),
-(4, 1, 'Task no.4', '2018-11-12 21:11:09', 2, 1, 'sadg eg weg sdg xerhj rzj ezj zerj', '2018-11-24');
-=======
 INSERT INTO `task` (`task_id`, `pro_id`, `task_name`, `created_at`, `assigned_member`, `status`, `task_desc`, `end_date`, `priority`) VALUES
 (1, 1, 'Task no.1', '2018-11-12 13:25:00', 3, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie id sem quis posuere. Aliquam non dapibus augue, ut tincidunt eros. Fusce ornare nec ligula ut pretium. Maecenas molestie ornare finibus. Nulla ultricies nisi ut dignissim dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras condimentum massa quis felis varius, at hendrerit diam imperdiet. Sed volutpat condimentum sapien, eu dapibus mauris venenatis id. ', '2018-11-22', 2),
 (2, 1, 'Task no.2', '2018-11-12 13:25:00', 4, 1, 'Cras iaculis odio ac nunc sollicitudin tristique. Quisque in aliquam est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sollicitudin magna et consequat porta. Vivamus id lorem risus.', '2018-11-23', 2),
 (3, 2, 'Task no.3', '2018-11-12 21:11:09', 2, 0, 'Lorem disasd eqg sgsdg ew gewgw', '2018-11-14', 2),
-(4, 1, 'Task no.4', '2018-11-12 21:11:09', 2, 1, 'sadg eg weg sdg xerhj rzj ezj zerj', '2018-11-24', 2);
->>>>>>> ViewS
+(4, 1, 'Task no.4', '2018-11-12 21:11:09', 2, 1, 'sadg eg weg sdg xerhj rzj ezj zerj', '2018-11-24', 2),
+(5, 1, 'test Task', '2018-11-19 20:18:22', 3, 1, 'test add task', '2018-11-28', 2),
+(6, 1, 'test task 2', '2018-11-19 20:31:43', 4, 0, 'test task added 2', '2018-11-28', 2);
 
 --
 -- Indexes for dumped tables
@@ -249,41 +247,37 @@ ALTER TABLE `task`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận';
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `meeting`
 --
 ALTER TABLE `meeting`
-  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã cuộc họp';
+  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã cuộc họp', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã thành viên', AUTO_INCREMENT=6;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã thành viên', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-<<<<<<< HEAD
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án', AUTO_INCREMENT=5;
-=======
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án', AUTO_INCREMENT=7;
->>>>>>> ViewS
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã dự án', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pro_detail`
 --
 ALTER TABLE `pro_detail`
-  MODIFY `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết dự án', AUTO_INCREMENT=9;
+  MODIFY `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã chi tiết dự án', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã công việc', AUTO_INCREMENT=5;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Mã công việc', AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
