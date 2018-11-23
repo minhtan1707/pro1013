@@ -1,9 +1,10 @@
+
 <div class="row">
     <div class="col-12">
         <div class="card-box">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="text-dark  font-700 m-l-10 m-b-10 text-left">Cuộc họp</h3>
+                    <h3 class="text-dark  font-700 m-l-10 text-left">Cuộc họp</h3>
                 </div>
             </div>
             <div class="row m-l-10">
