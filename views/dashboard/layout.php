@@ -13,8 +13,11 @@
 
     <!-- css -->
     <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./static/plugin/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="./static/plugin/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="./static/plugin/jquery-toastr/jquery.toast.min.css "rel="stylesheet" type="text/css" />
     
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
 </head>
 
 <body>
@@ -170,14 +173,36 @@
     <script src="./static/js/jquery.core.js"></script>
     <script src="./static/js/jquery.app.js"></script>
     <script src="./static/js/main.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> -->
+    <!-- data tables -->
+    <script src="./static/plugin/datatables/jquery.dataTables.min.js"></script>
+    <script src="./static/plugin/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="./static/plugin/datatables/dataTables.buttons.min.js"></script>
+    <script src="./static/plugin/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="./static/plugin/datatables/jszip.min.js"></script>
+    <script src="./static/plugin/datatables/pdfmake.min.js"></script>
+    <script src="./static/plugin/datatables/vfs_fonts.js"></script>
+    <script src="./static/plugin/datatables/buttons.html5.min.js"></script>
+    <script src="./static/plugin/datatables/buttons.print.min.js"></script>
+    <script src="./static/plugin/datatables/buttons.colVis.min.js"></script>
+    <script src="./static/plugin/jquery-toastr/jquery.toast.min.js"></script>
+    <script src="./static/plugin/jquery-toastr/jquery.toastr.js"></script>
 
-<script>
-$(document).ready( function () {
-    $('#meeting-table').DataTable();
-} );
-</script>
+
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatable').DataTable();
+
+                //Buttons examples
+
+
+                table.buttons().container()
+                        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
+            } );
+
+        </script>
+
 </body>
 
 </html>

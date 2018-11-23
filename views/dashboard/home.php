@@ -209,3 +209,5 @@
 	</div> <!-- end col -->
 
 </div>
+<button type="button" class="btn btn-info waves-effect waves-light btn-sm" id="toastr-one">Nút nằm đêy</button>
+<!-- cấu hình file js static/plugin/jquery-toastr/jquery.toastr.js -->
