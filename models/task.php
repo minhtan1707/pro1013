@@ -41,11 +41,11 @@ function get_task_pro_id($value,$status=null){
 
 function get_task_member_id($member_id,$status=FALSE){
     if($status===FALSE){
-        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY end_date ASC";
+        $sql = "SELECT *,task.created_at AS task_created_at FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY task.created_at DESC";
         return pdo_query($sql, $member_id);
     }else
     {
-        $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? AND status=? ORDER BY end_date ASC";
+        $sql = "SELECT *,task.created_at AS task_created_at FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? AND status=? ORDER BY task.created_at DESC";
         return pdo_query($sql, $member_id,$status);
     }
 }
@@ -61,7 +61,7 @@ function change_status($task_id,$status)
 }
 function get_task_member_id_page($member_id,$limit,$offset)
 {
-    $sql = "SELECT * FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY end_date ASC LIMIT ?,?";
+    $sql = "SELECT *,task.created_at AS task_created_at FROM task LEFT JOIN member ON task.assigned_member=member.member_id LEFT JOIN project ON task.pro_id=project.pro_id WHERE assigned_member=? ORDER BY end_date ASC LIMIT ?,?";
     return pdo_query($sql, $member_id,$offset,$limit);
 }
 ?>

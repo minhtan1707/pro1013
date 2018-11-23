@@ -10,6 +10,26 @@
 							<p class="m-0 text-uppercase font-bold font-secondary text-overflow" title="Statistics">Dự án</p>
 							<h2 class=""><span><i class="mdi mdi-arrow-up"></i></span> <span data-plugin="counterup"><?php echo $count_project;?></span></h2>
 							<!-- <p class="m-0">2 giờ trước</p> -->
+							<?php 
+                if(isset($all_project)){
+                    if((date('m')-date('m',$latest_project))>=1)
+                    {
+                        $date= date('m')-date('m',$latest_project);
+                        echo '<small>'.$date.' tháng trước</small>';
+                    }
+                    else if((date('d')-date('d',$latest_project))>=1)
+                    {
+                        $date= date('d')-date('d',$latest_project);
+                        echo '<small>'.$date.' ngày trước</small>';
+                    }else if((date('H')-date('H',$latest_project))>=1){
+                        $hour=date('H')-date('H',$latest_project);
+                        echo '<small>'.$hour.' giờ trước</small>';
+                    }else{
+                        $minute=date('i')-date('i',$latest_project);
+                        echo '<small>'.$minute.' phút trước</small>';
+                    }
+                }?>
+
 						</div>
 					</div>
 				</div><!-- end col -->
@@ -21,6 +41,25 @@
 							<p class="m-0 text-uppercase font-bold font-secondary text-overflow" title="Statistics">Cuộc họp</p>
 							<h2 class=""><span><i class="mdi mdi-arrow-up"></i></span> <span data-plugin="counterup"><?php echo $count_meeting;?></span></h2>
 							<!-- <p class="m-0">2 giờ trước</p> -->
+							<?php 
+                if(isset($all_meeting)){
+                    if((date('m')-date('m',$latest_meeting))>=1)
+                    {
+                        $date= date('m')-date('m',$latest_meeting);
+                        echo '<small>'.$date.' tháng trước</small>';
+                    }
+                    else if((date('d')-date('d',$latest_meeting))>=1)
+                    {
+                        $date= date('d')-date('d',$latest_meeting);
+                        echo '<small>'.$date.' ngày trước</small>';
+                    }else if((date('H')-date('H',$latest_meeting))>=1){
+                        $hour=date('H')-date('H',$latest_meeting);
+                        echo '<small>'.$hour.' giờ trước</small>';
+                    }else{
+                        $minute=date('i')-date('i',$latest_meeting);
+                        echo '<small>'.$minute.' phút trước</small>';
+                    }
+                }?>
 						</div>
 					</div>
 				</div><!-- end col -->
@@ -32,6 +71,25 @@
 							<p class="m-0 text-uppercase font-bold font-secondary text-overflow" title="Statistics">Nhiệm vụ</p>
 							<h2 class=""><span><i class="mdi mdi-arrow-up"></i></span> <span data-plugin="counterup"><?php echo $count_task;?></span></h2>
 							<!-- <p class="m-0">2 giờ trước</p> -->
+							<?php 
+                if(isset($all_task)){
+                    if((date('m')-date('m',$latest_task))>=1)
+                    {
+                        $date= date('m')-date('m',$latest_task);
+                        echo '<small>'.$date.' tháng trước</small>';
+                    }
+                    else if((date('d')-date('d',$latest_task))>=1)
+                    {
+                        $date= date('d')-date('d',$latest_task);
+                        echo '<small>'.$date.' ngày trước</small>';
+                    }else if((date('H')-date('H',$latest_task))>=1){
+                        $hour=date('H')-date('H',$latest_task);
+                        echo '<small>'.$hour.' giờ trước</small>';
+                    }else{
+                        $minute=date('i')-date('i',$latest_task);
+                        echo '<small>'.$minute.' phút trước</small>';
+                    }
+                }?>
 						</div>
 					</div>
 				</div>
@@ -129,21 +187,21 @@
 			<h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
 			<!-- start -->
 			<?php if(isset($meetings)):?>
-				<?php for($a=0;$a<1;$a++):?>
-				<?php $meeting = $meetings[$a];?>
+				<?php //for($a=0;$a<1;$a++):?>
+				<?php //$meeting = $meetings[$a];?>
 				<div class="">
 					<div class="">
-						<a href="dashboard.php?page=meetings">
-							<h5 class="m-b-5"><strong><?php echo $meeting['pro_name'];?></strong></h5>
-							<p class="m-b-0">Địa điểm: <?php echo $meeting['meeting_location'];?></p>
-							<p><b><?php echo $meeting['meeting_date'];?></b></p>
-							<p class="text-muted font-13 m-b-0"> <?php echo $meeting['meeting_desc'];?>
+						
+							<h5 class="m-b-5"><strong><?php echo $meetings[0]['pro_name'];?></strong></h5>
+							<p class="m-b-0">Địa điểm: <?php echo $meetings[0]['meeting_location'];?></p>
+							<p>Thời gian họp: <?php echo $meetings[0]['meeting_date'];?></p>
+							<p class="text-muted font-13 m-b-0"> <?php echo $meetings[0]['meeting_desc'];?>
 							</p>
-						</a></div>
+						</div>
 					<hr>
 					<!-- end -->
 			</div>
-				<?php endfor;?>
+				<?php //endfor;?>
 			<?php else:?>
 			<p>Chưa có cuộc họp</p>
 			<?php endif;?>

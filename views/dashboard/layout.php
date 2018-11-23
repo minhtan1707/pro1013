@@ -13,7 +13,8 @@
 
     <!-- css -->
     <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -169,8 +170,14 @@
     <script src="./static/js/jquery.core.js"></script>
     <script src="./static/js/jquery.app.js"></script>
     <script src="./static/js/main.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
-
+<script>
+$(document).ready( function () {
+    $('#meeting-table').DataTable();
+} );
+</script>
 </body>
 
 </html>
