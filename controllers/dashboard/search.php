@@ -6,7 +6,7 @@ if(isset($_POST['search-members']))
     if($results)
     {
         $title ='Danh sách thành viên';
-        $subview='dashboard/member/search.php';
+        $subview='dashboard/member/member-list.php';
         require_once './views/dashboard/layout.php';
     }else{
         $_SESSION['alert']['message']="Không tìm thấy thành viên";
