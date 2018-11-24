@@ -1,13 +1,12 @@
 
-
-$("#toastr-one").click(function () {
+$("#toastr-one").show(function () {
     $.toast({
-        heading: 'Heads up!',
-        text: 'This alert needs your attention, but it is not super important.',
+        heading: 'Thông Báo',
+        text: $("#toastr-one").attr('message'),
         position: 'top-right',
         loaderBg: '#3b98b5',
-        icon: 'info',
-        hideAfter: 3000,
+        icon: $("#toastr-one").attr('div'),
+        hideAfter: 5000,
         stack: 1
     });
 });

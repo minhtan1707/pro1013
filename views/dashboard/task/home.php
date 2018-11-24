@@ -48,7 +48,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<table class="table table-hover m-0 tickets-list table-actions-bar dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
-				 cellspacing="0" width="100%" id="datatable" role="grid" aria-describedby="datatable_info" style="width: 100%;">
+				 cellspacing="0" width="100%"  role="grid" aria-describedby="datatable_info" style="width: 100%;">
 					<thead>
 						<tr role="row">
 							<th style="width: 80px;">Tên nv</th>
@@ -200,7 +200,7 @@ $now=date('Y-m-d');?>
 								<li>
 									<h5 class="font-600 m-b-5">Trạng thái</h5>
 
-									<?php if($now<$end_date):?>
+									<?php if($now<=$end_date):?>
 									<?php if($task['status']==0){
 											echo '<span class="label label-danger">Unfinished</span>';
 										}else if($task['status']==1)
@@ -264,3 +264,7 @@ $now=date('Y-m-d');?>
 		</div>
 
 <?php endforeach;?>
+<?php if(isset($_SESSION['alert'])):?>
+<div id=toastr-one div='<?php echo $_SESSION['alert']['class'];?>' message='<?php echo $_SESSION['alert']['message'];?>'></div>
+<?php unset($_SESSION['alert']);?>
+<?php endif;?>

@@ -187,21 +187,25 @@
 			<h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
 			<!-- start -->
 			<?php if(isset($meetings)):?>
-				<?php //for($a=0;$a<1;$a++):?>
-				<?php //$meeting = $meetings[$a];?>
-				<div class="">
-					<div class="">
-						
-							<h5 class="m-b-5"><strong><?php echo $meetings[0]['pro_name'];?></strong></h5>
-							<p class="m-b-0">Địa điểm: <?php echo $meetings[0]['meeting_location'];?></p>
-							<p>Thời gian họp: <?php echo $meetings[0]['meeting_date'];?></p>
-							<p class="text-muted font-13 m-b-0"> <?php echo $meetings[0]['meeting_desc'];?>
-							</p>
+				<?php for($a=0;$a<count($meetings);$a++):?>
+					<?php 
+					if(date('Y-m-d')<=date('Y-m-d',strtotime($meetings[$a]['meeting_date']))):?>
+						<?php $meeting = $meetings[$a];?>
+						<div class="">
+							<div class="">
+								
+									<h5 class="m-b-5"><strong><?php echo $meetings[$a]['pro_name'];?></strong></h5>
+									<p class="m-b-0">Địa điểm: <?php echo $meetings[$a]['meeting_location'];?></p>
+									<p>Thời gian họp: <?php echo $meetings[$a]['meeting_date'];?></p>
+									<p class="text-muted font-13 m-b-0"> <?php echo $meetings[$a]['meeting_desc'];?>
+									</p>
+								</div>
+							<hr>
+							<!-- end -->
 						</div>
-					<hr>
-					<!-- end -->
-			</div>
-				<?php //endfor;?>
+						<?php break;?>
+					<?php endif;?>
+				<?php endfor;?>
 			<?php else:?>
 			<p>Chưa có cuộc họp</p>
 			<?php endif;?>
@@ -209,5 +213,9 @@
 	</div> <!-- end col -->
 
 </div>
-<button type="button" class="btn btn-info waves-effect waves-light btn-sm" id="toastr-one">Nút nằm đêy</button>
+<?php if(isset($_SESSION['alert'])):?>
+<div id=toastr-one div='<?php echo $_SESSION['alert']['class'];?>'><?php echo $_SESSION['alert']['message'];?></div>
+<?php unset($_SESSION['alert']);?>
+<?php endif;?>
+
 <!-- cấu hình file js static/plugin/jquery-toastr/jquery.toastr.js -->

@@ -37,6 +37,8 @@ function home($page)
     if(isset($_POST['change_status']))
     {
         change_status($_POST['task_id'],$_POST['status']);
+        $_SESSION['alert']['message']="Đã thay đổi trạng thái nhiệm vụ";
+        $_SESSION['alert']['class']='success';
         header('location: dashboard.php?page=tasks');
     }else if(isset($_POST['add_comment'])){
         insert_comment($_POST['task_id'],$_SESSION['user_info']['member_id'],$_POST['comment_content']);

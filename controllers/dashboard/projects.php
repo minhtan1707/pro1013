@@ -24,6 +24,8 @@ function home($page)
         $insert_data['pro_name']=check($_POST['project']['pro_name']);
         $insert_data['pro_desc']=check($_POST['project']['pro_desc']);
         insert_project($insert_data['pro_name'],$insert_data['pro_desc'],$_SESSION['user_info']['member_id'],$_POST['project']['pro_start'],$_POST['project']['pro_end']);
+        $_SESSION['alert']['message']="Tạo dự án mới thành công";
+        $_SESSION['alert']['class']='success';
         header('location: dashboard.php?page=projects');
     }else{
         $projects=get_project_member_id($_SESSION['user_info']['member_id'],$_SESSION['user_info']['member_id']);
@@ -96,6 +98,8 @@ function addTask($pro_id)
     $insert_data['task_name']=check($_POST['task_name']);
     $insert_data['task_desc']=check($_POST['task_desc']);
     insert_task($pro_id,$insert_data['task_name'],$insert_data['task_desc'],$_POST['assigned_member'],$_POST['end_date']);
+    $_SESSION['alert']['message']="Thêm nhiệm vụ thành công";
+    $_SESSION['alert']['class']='success';
     header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
 }
 
@@ -106,6 +110,8 @@ function addMeeting()
     $insert_data['description']=check($_POST['description']);
     $insert_data['meeting_location']=check($_POST['meeting_location']);
     insert_meeting($pro_id,$_SESSION['user_info']['member_id'],$insert_data['description'],$insert_data['meeting_location'],$_POST['meeting_date']);
+    $_SESSION['alert']['message']="Thêm cuộc họp thành công";
+    $_SESSION['alert']['class']='success';
     header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
 }
 
@@ -116,6 +122,8 @@ function editTask()
     $insert_data['task_name']=check($_POST['task_name']);
     $insert_data['task_desc']=check($_POST['task_desc']);
     update_task($_POST['task_id'],$_POST['task_name'],$_POST['task_desc'],$_POST['assigned_member'],$_POST['status'],$_POST['end_date']);
+    $_SESSION['alert']['message']="Thay đổi thông tin nhiệm vụ thành công";
+    $_SESSION['alert']['class']='success';
     header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
 }
 
@@ -126,18 +134,27 @@ function addMember()
     $email=check($_POST['member_added']);
     $member_added=get_member_email($email);
     $project_details=get_project_detail_id($_GET['id']);
-    foreach($project_details as $project_detail)
+    if($member_added)
     {
-        if($member_added['member_id']==$project_detail['member_id'])
+        foreach($project_details as $project_detail)
         {
-            $exist=1;
-            break;
+            if($member_added['member_id']==$project_detail['member_id'])
+            {
+                $exist=1;
+                break;
+            }
         }
-    }
-    if($member_added && !isset($exist)){
-        insert_project_detail($pro_id,$member_added['member_id']);
-        header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+        if(!isset($exist)){
+            insert_project_detail($pro_id,$member_added['member_id']);
+            header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+        }else{
+            $_SESSION['alert']['message']="Thành viên đã có mặt trong dự án";
+            $_SESSION['alert']['class']='warning';
+            header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
+        }
     }else{
+        $_SESSION['alert']['message']="Thành viên không tồn tại";
+        $_SESSION['alert']['class']='warning';
         header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
     }
 }
@@ -149,6 +166,8 @@ function edit()
     $insert_data['pro_name']=check($_POST['pro_name']);
     $insert_data['pro_desc']=check($_POST['pro_desc']);
     update_project($pro_id,$insert_data['pro_name'],$insert_data['pro_desc'],$_POST['pro_start'],$_POST['pro_end']);
+    $_SESSION['alert']['message']="Sửa thông tin dự án thành công";
+    $_SESSION['alert']['class']='success';
     header("location: dashboard.php?page=projects&act=detail&id=$pro_id");
 }
 

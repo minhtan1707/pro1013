@@ -382,3 +382,7 @@
 	</div>
 </div>
 <!-- end edit project inffo modal -->
+<?php if(isset($_SESSION['alert'])):?>
+<div id=toastr-one div='<?php echo $_SESSION['alert']['class'];?>' message='<?php echo $_SESSION['alert']['message'];?>'></div>
+<?php unset($_SESSION['alert']);?>
+<?php endif;?>

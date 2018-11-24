@@ -14,11 +14,11 @@ function update_meeting($meeting_id,$created_by,$meeting_desc,$metting_location,
 function get_meeting($id,$order=FALSE){ 
         if($order===FALSE)
         {
-            $sql = "SELECT *,meeting.created_at AS meeting_created_at FROM meeting LEFT JOIN pro_detail ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = pro_detail.pro_id WHERE  pro_detail.member_id=? ORDER BY meeting_date ASC";
-            return pdo_query($sql,$id);
+            $sql = "SELECT *,meeting.created_at AS meeting_created_at FROM meeting LEFT JOIN pro_detail ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = meeting.pro_id WHERE pro_detail.member_id=? OR project.pro_leader=? GROUP BY meeting_id ORDER BY meeting_date ASC";
+            return pdo_query($sql,$id,$id);
         }else{
-            $sql = "SELECT *,meeting.created_at AS meeting_created_at FROM meeting LEFT JOIN pro_detail ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = pro_detail.pro_id WHERE  pro_detail.member_id=? ORDER BY meeting.created_at DESC";
-            return pdo_query($sql,$id);
+            $sql = "SELECT *,meeting.created_at AS meeting_created_at FROM meeting LEFT JOIN pro_detail ON pro_detail.pro_id = meeting.pro_id LEFT JOIN member ON meeting.created_by = member.member_id LEFT JOIN project ON project.pro_id = meeting.pro_id WHERE pro_detail.member_id=? OR project.pro_leader=? GROUP BY meeting_id ORDER BY meeting.created_at DESC";
+            return pdo_query($sql,$id,$id);
         }
 
 }

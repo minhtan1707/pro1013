@@ -35,14 +35,14 @@
             </div>
             <nav class="navbar-custom">
 
-                <ul class="list-inline float-right mb-0">
+                <!-- <ul class="list-inline float-right mb-0">
                     <li class="list-inline-item dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="dripicons-bell noti-icon"></i>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
 
                 <ul class="list-inline menu-left mb-0">
                     <li class="hide-phone app-search">
