@@ -46,9 +46,9 @@
 
                 <ul class="list-inline menu-left mb-0">
                     <li class="hide-phone app-search">
-                        <form role="search" class="">
-                            <input type="text" placeholder="Tìm kiếm..." class="form-control">
-                            <a href=""><i class="fa fa-search"></i></a>
+                        <form role="search" id="search-members" action="dashboard.php?page=search-members" method=post>
+                            <input type="text" placeholder="Tìm kiếm..." name=search-members class="form-control">
+                            <a id='search'><i class="fa fa-search"></i></a>
                         </form>
                     </li>
                 </ul>
@@ -190,18 +190,9 @@
     <script src="./static/plugin/jquery-toastr/jquery.toastr.js"></script>
 
 
-<script type="text/javascript">
-            $(document).ready(function() {
-                $('#datatable').DataTable();
-
-                //Buttons examples
 
 
-                table.buttons().container()
-                        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
-            } );
-
-        </script>
+</script>
 
 </body>
 

@@ -34,6 +34,11 @@ if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] ==
 
                 case 'members':
                 require_once 'controllers/dashboard/members.php';
+                break;
+
+                case 'search-members':
+                require_once 'controllers/dashboard/search.php';
+                break;
 
                 default:
                 require_once 'controllers/dashboard/home.php';
