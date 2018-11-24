@@ -26,7 +26,7 @@
                                             <td><?php echo isset($result)?$result['email']:''?></td>
                                             <td><?php echo isset($result)?$result['title']:''?></td>
                                             <td><?php echo isset($result)?$result['phone']:''?></td>
-                                            <td><?php echo isset($result)?date('Y-m-d',strtotime($result['joined_date'])):''?></td>
+                                            <td><?php echo isset($result['joined_date'])?date('Y-m-d',strtotime($result['joined_date'])):''?></td>
                                         </tr>
                             <?php endforeach;?>
                     </tbody>
