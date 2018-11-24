@@ -91,10 +91,12 @@
             </div>
         </div>
         <!-- Personal Information -->
-        <div class="card-box">
+        <div class="card-box member-meeting">
             <h4 class="header-title mt-0 m-b-20">Cuộc họp sắp tới</h4>
+            <hr>
             <!-- start -->
             <?php foreach($meetings as $meeting):?>
+            <?php if(date('Y-m-d')<=date('Y-m-d',strtotime($meeting['meeting_date']))):?>
             <div class="">
                 <div class="">
                     
@@ -119,6 +121,7 @@
                 <hr>
                 <!-- end -->
             </div>
+<?php endif;?>
             <?php endforeach;?>
         </div>
         

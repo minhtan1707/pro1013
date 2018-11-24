@@ -26913,3 +26913,7 @@ ul.sitemap-icon ul li a {
 .typcn-zoom:before {
     content: '\e14f'
 }
+.member-meeting{
+    max-height:400px;
+    overflow: auto;
+}
