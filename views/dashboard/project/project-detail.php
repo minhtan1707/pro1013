@@ -47,12 +47,14 @@
 				</div>
 				<div class="assign-team m-t-30">
 					<h4 class="text-dark header-title m-t-0 text-left">Thành viên </h4>
-					<div>
+					<div class="member-box row">
 						<?php foreach($project_details as $project_detail):?>
-						<img class=" thumb-sm rounded-circle" alt="64x64" src="./static/images/users/<?php echo isset($project_detail)?$project_detail['profile_picture']:''?>">
-						<p class="text-center">
-							<?php echo isset($project_detail)?$project_detail['member_name']:''?>
-						</p>
+						<div class="col-6">
+							<img class=" thumb-sm rounded-circle" alt="64x64" src="./static/images/users/<?php echo isset($project_detail)?$project_detail['profile_picture']:''?>">
+							<p class="text-center">
+								<?php echo isset($project_detail)?$project_detail['member_name']:''?>
+							</p>
+						</div>
 						<?php endforeach;?>
 					</div>
 					<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
@@ -64,7 +66,7 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<div class="card-box">
+		<div class="card-box task-box">
 			<div class="row">
 				<div class="col-md-6">
 					<h3 class="text-dark  font-700  m-b-10 text-left">Bảng nhiệm vụ</h3>

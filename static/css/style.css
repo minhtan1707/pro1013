@@ -26917,3 +26917,11 @@ ul.sitemap-icon ul li a {
     max-height:400px;
     overflow: auto;
 }
+.member-box{
+max-height:300px;
+overflow:auto;
+}
+.task-box{
+    max-height:1300px;
+    overflow:auto;
+}
