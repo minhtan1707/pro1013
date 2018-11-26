@@ -11,7 +11,7 @@
 							<h2 class=""><span><i class="mdi mdi-arrow-up"></i></span> <span data-plugin="counterup"><?php echo $count_project;?></span></h2>
 							<!-- <p class="m-0">2 giờ trước</p> -->
 							<?php 
-                if(isset($all_project)){
+                if($all_project){
                     if((date('m')-date('m',$latest_project))>=1)
                     {
                         $date= date('m')-date('m',$latest_project);
@@ -42,7 +42,7 @@
 							<h2 class=""><span><i class="mdi mdi-arrow-up"></i></span> <span data-plugin="counterup"><?php echo $count_meeting;?></span></h2>
 							<!-- <p class="m-0">2 giờ trước</p> -->
 							<?php 
-                if(isset($all_meeting)){
+                if($all_meeting){
                     if((date('m')-date('m',$latest_meeting))>=1)
                     {
                         $date= date('m')-date('m',$latest_meeting);
@@ -72,7 +72,7 @@
 							<h2 class=""><span><i class="mdi mdi-arrow-up"></i></span> <span data-plugin="counterup"><?php echo $count_task;?></span></h2>
 							<!-- <p class="m-0">2 giờ trước</p> -->
 							<?php 
-                if(isset($all_task)){
+                if($all_task){
                     if((date('m')-date('m',$latest_task))>=1)
                     {
                         $date= date('m')-date('m',$latest_task);
