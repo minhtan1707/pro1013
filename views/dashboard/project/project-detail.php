@@ -1,22 +1,5 @@
 <div class="row">
 	<div class="col-md-4">
-
-		<div class="card-box ">
-				<h4 class="text-danger header-title m-t-0 text-center ">Bảng thông báo</h4>
-				<hr>
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-				<strong>Lẹ lẹ!</strong> Làm lẹ đi mấy chế
-			</div>
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-				<strong>Thằng Hùng Cmt mất dại</strong>
-			</div>
-		</div>
 		<div class="text-center card-box">
 			<div class="member-card">
 				<h4 class="text-dark header-title m-t-0 text-left ">Thông tin dự án</h4>
@@ -64,6 +47,13 @@
 		</div>
 	</div>
 	<div class="col-md-8">
+	<div class="card-box ">
+				<h4 class="text-dark header-title m-t-0 text-center ">Tiến độ</h4>
+				<hr>
+				<div class="progress m-b-0">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+		</div>
 		<div class="card-box">
 			<div class="row">
 				<div class="col-md-6">
@@ -129,7 +119,30 @@
 </div>
 <!-- meeting box -->
 <div class="row">
-	<div class="col-12">
+	<div class="col-4">
+		<div class="card-box">
+				<h4 class="text-dark header-title m-t-0 text-left ">Thông báo</h4>
+				<hr>
+				<!-- start box -->
+				<div class="timeline-box">
+						<h5 class="text-success">07 January 2016</h5>
+						<p class="timeline-date text-muted"><small>08:25 am</small></p>
+						<p>Jonatha Smith added new milestone
+							Lorem ipsum dolor sit amet consiquest dio</p>
+					</div>
+					<!-- end box -->
+				<hr>
+				<form action="" method="POST">
+					<input type="hidden" name="task_id" value="3">
+					<div class="form-group">
+						<textarea class="form-control" name="comment_content" id="" cols="100%" rows="10"></textarea>
+					</div>
+					<input type="submit" class="btn btn-success" name="add_comment" value="Tạo">
+
+				</form>
+		</div>
+	</div>
+	<div class="col-8">
 		<div class="card-box">
 			<div class="row">
 				<div class="col-md-6">
@@ -148,9 +161,9 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th style="width: 500px;">Nội dung</th>
+								<th style="width: 400px;">Nội dung</th>
 								<th style="width: 400px;">Địa điểm</th>
-								<th>Ngày họp</th>
+								<th style="width: 400px;">Ngày họp</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -174,50 +187,7 @@
 			</div>
 		</div>
 	</div>
-<!-- time line -->
-		<div class="col-12">
-			<div class="card-box">
-					<h4 class="text-dark header-title m-t-0 text-center ">Time line</h4>
-					<hr>
-				<div class="timeline timeline-left">
-					<article class="timeline-item alt">
-						<div class="text-left">
-							<div class="time-show first">
-								<a href="#" class="btn btn-primary w-lg">Hôm nay</a>
-							</div>
-						</div>
-					</article>
-					<article class="timeline-item">
-						<div class="timeline-desk">
-							<div class="panel">
-								<div class="timeline-box">
-									<span class="arrow"></span>
-									<span class="timeline-icon"><i class="mdi mdi-checkbox-blank-circle-outline"></i></span>
-									<h4 class="">1 hour ago</h4>
-									<p class="timeline-date text-muted"><small>08:25 am</small></p>
-									<p>Dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? </p>
-								</div>
-							</div>
-						</div>
-					</article>
-					<article class="timeline-item ">
-						<div class="timeline-desk">
-							<div class="panel">
-								<div class="timeline-box">
-									<span class="arrow"></span>
-									<span class="timeline-icon bg-success"><i class="mdi mdi-checkbox-blank-circle-outline"></i></span>
-									<h4 class="text-success">2 hours ago</h4>
-									<p class="timeline-date text-muted"><small>08:25 am</small></p>
-									<p>consectetur adipisicing elit. Iusto, optio, dolorum <a href="#">John deon</a> provident rerum aut hic quasi placeat iure tempora laudantium </p>
 
-								</div>
-							</div>
-						</div>
-					</article>
-				</div> 
-			</div> 
-		</div> 
-		<!-- end timeline -->
 	<!-- // modal -->
 	<!-- add task modal -->
 	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -480,9 +450,6 @@
 		<?php echo $_SESSION['alert']['message'];?>'></div>
 	<?php unset($_SESSION['alert']);?>
 	<?php endif;?>
-
-
-
 	<!-- Modal comment -->
 	<div id="comment-modal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
 	 style="display: none; padding-left: 0px;">
@@ -548,4 +515,5 @@
 			</div>
 		</div>
 	</div>
+	<!-- end modal comment -->
 	

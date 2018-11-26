@@ -145,39 +145,27 @@
 		<div class="card-box text-center">
 			<div class="text-center">
 				<div class="card-box">
-					<h4 class="header-title mt-0 m-b-20">Dự án đang tham gia</h4>
-					<div class="table-responsive">
-						<table class="table m-b-0">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Tên</th>
-									<th>Chi tiết</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2</td>
-									<td>Adminox Frontend</td>
-									<td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-									</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>Adminox Frontend</td>
-									<td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-									</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Adminox Frontend</td>
-									<td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-									</td>
-								</tr>
-
-							</tbody>
-						</table>
-					</div>
+					<h4 class="header-title mt-0 m-b-20">Thông báo mới nhất</h4>
+						<!-- start box -->
+						<hr>
+						<div class="timeline-box text-left">
+							<h5 class="text-success">Tên dự án</h5>
+							<p class="timeline-date text-muted"><small>08:25 am</small></p>
+							<p>Jonatha Smith added new milestone
+								Lorem ipsum dolor sit amet consiquest dio</p>
+						</div>
+						<hr>
+						<!-- end box -->
+						<!-- start box -->
+						<hr>
+						<div class="timeline-box text-left">
+							<h5 class="text-success">Tên dự án</h5>
+							<p class="timeline-date text-muted"><small>08:25 am</small></p>
+							<p>Jonatha Smith added new milestone
+								Lorem ipsum dolor sit amet consiquest dio</p>
+						</div>
+						<hr>
+						<!-- end box -->
 				</div>
 			</div>
 

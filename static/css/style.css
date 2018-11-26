@@ -24941,16 +24941,7 @@ table.dataTable thead th {
 .timeline .time-show a {
     color: #fff
 }
-.timeline:before {
-    background-color: rgba(121, 121, 121, .3);
-    bottom: 0;
-    content: "";
-    left: 50%;
-    position: absolute;
-    top: 30px;
-    width: 2px;
-    z-index: 0
-}
+
 .timeline .timeline-icon {
     -webkit-border-radius: 50%;
     background: #797979;
