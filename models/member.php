@@ -10,9 +10,9 @@ function get_member_id($id){ // show từ chi tiết
     $sql = "SELECT * FROM member WHERE member_id=?";
     return pdo_query_one($sql, $id);
 }
-function insert_member($member_name,$email,$pass,$profile_picture = NULL,$about= NULL,$title=NULL){
-    $sql = "INSERT INTO member(member_name,email,pass,profile_picture,about,title) VALUES(?,?,?,?,?,?)";
-    pdo_execute($sql,$member_name,$email,$pass,$profile_picture,$about,$title);
+function insert_member($member_name,$email,$pass,$about= NULL,$title=NULL){
+    $sql = "INSERT INTO member(member_name,email,pass,about,title) VALUES(?,?,?,?,?)";
+    pdo_execute($sql,$member_name,$email,$pass,$about,$title);
 }
 function update_member($id,$member_name,$email,$pass,$profile_picture,$about,$title,$phone){
     $sql = "UPDATE member SET member_name=?,email=?,pass=?,profile_picture=?,about=?,title=?,phone=? WHERE member_id=?";
