@@ -1,4 +1,15 @@
 <div class="row">
+	<div class="col-12">
+		<div class="card-box ">
+			<h4 class="text-dark header-title m-t-0 text-center ">Tiến độ dự án</h4>
+			<hr>
+			<div class="progress m-b-0">
+				<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-md-4">
 		<div class="text-center card-box">
 			<div class="member-card">
@@ -10,7 +21,9 @@
 					<?php echo isset($project)?$project['description']:'';?>.</p>
 				<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
 				<button type="button" data-toggle="modal" data-target="#edit-pro-modal" class="btn btn-inverse btn-rounded w-md waves-effect waves-light">
-					<i class="fa fa-wrench m-r-5"></i> <span>Sửa</span> </button>
+					<i class="fa fa-wrench m-r-5"></i>
+					<span>Sửa</span>
+				</button>
 				<?php endif;?>
 				<hr>
 				<h4 class="text-dark header-title m-t-0 text-left">Trưởng nhóm</h4>
@@ -39,21 +52,34 @@
 						<?php endforeach;?>
 					</div>
 					<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
-					<button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#mem-modal">Thêm
-						thành viên</button>
+					<button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#mem-modal">Thêm thành viên</button>
 					<?php endif;?>
 				</div>
 			</div>
 		</div>
+		<div class="card-box">
+			<h4 class="text-dark header-title m-t-0 text-left ">Thông báo</h4>
+			<hr>
+			<!-- start box -->
+			<div class="timeline-box">
+				<h5 class="text-success">07 January 2016</h5>
+				<p class="timeline-date text-muted">
+					<small>08:25 am</small>
+				</p>
+				<p>Jonatha Smith added new milestone Lorem ipsum dolor sit amet consiquest dio</p>
+			</div>
+			<!-- end box -->
+			<hr>
+			<form action="" method="POST">
+				<div class="form-group">
+					<textarea class="form-control" name="ann_content" id="" cols="100%" rows="8"></textarea>
+				</div>
+				<input type="submit" class="btn btn-success" name="add_ann" value="Tạo">
+
+			</form>
+		</div>
 	</div>
 	<div class="col-md-8">
-	<div class="card-box ">
-				<h4 class="text-dark header-title m-t-0 text-center ">Tiến độ</h4>
-				<hr>
-				<div class="progress m-b-0">
-                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
-		</div>
 		<div class="card-box">
 			<div class="row">
 				<div class="col-md-6">
@@ -62,8 +88,7 @@
 				<div class="col-md-6">
 					<h3 class="text-dark  font-700  m-b-10 text-right">
 
-						<button type="button" class="btn btn-custom waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-lg">Thêm
-							nhiệm vụ</button>
+						<button type="button" class="btn btn-custom waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-lg">Thêm nhiệm vụ</button>
 					</h3>
 				</div>
 			</div>
@@ -100,15 +125,19 @@
 				<div class="m-t-20">
 					<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
 					<p class="pull-right m-b-0 m-t-10">
-						<button type="button" class="btn btn-pink btn-xs waves-effect waves-light" data-toggle="modal" data-target="#comment-modal">Bình
-							luận</button>
-						<button type="button" class="btn btn-success btn-xs waves-effect waves-light" data-toggle="modal" data-target="<?php echo isset($task)?'#edit-task-modal-'.$task['task_id']:'';?> ">Chỉnh
-							sửa</button>
+						<button type="button" class="btn btn-pink btn-xs waves-effect waves-light" data-toggle="modal" data-target="#comment-modal">Bình luận
+						</button>
+						<button type="button" class="btn btn-success btn-xs waves-effect waves-light" data-toggle="modal" data-target="<?php echo isset($task)?'#edit-task-modal-'.$task['task_id']:'';?> ">Chỉnh sửa
+						</button>
 					</p>
 					<?php endif;?>
-					<p class="m-b-0"><img src="./static/images/users/<?php echo isset($task)?$task['profile_picture']:'';?>" alt="<?php echo isset($task)?$task['member_name']:'';?>"
-						 class="thumb-sm rounded-circle m-r-10"> <span class="font-bold font-secondary">
-							<?php echo isset($task)?$task['member_name']:'';?></span> </p>
+					<p class="m-b-0">
+						<img src="./static/images/users/<?php echo isset($task)?$task['profile_picture']:'';?>" alt="<?php echo isset($task)?$task['member_name']:'';?>"
+						 class="thumb-sm rounded-circle m-r-10">
+						<span class="font-bold font-secondary">
+							<?php echo isset($task)?$task['member_name']:'';?>
+						</span>
+					</p>
 				</div>
 			</div>
 			<?php endforeach;?>
@@ -119,30 +148,7 @@
 </div>
 <!-- meeting box -->
 <div class="row">
-	<div class="col-4">
-		<div class="card-box">
-				<h4 class="text-dark header-title m-t-0 text-left ">Thông báo</h4>
-				<hr>
-				<!-- start box -->
-				<div class="timeline-box">
-						<h5 class="text-success">07 January 2016</h5>
-						<p class="timeline-date text-muted"><small>08:25 am</small></p>
-						<p>Jonatha Smith added new milestone
-							Lorem ipsum dolor sit amet consiquest dio</p>
-					</div>
-					<!-- end box -->
-				<hr>
-				<form action="" method="POST">
-					<input type="hidden" name="task_id" value="3">
-					<div class="form-group">
-						<textarea class="form-control" name="comment_content" id="" cols="100%" rows="10"></textarea>
-					</div>
-					<input type="submit" class="btn btn-success" name="add_comment" value="Tạo">
-
-				</form>
-		</div>
-	</div>
-	<div class="col-8">
+	<div class="col-12">
 		<div class="card-box">
 			<div class="row">
 				<div class="col-md-6">
@@ -150,8 +156,7 @@
 				</div>
 				<div class="col-md-6">
 					<h3 class="text-dark  font-700  m-b-10 text-right">
-						<button type="button" class="btn btn-pink waves-effect waves-light" data-toggle="modal" data-target="#metting-modal">Tạo
-							cuộc họp</button>
+						<button type="button" class="btn btn-pink waves-effect waves-light" data-toggle="modal" data-target="#metting-modal">Tạo cuộc họp</button>
 					</h3>
 				</div>
 			</div>
@@ -190,8 +195,8 @@
 
 	<!-- // modal -->
 	<!-- add task modal -->
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-	 aria-hidden="true" style="display: none;">
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"
+	 style="display: none;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -210,16 +215,20 @@
 
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Nội dung</label></div>
+								<div>
+									<label for="emailaddress">Nội dung</label>
+								</div>
 								<textarea id="textarea" class="form-control" name="task_desc" maxlength="225" rows="3"></textarea>
 							</div>
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Người thực hiện</label></div>
+								<div>
+									<label for="emailaddress">Người thực hiện</label>
+								</div>
 								<select class="form-control" name=assigned_member>
 									<?php foreach($members_by_pro_id as $member):?>
-									<option value=<?php echo $member['member_id'];?>>
+									<option value=<?php echo $member[ 'member_id'];?>>
 										<?php echo $member['member_name'].' - '.$member['email'];?>
 									</option>
 									<?php endforeach;?>
@@ -228,7 +237,9 @@
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Ngày kết thúc</label></div>
+								<div>
+									<label for="emailaddress">Ngày kết thúc</label>
+								</div>
 								<input type="date" name="end_date" class="form-control" max=<?php echo $pro_end?>>
 							</div>
 						</div>
@@ -245,8 +256,8 @@
 	</div>
 	<!-- end task modal -->
 	<!-- add member modal -->
-	<div id="mem-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
-	 aria-hidden="true" style="display: none;">
+	<div id="mem-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+	 style="display: none;">
 		<div class="modal-dialog" style="width:55%;">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -258,7 +269,9 @@
 					<div class="form-group m-b-25">
 						<form action="" class="" method=post>
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Nhập Email</label></div>
+								<div>
+									<label for="emailaddress">Nhập Email</label>
+								</div>
 								<input type="text" name="member_added" class="form-control m-b-25">
 
 								<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Đóng</button>
@@ -286,28 +299,32 @@
 					</h4>
 				</div>
 				<form class="form-horizontal" action="" method="post">
-					<input type=hidden name=task_id value=<?php echo isset($task)?$task['task_id']:'';?>>
+					<input type=hidden name=task_id value=<?php echo isset($task)?$task[ 'task_id']: '';?>>
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 							<label for="username">Tên nhiệm vụ</label>
-							<input class="form-control" type="text" name="task_name" id="username" value='<?php echo isset($task)?$task['
-							 task_name']:'';?>' required="">
+							<input class="form-control" type="text" name="task_name" id="username" value='<?php echo isset($task)?$task[' task_name
+							 ']:' ';?>' required="">
 						</div>
 					</div>
 
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
-							<div> <label for="emailaddress">Nội dung</label></div>
+							<div>
+								<label for="emailaddress">Nội dung</label>
+							</div>
 							<textarea id="textarea" class="form-control" name="task_desc" maxlength="225" rows="3"><?php echo isset($task)?$task['task_desc']:'';?></textarea>
 						</div>
 					</div>
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
-							<div> <label for="emailaddress">Người thực hiện</label></div>
+							<div>
+								<label for="emailaddress">Người thực hiện</label>
+							</div>
 							<select class="form-control" name=assigned_member>
 								<?php foreach($members as $member):?>
-								<option value=<?php echo $member['member_id']; if($task['assigned_member']==$member['member_id']) { echo
-								 ' selected' ; } ?>>
+								<option value=<?php echo $member[ 'member_id']; if($task[ 'assigned_member']==$member[ 'member_id']) { echo ' selected' ;
+								 } ?>>
 									<?php echo $member['member_name'].' - '.$member['email'];?>
 								</option>
 								<?php endforeach;?>
@@ -316,7 +333,9 @@
 					</div>
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
-							<div> <label for="emailaddress">Trạng thái</label></div>
+							<div>
+								<label for="emailaddress">Trạng thái</label>
+							</div>
 							<select class="form-control" name=status>
 								<option value=0>Chưa Hoàn Thành</option>
 								<option value=1>Đã Hoàn Thành</option>
@@ -325,9 +344,10 @@
 					</div>
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
-							<div> <label for="emailaddress">Ngày kết thúc</label></div>
-							<input type="date" name="end_date" class="form-control" value=<?php echo isset($task)?$task['end_date']:'';?>
-							max=
+							<div>
+								<label for="emailaddress">Ngày kết thúc</label>
+							</div>
+							<input type="date" name="end_date" class="form-control" value=<?php echo isset($task)?$task[ 'end_date']: '';?> max=
 							<?php echo $pro_end?>>
 						</div>
 					</div>
@@ -343,8 +363,8 @@
 	<?php endforeach;?>
 	<!-- end edit task modal -->
 	<!-- edit project inffo modal -->
-	<div id="edit-pro-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
-	 aria-hidden="true" style="display: none;">
+	<div id="edit-pro-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+	 style="display: none;">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -367,22 +387,26 @@
 
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Nội dung</label></div>
+								<div>
+									<label for="emailaddress">Nội dung</label>
+								</div>
 								<textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3"><?php echo isset($project)?$project['description']:'';?></textarea>
 							</div>
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Ngày bắt đầu</label></div>
-								<input type="date" name="pro_start" class="form-control" value=<?php echo
-								 isset($project)?$project['pro_start']:'';?>>
+								<div>
+									<label for="emailaddress">Ngày bắt đầu</label>
+								</div>
+								<input type="date" name="pro_start" class="form-control" value=<?php echo isset($project)?$project[ 'pro_start']: '';?>>
 							</div>
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Ngày kết thúc</label></div>
-								<input type="date" name="pro_end" class="form-control" value=<?php echo
-								 isset($project)?$project['pro_end']:'';?>>
+								<div>
+									<label for="emailaddress">Ngày kết thúc</label>
+								</div>
+								<input type="date" name="pro_end" class="form-control" value=<?php echo isset($project)?$project[ 'pro_end']: '';?>>
 							</div>
 						</div>
 						<div class="form-group account-btn text-center m-t-10">
@@ -400,8 +424,8 @@
 	</div>
 	<!-- end edit project inffo modal -->
 	<!-- edit project inffo modal -->
-	<div id="metting-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
-	 aria-hidden="true" style="display: none;">
+	<div id="metting-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+	 style="display: none;">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -415,7 +439,9 @@
 					<form class="form-horizontal" action="" method="post">
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Nội dung</label></div>
+								<div>
+									<label for="emailaddress">Nội dung</label>
+								</div>
 								<textarea id="textarea" class="form-control" name="description" maxlength="225" rows="3"></textarea>
 							</div>
 						</div>
@@ -427,7 +453,9 @@
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
-								<div> <label for="emailaddress">Ngày họp</label></div>
+								<div>
+									<label for="emailaddress">Ngày họp</label>
+								</div>
 								<input type="date" name="meeting_date" class="form-control">
 							</div>
 						</div>
@@ -446,13 +474,12 @@
 	</div>
 	<!-- end edit project inffo modal -->
 	<?php if(isset($_SESSION['alert'])):?>
-	<div id=toastr-one div='<?php echo $_SESSION[' alert']['class'];?>' message='
-		<?php echo $_SESSION['alert']['message'];?>'></div>
+	<div id=toastr-one div='<?php echo $_SESSION[' alert ']['class '];?>' message='
+		<?php echo $_SESSION[' alert ']['message '];?>'></div>
 	<?php unset($_SESSION['alert']);?>
 	<?php endif;?>
 	<!-- Modal comment -->
-	<div id="comment-modal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
-	 style="display: none; padding-left: 0px;">
+	<div id="comment-modal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" style="display: none; padding-left: 0px;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -491,8 +518,12 @@
 								<h3 class="font-700 m-b-5">Bình luận</h3>
 								<!-- start -->
 								<div class="">
-									<span class="pull-left m-r-15"><img src="static/images/users/profile1.jpg" alt="" class="thumb-lg rounded-circle"></span>
-									<h5 class="m-b-5"><b>Mike Tanny</b></h5>
+									<span class="pull-left m-r-15">
+										<img src="static/images/users/profile1.jpg" alt="" class="thumb-lg rounded-circle">
+									</span>
+									<h5 class="m-b-5">
+										<b>Mike Tanny</b>
+									</h5>
 									<p class="text-muted m-t-0" style="font-size:.8rem">2018-11-26 18:52:32</p>
 									<p class="text-muted">sdsdfsdf
 									</p>
@@ -516,4 +547,3 @@
 		</div>
 	</div>
 	<!-- end modal comment -->
-	
