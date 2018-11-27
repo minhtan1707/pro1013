@@ -47,4 +47,10 @@ function member_search($search){
     $sql = "SELECT * FROM member WHERE member_name LIKE ? OR email LIKE ?";
     return pdo_query($sql,$search,$search);
 }
+
+function last_logged_out($id,$last_logout)
+{
+    $sql = "UPDATE member SET last_logged_out=? WHERE member_id=?";
+    pdo_execute($sql,$last_logout,$id);
+}
 ?>

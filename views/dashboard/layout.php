@@ -39,7 +39,8 @@
                     <li class="list-inline-item dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <i class="dripicons-bell noti-icon"></i>
+                            <i class="dripicons-bell noti-icon p-r-0"></i>
+                            <span style="background:darkred;color:white;font-weight:800;padding:3px 6px;border-radius:50%;margin-right:10px"><?php echo count($_SESSION['announcement']);?></span>
                         </a>
                     </li>
                 </ul>

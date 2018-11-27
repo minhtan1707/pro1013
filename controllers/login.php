@@ -9,6 +9,7 @@ else{
     if(isset($_POST['email']))
     {
         require_once './models/member.php';
+        require_once './models/announcement.php';
         //kiểm tra thông tin login
         $email=check($_POST['email']);
         $password=check($_POST['password']);
@@ -23,6 +24,17 @@ else{
             
             $_SESSION['user_info']=$login;
             $_SESSION['user_info']['login']=1;
+
+            $announcements=get_ann($_SESSION['user_info']['member_id']);
+            foreach($announcements as $announcement)
+            {
+                $ann_created_at=date("Y-m-d H:i:s",$announcement['ann_created_at']);
+                $last_logged_out=date("Y-m-d H:i:s",$_SESSION['last_logged_out']);
+                if($ann_created_at>$last_logged_out){
+                    $_SESSION['announcement'][$announcement['pro_id']]=$announcement;
+                }
+            }
+
             header("location: dashboard.php");
         }else{
             //sai thông tin trả lại về trang login

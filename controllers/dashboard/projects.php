@@ -71,19 +71,19 @@ function project_detail($pro_id)
     $comments=get_comment_pro_id($pro_id);
     switch($project['progress'])
     {
-        case '1':
+        case 1:
         $progress="25";
         break;
 
-        case '2':
+        case 2:
         $progress="50";
         break;
 
-        case '3':
+        case 3:
         $progress="75";
         break;
 
-        case '4':
+        case 4:
         $progress="100";
         break;
 
@@ -192,7 +192,7 @@ function edit($pro_id)
 {
     $insert_data['pro_name']=check($_POST['pro_name']);
     $insert_data['pro_desc']=check($_POST['pro_desc']);
-    update_project($pro_id,$insert_data['pro_name'],$insert_data['pro_desc'],$_POST['pro_start'],$_POST['pro_end']);
+    update_project($pro_id,$insert_data['pro_name'],$insert_data['pro_desc'],$_POST['pro_start'],$_POST['pro_end'],$_POST['progress']);
     $_SESSION['alert']['message']="Sửa thông tin dự án thành công";
     $_SESSION['alert']['class']='success';
     header("location: dashboard.php?page=projects&act=detail&id=$pro_id");

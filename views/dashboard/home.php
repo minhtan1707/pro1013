@@ -1,3 +1,9 @@
+<?php foreach($_SESSION['announcement'] as $announcement){
+	print_r($announcement);
+	echo '<br>';
+	echo '<br>';
+}
+	;?>
 <div class="row">
 	<div class="col-lg-8">
 		<div class="card-box">
@@ -145,42 +151,25 @@
 		<div class="card-box text-center">
 			<div class="text-center">
 				<div class="card-box">
-					<h4 class="header-title mt-0 m-b-20">Dự án đang tham gia</h4>
-					<div class="table-responsive">
-						<table class="table m-b-0">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Tên</th>
-									<th>Chi tiết</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2</td>
-									<td>Adminox Frontend</td>
-									<td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-									</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>Adminox Frontend</td>
-									<td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-									</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Adminox Frontend</td>
-									<td><a href="#" class="btn btn-success btn-xs waves-effect waves-light">Xem</a>
-									</td>
-								</tr>
-
-							</tbody>
-						</table>
-					</div>
+					<h4 class="header-title mt-0 m-b-20">Thông báo mới nhất</h4>
+						<!-- start box -->
+						<hr>
+						<?php $count=count($announcements)<2?count($announcements):2;?>
+						<?php for($b=0;$b<$count;$b++):?>
+						<?php 
+						$announcement=$announcements[$b];
+						$ann_created_at=date('d-m-Y h:i A',strtotime($announcement['ann_created_at']));
+						?>
+							<div class="timeline-box text-left">
+								<h5 class="text-success"><?php echo $announcement['pro_name']?$announcement['pro_name']:'';?></h5>
+								<p class="timeline-date text-muted"><small><?php echo $ann_created_at;?></small></p>
+								<p><b><?php echo $announcement['ann_content']?$announcement['ann_content']:'';?></b></p>
+							</div>
+							<hr>
+						<?php endfor;?>
+						<!-- end box -->
 				</div>
 			</div>
-
 		</div>
 
 		<div class="card-box">

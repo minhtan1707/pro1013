@@ -65,8 +65,12 @@ function edit()
 
 function logout()
 {
-    session_start();
+    require_once './models/member.php';
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $now=date("Y-m-d H:i:s");
+    last_logged_out($_SESSION['user_info']['member_id'],$now);
     unset($_SESSION['user_info']);
+    unset($_SESSION['announcement']);
     header("location: dashboard.php");
 }
 ?>

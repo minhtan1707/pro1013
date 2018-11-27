@@ -2,6 +2,7 @@
     require_once './models/meeting.php';
     require_once './models/task.php';
     require_once './models/project.php';
+    require_once './models/announcement.php';
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $now=date('Y-m-d');
     // $end_date=strtotime($task['end_date']);
@@ -23,7 +24,7 @@
     $count_meeting=isset($all_meeting)?count($all_meeting):'0';
     $latest_meeting=$all_meeting?strtotime($all_meeting[0]['meeting_created_at']):'';
 
-
+    $announcements=get_ann($_SESSION['user_info']['member_id']);
     $tasks=get_task_member_id($_SESSION['user_info']['member_id'],'0');
     $meetings=get_meeting($_SESSION['user_info']['member_id']);
     $title ='Bảng điều khiển';

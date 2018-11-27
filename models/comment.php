@@ -18,7 +18,7 @@ function get_comment(){
 
 function get_comment_pro_id($id)
 {
-    $sql="SELECT * FROM comment LEFT JOIN task ON task.task_id=comment.task_id LEFT JOIN member ON member.member_id = comment.member_id WHERE pro_id=?";
+    $sql="SELECT *,comment.created_at AS comment_created_at FROM comment LEFT JOIN task ON task.task_id=comment.task_id LEFT JOIN member ON member.member_id = comment.member_id WHERE pro_id=?";
     return pdo_query($sql,$id);
 }
 

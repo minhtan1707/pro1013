@@ -567,7 +567,7 @@ $now=date('Y-m-d');?>
 										<div class="">
 										<span class="pull-left m-r-15"><img src="static/images/users/<?php echo $comment?$comment['profile_picture']:'';?>" alt="" class="thumb-md rounded-circle"></span>
 											<h5 class="m-b-5"><b><?php echo $comment?$comment['member_name']:'';?></b></h5>
-											<p class="text-muted m-t-0" style="font-size:.8rem"><?php echo $comment?$comment['created_at']:'';?></p>
+											<p class="text-muted m-t-0" style="font-size:.8rem"><?php echo $comment?$comment['comment_created_at']:'';?></p>
 											<p class="text_dark"><?php echo $comment?$comment['comment_content']:'';?>
 											</p>
 										</div>

@@ -10,9 +10,9 @@ function insert_project_detail($pro_id,$member_id){
     $sql = "INSERT INTO pro_detail(pro_id,member_id) VALUES (?,?)";
     pdo_execute($sql,$pro_id,$member_id);
 }
-function update_project($pro_id,$pro_name,$description,$pro_start,$pro_end){
-    $sql = "UPDATE project SET pro_name=?,description=?,pro_start=?,pro_end=? WHERE pro_id=?";
-    pdo_execute($sql,$pro_name,$description,$pro_start,$pro_end,$pro_id);
+function update_project($pro_id,$pro_name,$description,$pro_start,$pro_end,$progress){
+    $sql = "UPDATE project SET pro_name=?,description=?,pro_start=?,pro_end=?,progress=? WHERE pro_id=?";
+    pdo_execute($sql,$pro_name,$description,$pro_start,$pro_end,$progress,$pro_id);
 }
 
 function get_project(){
