@@ -1,30 +1,47 @@
 <div class="row">
+	<div class="col-12">
+		<div class="card-box ">
+			<h4 class="text-dark header-title m-t-0 text-center ">Tiến độ dự án</h4>
+			<hr>
+			<div class="progress m-b-0">
+				<div class="progress-bar" role="progressbar" style="width: <?php echo $progress;?>%;" aria-valuenow="<?php echo $progress;?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress;?>%</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-md-4">
 
 		<div class="card-box ">
 				<h4 class="text-danger header-title m-t-0 text-center ">Bảng thông báo</h4>
 				<hr>
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-				<strong>Lẹ lẹ!</strong> Làm lẹ đi mấy chế
-			</div>
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-				<strong>Thằng Hùng Cmt mất dại</strong>
-			</div>
+			<?php foreach($announcements as $announcement):?>
+			<?php 
+			if($announcement['created_at']){
+				$ann_created_at=$announcement['created_at'];
+				$ann_created_at_date=date('d-m-Y',strtotime($ann_created_at));
+				$ann_created_at_time=date('h:i A',strtotime($ann_created_at));
+			}
+			?>
+			<div class="timeline-box">
+					<h5 class="text-success m-b-0"><b><?php echo $ann_created_at_date;?></b></h5>
+					<p class="timeline-date text-muted m-b-10">
+						<small><?php echo $ann_created_at_time;?></small>
+					</p>
+					<p><b><?php echo $announcement['ann_content']?$announcement['ann_content']:'';?></b></p>
+				</div>
+				<!-- end box -->
+				<hr>
+			<?php endforeach;?>
 		</div>
 		<div class="text-center card-box">
 			<div class="member-card">
 				<h4 class="text-dark header-title m-t-0 text-left ">Thông tin dự án</h4>
 				<h3 class="text-dark  m-b-30 text-center">
-					<?php echo isset($project)?$project['pro_name']:'';?>
+					<?php echo $project['pro_name']?$project['pro_name']:'';?>
 				</h3>
 				<p class=" text-left">
-					<?php echo isset($project)?$project['description']:'';?>.</p>
+					<?php echo $project['description']?$project['description']:'';?>.</p>
 				<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
 				<button type="button" data-toggle="modal" data-target="#edit-pro-modal" class="btn btn-inverse btn-rounded w-md waves-effect waves-light">
 					<i class="fa fa-wrench m-r-5"></i> <span>Sửa</span> </button>
@@ -69,21 +86,30 @@
 				<h4 class="text-dark header-title m-t-0 text-left ">Thông báo</h4>
 				<hr>
 				<!-- start box -->
-				<div class="timeline-box">
-					<h5 class="text-success">07 January 2016</h5>
+				<?php foreach($announcements as $announcement):?>
+			<?php 
+			if($announcement['created_at']){
+				$ann_created_at=$announcement['created_at'];
+				$ann_created_at_date=date('d-m-Y',strtotime($ann_created_at));
+				$ann_created_at_time=date('h:i A',strtotime($ann_created_at));
+			}
+			?>
+			<div class="timeline-box">
+					<h5 class="text-success"><?php echo $ann_created_at_date;?></h5>
 					<p class="timeline-date text-muted">
-						<small>08:25 am</small>
+						<small><?php echo $ann_created_at_time;?></small>
 					</p>
-					<p>Jonatha Smith added new milestone Lorem ipsum dolor sit amet consiquest dio</p>
+					<p><?php echo $announcement['ann_content']?$announcement['ann_content']:'';?></p>
 				</div>
 				<!-- end box -->
 				<hr>
+			<?php endforeach;?>
+				<!-- end box -->
 				<form action="" method="POST">
 					<div class="form-group">
 						<textarea class="form-control" name="ann_content" id="" cols="100%" rows="8"></textarea>
 					</div>
 					<input type="submit" class="btn btn-success" name="add_ann" value="Tạo">
-
 				</form>
 			</div>
 		<?php endif;?>
@@ -135,9 +161,9 @@
 				<div class="m-t-20">
 					<?php if($project['pro_leader']==$_SESSION['user_info']['member_id']):?>
 					<p class="pull-right m-b-0 m-t-10">
-						<button type="button" class="btn btn-pink btn-xs waves-effect waves-light" data-toggle="modal" data-target="#comment-modal">Bình
+						<button type="button" class="btn btn-pink btn-xs waves-effect waves-light" data-toggle="modal" data-target="<?php echo isset($task)?'#comment-modal'.$task['task_id']:'';?>">Bình
 							luận</button>
-						<button type="button" class="btn btn-success btn-xs waves-effect waves-light" data-toggle="modal" data-target="<?php echo isset($task)?'#edit-task-modal-'.$task['task_id']:'';?> ">Chỉnh
+						<button type="button" class="btn btn-success btn-xs waves-effect waves-light" data-toggle="modal" data-target="<?php echo isset($task)?'#edit-task-modal-'.$task['task_id']:'';?>">Chỉnh
 							sửa</button>
 					</p>
 					<?php endif;?>
@@ -199,51 +225,8 @@
 			</div>
 		</div>
 	</div>
-<!-- time line -->
-		<div class="col-12">
-			<div class="card-box">
-					<h4 class="text-dark header-title m-t-0 text-center ">Time line</h4>
-					<hr>
-				<div class="timeline timeline-left">
-					<article class="timeline-item alt">
-						<div class="text-left">
-							<div class="time-show first">
-								<a href="#" class="btn btn-primary w-lg">Hôm nay</a>
-							</div>
-						</div>
-					</article>
-					<article class="timeline-item">
-						<div class="timeline-desk">
-							<div class="panel">
-								<div class="timeline-box">
-									<span class="arrow"></span>
-									<span class="timeline-icon"><i class="mdi mdi-checkbox-blank-circle-outline"></i></span>
-									<h4 class="">1 hour ago</h4>
-									<p class="timeline-date text-muted"><small>08:25 am</small></p>
-									<p>Dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? </p>
-								</div>
-							</div>
-						</div>
-					</article>
-					<article class="timeline-item ">
-						<div class="timeline-desk">
-							<div class="panel">
-								<div class="timeline-box">
-									<span class="arrow"></span>
-									<span class="timeline-icon bg-success"><i class="mdi mdi-checkbox-blank-circle-outline"></i></span>
-									<h4 class="text-success">2 hours ago</h4>
-									<p class="timeline-date text-muted"><small>08:25 am</small></p>
-									<p>consectetur adipisicing elit. Iusto, optio, dolorum <a href="#">John deon</a> provident rerum aut hic quasi placeat iure tempora laudantium </p>
 
-								</div>
-							</div>
-						</div>
-					</article>
-				</div> 
-			</div> 
-		</div> 
-		<!-- end timeline -->
-	<!-- // modal -->
+<!-- // modal -->
 	<!-- add task modal -->
 	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 	 aria-hidden="true" style="display: none;">
@@ -345,8 +328,7 @@
 					<div class="form-group m-b-25">
 						<div class="col-xs-12">
 							<label for="username">Tên nhiệm vụ</label>
-							<input class="form-control" type="text" name="task_name" id="username" value='<?php echo isset($task)?$task['
-							 task_name']:'';?>' required="">
+							<input class="form-control" type="text" name="task_name" id="username" value='<?php echo isset($task)?$task['task_name']:'';?>' required="">
 						</div>
 					</div>
 
@@ -361,8 +343,7 @@
 							<div> <label for="emailaddress">Người thực hiện</label></div>
 							<select class="form-control" name=assigned_member>
 								<?php foreach($members as $member):?>
-								<option value=<?php echo $member['member_id']; if($task['assigned_member']==$member['member_id']) { echo
-								 ' selected' ; } ?>>
+								<option value=<?php echo $member['member_id']; if($task['assigned_member']==$member['member_id']) { echo 'selected' ; } ?>>
 									<?php echo $member['member_name'].' - '.$member['email'];?>
 								</option>
 								<?php endforeach;?>
@@ -373,8 +354,8 @@
 						<div class="col-xs-12">
 							<div> <label for="emailaddress">Trạng thái</label></div>
 							<select class="form-control" name=status>
-								<option value=0>Chưa Hoàn Thành</option>
-								<option value=1>Đã Hoàn Thành</option>
+								<option value=0  <?php echo $task['status']==0?'selected':'';?>>Chưa Hoàn Thành</option>
+								<option value=1  <?php echo $task['status']==1?'selected':'';?>>Đã Hoàn Thành</option>
 							</select>
 						</div>
 					</div>
@@ -415,7 +396,7 @@
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
 								<label for="username">Tên dự án</label>
-								<input class="form-control" type="text" name="pro_name" id="username" value="<?php echo isset($project)?$project['pro_name']:'';?>"
+								<input class="form-control" type="text" name="pro_name" id="username" value="<?php echo $project['pro_name']?$project['pro_name']:'';?>"
 								 required="">
 							</div>
 						</div>
@@ -423,23 +404,36 @@
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
 								<div> <label for="emailaddress">Nội dung</label></div>
-								<textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3"><?php echo isset($project)?$project['description']:'';?></textarea>
+								<textarea id="textarea" class="form-control" name="pro_desc" maxlength="225" rows="3"><?php echo $project['description']?$project['description']:'';?></textarea>
 							</div>
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
 								<div> <label for="emailaddress">Ngày bắt đầu</label></div>
 								<input type="date" name="pro_start" class="form-control" value=<?php echo
-								 isset($project)?$project['pro_start']:'';?>>
+								 $project['pro_start']?$project['pro_start']:'';?>>
 							</div>
 						</div>
 						<div class="form-group m-b-25">
 							<div class="col-xs-12">
 								<div> <label for="emailaddress">Ngày kết thúc</label></div>
 								<input type="date" name="pro_end" class="form-control" value=<?php echo
-								 isset($project)?$project['pro_end']:'';?>>
+								 $project['pro_end']?$project['pro_end']:'';?>>
 							</div>
 						</div>
+						<div class="form-group m-b-25">
+						<div class="col-xs-12">
+							<div> <label for="emailaddress">Tiến độ</label></div>
+							<select class="form-control" name=progress>
+								<option value=0 <?php if($project['progress']&&$project['progress']==0){echo 'selected';}?>>0%</option>
+								<option value=1 <?php if($project['progress']&&$project['progress']==1){echo 'selected';}?>>25%</option>
+								<option value=2 <?php if($project['progress']&&$project['progress']==2){echo 'selected';}?>>50%</option>
+								<option value=3 <?php if($project['progress']&&$project['progress']==3){echo 'selected';}?>>75%</option>
+								<option value=4 <?php if($project['progress']&&$project['progress']==4){echo 'selected';}?>>100%</option>
+
+							</select>
+						</div>
+					</div>
 						<div class="form-group account-btn text-center m-t-10">
 							<div class="col-xs-12">
 								<input class="btn w-lg btn-s btn-inverse" type="submit" value=Sửa name=edit_project>
@@ -509,7 +503,16 @@
 
 
 	<!-- Modal comment -->
-	<div id="comment-modal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
+
+
+<?php foreach($tasks as $task):?>
+
+<?php								
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$end_date=strtotime($task['end_date']);
+$end_date=date('Y-m-d',$end_date);
+$now=date('Y-m-d');?>
+	<div id="<?php echo isset($task)?'comment-modal'.$task['task_id']:'';?>" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
 	 style="display: none; padding-left: 0px;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -517,29 +520,40 @@
 				<div class="modal-body">
 					<div class="p-10 task-detail">
 						<h4 class="font-600 m-b-20">
-							Task no.3 </h4>
+							<?php echo isset($tasks)?$task['task_name']:'';?>
+						</h4>
 
 						<p class="text-muted">
-							Lorem disasd eqg sgsdg ew gewgw </p>
+							<?php echo isset($tasks)?$task['task_desc']:'';?>
+						</p>
 
 						<ul class="list-inline task-dates m-b-0 m-t-20">
 							<li>
 								<h5 class="font-600 m-b-5">Ngày bắt đầu</h5>
 								<p>
-									2018-11-06 10:18:50 </p>
+									<?php echo isset($tasks)?$task['created_at']:'';?>
+								</p>
 							</li>
 
 							<li>
 								<h5 class="font-600 m-b-5">Ngày kết thúc</h5>
 								<p>
-									2018-11-14 </p>
+									<?php echo isset($tasks)?$task['end_date']:'';?>
+								</p>
 							</li>
 							<li>
 								<h5 class="font-600 m-b-5">Trạng thái</h5>
 
+								<?php if($now<=$end_date):?>
+								<?php if($task['status']==0){
+										echo '<span class="label label-danger">Unfinished</span>';
+									}else if($task['status']==1)
+									{
+										echo '<span class="label label-primary">Finished</span>';
+									}?>
+								<?php else:?>
 								<span class="label label-muted">Closed</span>
-							</li>
-							<li>
+								<?php endif;?>
 							</li>
 						</ul>
 						<div class="clearfix"></div>
@@ -548,22 +562,26 @@
 							<div class="col-12">
 								<h3 class="font-700 m-b-5">Bình luận</h3>
 								<!-- start -->
-								<div class="">
-									<span class="pull-left m-r-15"><img src="static/images/users/profile1.jpg" alt="" class="thumb-lg rounded-circle"></span>
-									<h5 class="m-b-5"><b>Mike Tanny</b></h5>
-									<p class="text-muted m-t-0" style="font-size:.8rem">2018-11-26 18:52:32</p>
-									<p class="text-muted">sdsdfsdf
-									</p>
-								</div>
+								<?php foreach($comments as $comment):?>
+									<?php if($task['task_id']==$comment['task_id']):?>
+										<div class="">
+										<span class="pull-left m-r-15"><img src="static/images/users/<?php echo $comment?$comment['profile_picture']:'';?>" alt="" class="thumb-md rounded-circle"></span>
+											<h5 class="m-b-5"><b><?php echo $comment?$comment['member_name']:'';?></b></h5>
+											<p class="text-muted m-t-0" style="font-size:.8rem"><?php echo $comment?$comment['created_at']:'';?></p>
+											<p class="text_dark"><?php echo $comment?$comment['comment_content']:'';?>
+											</p>
+										</div>
+									<?php endif;?>
+								<?php endforeach;?>
 								<hr>
 								<!-- end -->
 								<h5 class="font-600 m-b-5">Thêm bình luận</h5>
 								<form action="" method="POST">
-									<input type="hidden" name="task_id" value="3">
+								<input type=hidden name=task_id value=<?php echo isset($tasks)?$task['task_id']:'';?>>
 									<div class="form-group">
 										<textarea class="form-control" name="comment_content" id="" cols="100%" rows="10"></textarea>
 									</div>
-									<input type="submit" class="btn btn-success" name="add_comment" value="Bình luận">
+									<input type="submit" class="btn btn-success" name=add_comment value='Bình luận'>
 
 								</form>
 							</div>
@@ -573,4 +591,5 @@
 			</div>
 		</div>
 	</div>
-	
+
+<?php endforeach;?>

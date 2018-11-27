@@ -44,10 +44,10 @@
 	</div>
 
 
-	<div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+	<div id="" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
 		<div class="row">
 			<div class="col-sm-12">
-				<table class="table table-hover m-0 tickets-list table-actions-bar dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+				<table class="table table-hover m-0 tickets-list dataTable no-footer collapsed"
 				 cellspacing="0" width="100%"  role="grid" aria-describedby="datatable_info" style="width: 100%;">
 					<thead>
 						<tr role="row">
@@ -74,7 +74,7 @@
 								</a>
 							</td>
 
-							<td>
+							<td style="width: 300px;">
 								<?php echo isset($tasks)?$task['task_desc']:'';?>
 							</td>
 
@@ -236,7 +236,7 @@ $now=date('Y-m-d');?>
 									<?php foreach($comments as $comment):?>
 										<?php if($task['task_id']==$comment['task_id']):?>
 											<div class="">
-											<span class="pull-left m-r-15"><img src="static/images/users/<?php echo $comment?$comment['profile_picture']:'';?>" alt="" class="thumb-lg rounded-circle"></span>
+											<span class="pull-left m-r-15"><img src="static/images/users/<?php echo $comment?$comment['profile_picture']:'';?>" alt="" class="thumb-md rounded-circle"></span>
 												<h5 class="m-b-5"><b><?php echo $comment?$comment['member_name']:'';?></b></h5>
 												<p class="text-muted m-t-0" style="font-size:.8rem"><?php echo $comment?$comment['created_at']:'';?></p>
 												<p class="text-muted"><?php echo $comment?$comment['comment_content']:'';?>
@@ -264,6 +264,7 @@ $now=date('Y-m-d');?>
 		</div>
 
 <?php endforeach;?>
+
 <?php if(isset($_SESSION['alert'])):?>
 <div id=toastr-one div='<?php echo $_SESSION['alert']['class'];?>' message='<?php echo $_SESSION['alert']['message'];?>'></div>
 <?php unset($_SESSION['alert']);?>

@@ -16,4 +16,10 @@ function get_comment(){
     return pdo_query($sql);
 }
 
+function get_comment_pro_id($id)
+{
+    $sql="SELECT * FROM comment LEFT JOIN task ON task.task_id=comment.task_id LEFT JOIN member ON member.member_id = comment.member_id WHERE pro_id=?";
+    return pdo_query($sql,$id);
+}
+
 ?>
