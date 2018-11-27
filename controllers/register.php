@@ -14,8 +14,7 @@ if(isset($_POST['name'])){
     {
         header("location: index.php?act=register");
     }else{
-        $profile_picture='noimage.jpg';
-        insert_member($name,$email,$pass_hash,$profile_picture);
+        insert_member($name,$email,$pass_hash);
         header("location: index.php?act=login");
     }
 }else{
