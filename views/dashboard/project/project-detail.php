@@ -64,6 +64,29 @@
 				</div>
 			</div>
 		</div>
+		<?php if($_SESSION['user_info']['member_id']==$project['pro_leader']):?>
+			<div class="card-box">
+				<h4 class="text-dark header-title m-t-0 text-left ">Thông báo</h4>
+				<hr>
+				<!-- start box -->
+				<div class="timeline-box">
+					<h5 class="text-success">07 January 2016</h5>
+					<p class="timeline-date text-muted">
+						<small>08:25 am</small>
+					</p>
+					<p>Jonatha Smith added new milestone Lorem ipsum dolor sit amet consiquest dio</p>
+				</div>
+				<!-- end box -->
+				<hr>
+				<form action="" method="POST">
+					<div class="form-group">
+						<textarea class="form-control" name="ann_content" id="" cols="100%" rows="8"></textarea>
+					</div>
+					<input type="submit" class="btn btn-success" name="add_ann" value="Tạo">
+
+				</form>
+			</div>
+		<?php endif;?>
 	</div>
 	<div class="col-md-8">
 		<div class="card-box task-box">
