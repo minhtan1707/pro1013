@@ -37,10 +37,10 @@
 
                 <ul class="list-inline float-right mb-0">
                     <li class="list-inline-item dropdown notification-list">
-                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
-                            href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link arrow-none waves-light waves-effect"
+                         role="button" data-toggle="modal" data-target="#notification-modal" aria-expanded="false">
                             <i class="dripicons-bell noti-icon p-r-0"></i>
-                            <span style="background:darkred;color:white;font-weight:800;padding:3px 6px;border-radius:50%;margin-right:10px"><?php echo count($_SESSION['announcement']);?></span>
+                            <span style="background:#B50000;color:white;font-weight:800;padding:3px 8px;border-radius:50%;margin-right:10px"><?php echo isset($_SESSION['announcement'])?count($_SESSION['announcement']):0;?></span>
                         </a>
                     </li>
                 </ul>
@@ -53,12 +53,46 @@
                         </form>
                     </li>
                 </ul>
-
             </nav>
-
         </div>
         <!-- Top Bar End -->
+<div id="notification-modal" class="modal fade" tabindex="1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="modal-body">
+                <!-- <h2 class="text-uppercase text-center m-b-30">
+                    Notification
+                </h2> -->
 
+                <?php if(isset($_SESSION['announcement'])):?>
+                <h3 class="text-danger header-title m-t-0 text-center ">Nhiệm vụ mới khi bạn không ở đây</h3>
+				<hr>
+                <?php foreach($_SESSION['announcement'] as $announcement):?>
+
+                        <div class="timeline-box">
+                            <h5 class="text-dark m-b-0"><?php echo $announcement?$announcement['pro_name']:'';?></h5>
+                            <p class="timeline-date text-muted m-b-10">
+                                <small><?php echo $announcement?$announcement['task_created_at']:'';?></small></p>
+                            </p>
+                            <p class=text-danger><b><?php echo $announcement?$announcement['task_name']:'';?></b></p>
+                        </div>
+				<!-- end box -->
+				<hr>
+                <?php endforeach;?>
+                <a href="dashboard.php?page=tasks&from=noti" class="btn btn-primary">Tới trang nhiệm vụ</a>
+                <?php else:?>
+                <h3 class="text-danger header-title m-t-0 text-center ">Không có nhiệm vụ mới trong lúc bạn đăng xuất</h3>
+				<hr>
+                <?php endif;?>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
         <!-- ========== Left Sidebar Start ========== -->
         <div class="left side-menu">
@@ -80,9 +114,10 @@
                                     <i class="  mdi mdi-export" style=font-size:20px></i>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
+
+
                     <!-- End User box -->
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">

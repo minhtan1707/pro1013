@@ -11,7 +11,7 @@
 </div>
 <div class="row">
 	<div class="col-md-4">
-
+		<?php if($project['pro_leader']!=$_SESSION['user_info']['member_id']):?>
 		<div class="card-box ">
 				<h4 class="text-danger header-title m-t-0 text-center ">Bảng thông báo</h4>
 				<hr>
@@ -34,6 +34,7 @@
 				<hr>
 			<?php endforeach;?>
 		</div>
+		<?php endif;?>
 		<div class="text-center card-box">
 			<div class="member-card">
 				<h4 class="text-dark header-title m-t-0 text-left ">Thông tin dự án</h4>

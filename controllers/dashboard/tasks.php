@@ -1,6 +1,8 @@
 <?php
 $act=isset($_GET['act'])?$_GET['act']:'';
 $act=check($act);
+$noti=isset($_GET['from'])?$_GET['from']:'';
+$noti=check($noti);
 // $task_id=isset($_GET['id'])?$_GET['id']:'';
 require_once './library/pagination.php';
 $page=isset($_GET['pages'])?$_GET['pages']:1;
@@ -15,14 +17,18 @@ switch($act){
     // break;
 
     default:
-    home($page);
+    home($page,$noti);
 
 }
 
-function home($page)
+function home($page,$noti)
 {
     require_once './models/task.php';
     require_once './models/comment.php';
+    if($noti)
+    {
+        unset($_SESSION['announcement']);
+    }
     $total_tasks=get_task_member_id($_SESSION['user_info']['member_id']);
     $total= count($total_tasks);
     $limit=4;

@@ -1,8 +1,8 @@
-<?php foreach($_SESSION['announcement'] as $announcement){
-	print_r($announcement);
-	echo '<br>';
-	echo '<br>';
-}
+<?php //foreach($_SESSION['announcement'] as $announcement){
+	//print_r($announcement);
+	//echo '<br>';
+	//echo '<br>';}
+	//print_r($_SESSION['announcement']);
 	;?>
 <div class="row">
 	<div class="col-lg-8">

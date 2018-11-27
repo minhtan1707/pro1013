@@ -6,10 +6,11 @@ $page=isset($_GET['pages'])?$_GET['pages']:1;
 $page=check($page);
 $pro_id=isset($_GET['id'])?$_GET['id']:'';
 $pro_id=check($pro_id);
+
 switch($act){
 
     case 'detail':
-    project_detail($pro_id);
+    project_detail($pro_id,$noti);
     break;
 
     default:
@@ -56,6 +57,7 @@ function project_detail($pro_id)
     require_once './models/comment.php';
     require_once './models/task.php';
     require_once './models/announcement.php';
+
 
     $project=get_project_id($pro_id);
     $team_lead=get_member_id($project['pro_leader']);
