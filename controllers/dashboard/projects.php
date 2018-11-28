@@ -10,7 +10,7 @@ $pro_id=check($pro_id);
 switch($act){
 
     case 'detail':
-    project_detail($pro_id,$noti);
+    project_detail($pro_id);
     break;
 
     default:
