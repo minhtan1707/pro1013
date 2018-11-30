@@ -297,7 +297,7 @@
 								<small class="text-muted">20/9/2011</small>
 							</p>
 						</div>
-						<img class="img-fluid" src="./static/images/users/suumaster.jpg" alt="Card image cap">
+						<img class="img-responsive" src="./static/images/users/suumaster.jpg" alt="Card image cap">
 					</div>
 				</div>
 
@@ -313,7 +313,7 @@
 								<small class="text-muted">2/9/2005</small>
 							</p>
 						</div>
-						<img class="img-fluid" src="./static/images/users/minhtanmaster.png" alt="Card image cap">
+						<img class="img-responsive" src="./static/images/users/minhtanmaster.png" alt="Card image cap">
 					</div>
 				</div>
 
@@ -329,7 +329,7 @@
 								<small class="text-muted">11/12/2017</small>
 							</p>
 						</div>
-						<img class="img-fluid" src="./static/images/users/hoangviethungmaster.jpg" alt="Card image cap">
+						<img class="img-responsive" src="./static/images/users/hoangviethungmaster.jpg" alt="Card image cap">
 					</div>
 				</div>
 
@@ -346,7 +346,7 @@
 								<small class="text-muted">8/1/2009</small>
 							</p>
 						</div>
-						<img class="img-fluid" src="./static/images/users/hoamaster.jpg" alt="Card image cap">
+						<img class="img-responsive" src="./static/images/users/hoamaster.jpg" alt="Card image cap">
 					</div>
 				</div>
 			</div>
