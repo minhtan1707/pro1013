@@ -19,57 +19,94 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </li> -->
-                    <li class="page-item">
-                        <a href="<?php echo $previous_page<1?'':'dashboard.php?page=projects&pages='.$previous_page;?>" class="page-link" aria-label="Previous">                           
-                            <span aria-hidden="true">«</span>
-                            <span class="sr-only">Previous</span></a>
-                    </li>
-                    <?php if($previous_page>=1):?>
-                    <li class="page-item">
-                        <a href="<?php echo 'dashboard.php?page=projects&pages='.$previous_page;?>"class="page-link">
-                            <?php echo $previous_page;?>
-                        </a>
-                    </li>
-                    <?php endif;?>
-                    <li class="page-item active">
-                        <a class="page-link">
-                            <?php echo $current_page;?>
-                        </a>
-                    </li>
-                    <?php if($next_page<=$total_page):?>
-                    <li class="page-item">
-                        <a href="<?php echo 'dashboard.php?page=projects&pages='.$next_page;?>"class="page-link">
-                            <?php echo $next_page;?>
-                        </a>
-                    </li>
-                    <?php endif;?>
-                    <li class="page-item">
-                        <a href="<?php echo $next_page>$total_page?'':'dashboard.php?page=projects&pages='.$next_page;?>" class="page-link" aria-label="Next">                            
+                <li class="page-item">
+                    <a href="<?php echo $previous_page<1?'':'dashboard.php?page=projects&pages='.$previous_page;?>" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <?php if($previous_page>=1):?>
+                <li class="page-item">
+                    <a href="<?php echo 'dashboard.php?page=projects&pages='.$previous_page;?>" class="page-link">
+                        <?php echo $previous_page;?>
+                    </a>
+                </li>
+                <?php endif;?>
+                <li class="page-item active">
+                    <a class="page-link">
+                        <?php echo $current_page;?>
+                    </a>
+                </li>
+                <?php if($next_page<=$total_page):?>
+                <li class="page-item">
+                    <a href="<?php echo 'dashboard.php?page=projects&pages='.$next_page;?>" class="page-link">
+                        <?php echo $next_page;?>
+                    </a>
+                </li>
+                <?php endif;?>
+                <li class="page-item">
+                    <a href="<?php echo $next_page>$total_page?'':'dashboard.php?page=projects&pages='.$next_page;?>" class="page-link" aria-label="Next">
                         <span aria-hidden="true">»</span>
-                            <span class="sr-only">Next</span></a>
-                    </li>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </div>
 <div class="row">
     <?php foreach($projects as $project):?>
-
+    <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $created_at=strtotime($project['created_at']);
+                $pro_end = strtotime($project['pro_end']);?>
     <div class="col-sm-4 col-xs-12">
         <a href="dashboard.php?page=projects&act=detail&id=<?php echo isset($project)?$project['id']:''?>">
-            <div class="card m-b-20 card-block card-inverse card-success">
-                <h4 class="card-title">
-                    <?php echo isset($project)?$project['pro_name']:'';?>
-                </h4>
-                <p class="card-text">Ngày kết thúc: 
+            <div class="project-card card m-b-20 card-block card-inverse card-<?php 
+                if(date('Y-m-d',$pro_end)<date('Y-m-d'))
+                {
+                    echo 'muted';
+                }
+                else if($_SESSION['user_info']['member_id']==$project['pro_leader'])
+                {
+                    echo 'success';
+                }
+                else
+                {
+                    echo 'info';
+                }
+            ?>">
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="card-title">
+                            <?php echo isset($project)?$project['pro_name']:'';?>
+                        </h4>
+                    </div>
+                    <div class="col-6 text-right m-t-5">
+                        <p class="card-text">
+                            <b>
+                                <?php if(date('Y-m-d',$pro_end)<date('Y-m-d')){
+                         echo 'Closed<br>';}?>
+                                
+                                <?php if($_SESSION['user_info']['member_id']==$project['pro_leader']){
+                        echo 'PM';
+                        }else{
+                        echo "";
+                        }?>
+
+                            </b>
+                    </p>
+                    </div>
+                </div>
+
+
+                <p class="card-text">Ngày kết thúc:
                     <?php echo isset($project)?$project['pro_end']:'';?>
                 </p>
                 <p class="card-text">
                     <?php echo isset($project)?$project['description']:'';?>
                 </p>
-                <p class="card-text">
-                    <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
-                $created_at=strtotime($project['created_at']);
+                <p class="card-text m-b-0">
+                    <?php 
                 if(isset($project)){
                     if((date('m')-date('m',$created_at))>=1)
                     {
@@ -89,6 +126,10 @@
                     }
                 }?>
                 </p>
+
+
+
+
             </div>
         </a>
     </div>
@@ -215,6 +256,7 @@
     <!-- /.modal-dialog -->
 </div>
 <?php if(isset($_SESSION['alert'])):?>
-<div id=toastr-one div='<?php echo $_SESSION['alert']['class'];?>' message='<?php echo $_SESSION['alert']['message'];?>'></div>
+<div id=toastr-one div='<?php echo $_SESSION[' alert ']['class '];?>' message='<?php echo $_SESSION[' alert ']['message
+    '];?>'></div>
 <?php unset($_SESSION['alert']);?>
 <?php endif;?>

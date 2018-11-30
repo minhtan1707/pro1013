@@ -14,6 +14,8 @@ if(isset($_POST['name'])){
     {
         header("location: index.php?act=register");
     }else{
+        $_SESSION['alert']['message']="Đăng ký thành công, bạn đã có thể đăng nhập";
+        $_SESSION['alert']['class']='success';
         insert_member($name,$email,$pass_hash);
         header("location: index.php?act=login");
     }

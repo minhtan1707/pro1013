@@ -26925,3 +26925,12 @@ overflow:auto;
     max-height:1300px;
     overflow:auto;
 }
+.project-card{
+    height:210px;
+}
+.card-muted{
+    background: grey;
+}
+.card-sub{
+    text-align: right;
+}

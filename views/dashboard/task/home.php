@@ -29,7 +29,7 @@
 					<h3 class="m-b-10 text-muted">
 						<?php echo count($closed_tasks);?>
 					</h3>
-					<p class="text-uppercase m-b-5 font-13 font-600 text-muted">Đang làm </p>
+					<p class="text-uppercase m-b-5 font-13 font-600 text-muted">Đã đóng</p>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3">

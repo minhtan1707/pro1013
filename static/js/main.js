@@ -30,4 +30,10 @@ $(document).ready(function(){
     $('#search').click(function(){
         $('#search-members').submit()
     })
+
+});
+
+
+$(window).on('load',function(){
+    $('#first-login').modal('show');
 });

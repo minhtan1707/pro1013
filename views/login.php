@@ -114,7 +114,10 @@
         </div>
     </section>
     <!-- END HOME -->
-
+<?php if(isset($_SESSION['alert'])):?>
+<div id=toastr-one div='<?php echo $_SESSION['alert']['class'];?>' message='<?php echo $_SESSION['alert']['message'];?>'></div>
+<?php unset($_SESSION['alert']);?>
+<?php endif;?>
 
 <!-- JS  -->
 <script src="./static/js/jquery.min.js"></script>
@@ -126,7 +129,8 @@
 <script src="./static/js/jquery.core.js"></script>
 <script src="./static/js/jquery.app.js"></script>
 <script src="./static/js/main.js"></script>
-
+<script src="./static/plugin/jquery-toastr/jquery.toast.min.js"></script>
+<script src="./static/plugin/jquery-toastr/jquery.toastr.js"></script>
 </body>
 
 </html>

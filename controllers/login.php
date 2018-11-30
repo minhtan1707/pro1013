@@ -35,10 +35,18 @@ else{
                     $_SESSION['announcement'][$announcement['task_id']]=$announcement;
                 }
             }
-            header("location: dashboard.php");
+            if($login['last_logged_out']==NULL)
+            {
+                header("location: dashboard.php?page=members&act=edit");
+            }
+            else{
+                header("location: dashboard.php");
+            }
+
         }else{
             //sai thông tin trả lại về trang login
-    
+            $_SESSION['alert']['message']="Sai mail hoặc password, xin vui lòng đăng nhập lại";
+            $_SESSION['alert']['class']='warning';
             header("location: index.php?act=login");
         }
 

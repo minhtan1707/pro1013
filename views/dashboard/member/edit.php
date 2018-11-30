@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description">
-    <meta name="author" content="Suu">
 
-    <link rel="shortcut icon" href="./static/images/favicon.png">
 
-    <title>Cú to - Project management</title>
-
-    <!-- css -->
-    <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
-
-</head>
-
-<body>
     <div class="row">
         <div class="col-md-4">
             <div class="text-center card-box">
@@ -106,19 +90,29 @@
         </div>
     </div>
 
+<?php if($_SESSION['user_info']['last_logged_out']==NULL):?>
+<div id="first-login" class="modal fade" tabindex="1" role="dialog" aria-labelledby="custom-width-modalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
-    </div> <!-- JS  -->
-    <script src="./static/js/jquery.min.js"></script>
-    <script src="./static/js/tether.min.js"></script>
-    <script src="./static/js/bootstrap.min.js"></script>
-    <script src="./static/js/metisMenu.min.js"></script>
-    <script src="./static/js/waves.js"></script>
-    <script src="./static/js/jquery.slimscroll.js"></script>
-    <script src="./static/js/jquery.core.js"></script>
-    <script src="./static/js/jquery.app.js"></script>
-    <script src="./static/js/main.js"></script>
+            <div class="modal-body">
+                <h2 class="text-uppercase text-center m-b-30">
+                    Đăng nhập lần đầu
+                </h2>
+
+                    <div class="form-group m-b-25">
+                        <div class="col-xs-12">
+                            <p>Xin chào mừng đến với Cú to</p>
+                            <p> Chúng tôi khuyến khích người dùng chỉnh sửa thông tin cá nhân trước khi bắt đầu sử dụng website</p>
+                        </div>
+                    </div>
 
 
-</body>
-
-</html>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<?php endif; ?>
