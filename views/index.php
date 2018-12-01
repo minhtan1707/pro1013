@@ -42,7 +42,7 @@
 									<li><a href="#pricing">Bảng giá</a></li>
 									<li><a href="#faq">FAQ</a></li>
 									<li><a href="#clients">Khách hàng</a></li>
-									<li><a href="index.php?act=login">Đăng nhập</a></li>
+									<li><a href="index.php?url=login">Đăng nhập</a></li>
 								</ul>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 				<div class="row hero-content text-center">
 					<h1 class="">Cú to - Project managerment</h1>
 					<div class="m-t-20">
-						<a href="index.php?act=register" class="btn btn-custom w-lg">Đăng ký </a>
+						<a href="index.php?url=register" class="btn btn-custom w-lg">Đăng ký </a>
 					</div>
 					<div id="macbook">
 						<div id="tour" class="carousel slide" data-ride="carousel">

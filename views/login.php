@@ -95,7 +95,7 @@
 
                                     <div class="row m-t-50">
                                         <div class="col-sm-12 text-center">
-                                            <p class="text-muted">Chưa có tài khoản ư? <a href="index.php?act=register"
+                                            <p class="text-muted">Chưa có tài khoản ư? <a href="index.php?url=register"
                                                     class="text-dark m-l-5"><b>Đăng ký</b></a></p>
                                         </div>
                                     </div>

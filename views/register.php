@@ -88,7 +88,7 @@
 
                                         <div class="row m-t-50">
                                             <div class="col-12 text-center">
-                                                <p class="text-muted">Đã có tài khoản?  <a href="index.php?act=login" class="text-dark m-l-5"><b>Đăng nhập</b></a></p>
+                                                <p class="text-muted">Đã có tài khoản?  <a href="index.php?url=login" class="text-dark m-l-5"><b>Đăng nhập</b></a></p>
                                             </div>
                                         </div>
 
