@@ -8,7 +8,7 @@ if(isset($_POST['name'])){
     // echo $pass_hash;
     // print_r(preg_split("/\./",$pass_hash));
     // echo " ".$hash;
-    echo $email;
+    //echo $email;
     $check_email=get_member_email($email);
     if($check_email)
     {
