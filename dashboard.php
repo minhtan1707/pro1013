@@ -1,18 +1,23 @@
 <?php
+require_once 'library/security.php';
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 session_start();
-//kiểm tra đã login chưa
+$server_name=$_SERVER['SERVER_NAME'];
+// kiểm tra đã login chưa
 if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] == 0)
 {
 
     //$_SESSION['user_info']['login'] == 0 là chưa login, trả về trang login
 
-    header("location: http://$server_name/dashboard.php");
+    header("location: index.php?act=login");
 }else{
 
-    //$_SESSION['user_info']['login'] == 1 là đã login, vào dashboard
+    // $_SESSION['user_info']['login'] == 1 là đã login, vào dashboard
 
-    if(isset($_GET['page'])){
-        $page=$_GET['page'];
+
+
+        $page=isset($_GET['page'])?$_GET['page']:'';
             switch($page){
         
                 case 'tasks':
@@ -23,17 +28,24 @@ if(!isset($_SESSION['user_info']['login']) || $_SESSION['user_info']['login'] ==
                 require_once 'controllers/dashboard/meetings.php';
                 break;
     
-                case 'project':
+                case 'projects':
                 require_once 'controllers/dashboard/projects.php';
                 break;
 
                 case 'members':
                 require_once 'controllers/dashboard/members.php';
+                break;
 
+                case 'search-members':
+                require_once 'controllers/dashboard/search.php';
+                break;
+
+                default:
+                require_once 'controllers/dashboard/home.php';
             }
-    }else{
-        require_once 'controllers/dashboard/home.php';
-    }
+
+        
+
 }
 
 ?>

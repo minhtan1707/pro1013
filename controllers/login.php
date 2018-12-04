@@ -1,25 +1,76 @@
 <?php
 $server_name=$_SERVER['SERVER_NAME'];
 session_start();
-if($_POST['submit'])
+if(isset($_SESSION['user_info']) && $_SESSION['user_info']['login'] == 1)
 {
-    require_once './models/members.php';
-    //kiểm tra thông tin login
-    
-    $login=login($_POST['email'],$_POST['pass']);
-    if($login)
-    {
-        //nếu đúng thông tin cho $_SESSION['user_info']['login'] = 1
-
-        $_SESSION['user_info']=$login;
-        $_SESSION['user_info']['login']=1;
-        header("location: http://$server_name/dashboard.php");
-    }else{
-        //sai thông tin trả lại về trang login
-
-        header("location: http://$server_name/index.php?act=login");
-    }
-}else{  
-    require_once './views/login.php';
+    header("location: dashboard.php");
 }
+else{
+    if(isset($_POST['email']))
+    {
+        require_once './models/member.php';
+        require_once './models/announcement.php';
+        require_once './models/task.php';
+        //kiểm tra thông tin login
+        $email=check($_POST['email']);
+        $password=check($_POST['password']);
+        $login=get_member_email($email);
+        $password=substr_replace($password,$email,0,3);
+        $password=substr_replace($password,$login['member_name'],-2);
+        $hash=md5($password);
+        $pass=preg_split("/\./",$login['pass']);
+        if($pass[2]==$hash)
+        {
+            //nếu đúng thông tin cho $_SESSION['user_info']['login'] = 1
+            
+            $_SESSION['user_info']=$login;
+            $_SESSION['user_info']['login']=1;
+
+            $announcements=get_task_member_id($_SESSION['user_info']['member_id']);
+            foreach($announcements as $announcement)
+            {
+                $task_created_at=strtotime($announcement['task_created_at']);
+                $last_logged_out=strtotime($_SESSION['user_info']['last_logged_out']);
+                if($task_created_at > $last_logged_out){
+                    $_SESSION['announcement'][$announcement['task_id']]=$announcement;
+                }
+            }
+            if($login['last_logged_out']==NULL)
+            {
+                header("location: dashboard.php?page=members&act=edit");
+            }
+            else{
+                header("location: dashboard.php");
+            }
+
+        }else{
+            //sai thông tin trả lại về trang login
+            $_SESSION['alert']['message']="Sai mail hoặc password, xin vui lòng đăng nhập lại";
+            $_SESSION['alert']['class']='warning';
+            header("location: index.php?act=login");
+        }
+
+        // require_once './models/member.php';
+        // //kiểm tra thông tin login
+        // $email=check($_POST['email']);
+        // $password=($_POST['password']);
+        // $login=login($email,$password);
+        // // print_r($login);
+        // if($login)
+        // {
+        //     //nếu đúng thông tin cho $_SESSION['user_info']['login'] = 1
+            
+        //     $_SESSION['user_info']=$login;
+        //     $_SESSION['user_info']['login']=1;
+        //     header("location: dashboard.php");
+        // }else{
+        //     //sai thông tin trả lại về trang login
+    
+        //     header("location: index.php?act=login");
+        // }
+    }else{  
+        require_once './views/login.php';
+    }
+}
+
 ?>

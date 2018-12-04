@@ -1,6 +1,8 @@
 <?php
-$act=$_GET['act']?$_GET['act']:'';
-$meeting_id=$_GET['id']?$_GET['id']:'';
+$act=isset($_GET['act'])?$_GET['act']:'';
+$meeting_id=isset($_GET['id'])?$_GET['id']:'';
+$act=check($act);
+$meeting_id=check($meeting_id);
 
 switch($act){
     case 'meeting-list':
@@ -17,7 +19,11 @@ switch($act){
 
 function home()
 {
-
+    require_once './models/meeting.php';
+    $meetings=get_meeting($_SESSION['user_info']['member_id']);
+    $title ='Cuộc họp';
+    $subview='dashboard/meeting/home.php';
+    require_once './views/dashboard/layout.php';
 }
 
 function meetting_list()

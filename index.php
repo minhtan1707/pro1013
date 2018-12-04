@@ -1,19 +1,19 @@
 <?php
-if(isset($_GET['act'])){
-    $act=$_GET['act'];
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+require_once 'library/security.php';
+$url=isset($_GET['url'])?$_GET['url']:'';
     
+switch($url){
+    case 'register':
+    require_once 'controllers/register.php';
+    break;
 
-        switch($act){
-            case 'register':
-            require_once 'controllers/register.php';
-            break;
-
-            case 'login':
-            require_once 'controllers/login.php';
-            break;
+    case 'login':
+    require_once 'controllers/login.php';
+    break;
     
-        }
-}else{
+    default:
     require_once 'controllers/index.php';
 }
 ?>
